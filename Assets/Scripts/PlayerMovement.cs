@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 movementDirection = Vector3.zero;
         movementDirection.x = input.x;
-        movementDirection.y = 0;
+        movementDirection.y = input.y;
         controller.Move(transform.TransformDirection(movementDirection) * speed * Time.deltaTime);
     }
     
