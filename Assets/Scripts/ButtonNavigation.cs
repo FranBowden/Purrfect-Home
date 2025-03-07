@@ -1,16 +1,19 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ButtonNavigation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+     public void playGame()
     {
-        
+        SceneManager.LoadScene(1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void settings()
     {
-        
+
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }
