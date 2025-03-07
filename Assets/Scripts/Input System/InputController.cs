@@ -1,16 +1,29 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private InputSystem_Actions inputSystem;
+    private InputSystem_Actions.PlayerActions player;
+    
+    private void Awake()
     {
-        
+        inputSystem = new InputSystem_Actions();
+        player = inputSystem.Player;
+
+
+        //example
+        //pancamera = getcompotent<cameraPanning>();
+        //player.pancamera.performed += ctx => function();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        player.Disable();
     }
 }
