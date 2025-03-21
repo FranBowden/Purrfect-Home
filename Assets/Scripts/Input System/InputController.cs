@@ -20,14 +20,10 @@ public class InputController : MonoBehaviour
         //player.pancamera.performed += ctx => function();
 
     }
-
-    private void Update()
-    {
-       
-
+    
+    private void FixedUpdate()
+    {  
         movement.move(player.Move.ReadValue<Vector2>());
-     
-       
     }
     private void OnEnable()
     {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,16 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void move(Vector2 input)
     {
-  
-        animator.SetFloat("CurrentInputX", input.x);
-        animator.SetFloat("CurrentInputY", input.y);
-
         rb.linearVelocity = input * speed;
+      
 
+        
+        
         if (input != Vector2.zero)
         {
             animator.SetBool("isWalking", true);
-
+            animator.SetFloat("CurrentInputX", input.x);
+            animator.SetFloat("CurrentInputY", input.y);
             lastInput = input; //storing the last input before it gets reset to 0
         }
         else
@@ -35,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastInputX", lastInput.x);
             animator.SetFloat("LastInputY", lastInput.y);
         }
-
+        
 
     }
 
