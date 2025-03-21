@@ -1,22 +1,42 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    public float speed = 5f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Rigidbody2D rb;
+
+    private Animator animator;
+    public float speed = 1f;
+    private Vector3 lastInput;
+    
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     public void move(Vector2 input)
     {
-        Vector3 movementDirection = Vector3.zero;
-        movementDirection.x = input.x;
-        movementDirection.y = input.y;
-        controller.Move(transform.TransformDirection(movementDirection) * speed * Time.deltaTime);
+  
+        animator.SetFloat("CurrentInputX", input.x);
+        animator.SetFloat("CurrentInputY", input.y);
+
+        rb.linearVelocity = input * speed;
+
+        if (input != Vector2.zero)
+        {
+            animator.SetBool("isWalking", true);
+
+            lastInput = input; //storing the last input before it gets reset to 0
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetFloat("LastInputX", lastInput.x);
+            animator.SetFloat("LastInputY", lastInput.y);
+        }
+
+
     }
-    
+
 }

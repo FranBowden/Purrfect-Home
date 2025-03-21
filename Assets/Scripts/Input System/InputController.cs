@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class InputController : MonoBehaviour
 {
@@ -17,16 +18,23 @@ public class InputController : MonoBehaviour
         //example
         //pancamera = getcompotent<cameraPanning>();
         //player.pancamera.performed += ctx => function();
+
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+       
+
         movement.move(player.Move.ReadValue<Vector2>());
+     
+       
     }
     private void OnEnable()
     {
         player.Enable();
+      
     }
+
 
     private void OnDisable()
     {
