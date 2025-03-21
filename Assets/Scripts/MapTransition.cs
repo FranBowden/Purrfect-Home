@@ -9,6 +9,7 @@ public class MapTransition : MonoBehaviour
     [SerializeField] private PolygonCollider2D mapBoundary;
     [SerializeField] private CinemachineConfiner2D confiner;
     [SerializeField] Direction direction;
+    [SerializeField] private float distance = 0.8f;
     enum Direction { up, down, left, right }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,17 +27,17 @@ public class MapTransition : MonoBehaviour
         switch(direction)
         {
             case Direction.up:
-                newpos.y += 0.8f;
+                newpos.y += distance;
                 break;
 
             case Direction.down:
-                newpos.y -= 0.8f;
+                newpos.y -= distance;
                 break;
             case Direction.left:
-                newpos.x -= 0.8f;
+                newpos.x -= distance;
                 break;
             case Direction.right:
-                newpos.x += 0.8f;
+                newpos.x += distance;
                 break;
         }
 
