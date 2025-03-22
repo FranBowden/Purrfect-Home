@@ -50,6 +50,9 @@ TagManager:
   - name: Collision
     uniqueID: 272923689
     locked: 0
+  - name: Trail
+    uniqueID: 4108680851
+    locked: 0
   - name: Player
     uniqueID: 3711706099
     locked: 0
@@ -58,6 +61,9 @@ TagManager:
     locked: 0
   - name: Decor
     uniqueID: 3927404247
+    locked: 0
+  - name: Top
+    uniqueID: 1049736395
     locked: 0
   m_RenderingLayers:
   - Default

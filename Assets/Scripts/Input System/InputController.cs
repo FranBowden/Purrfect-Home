@@ -4,6 +4,7 @@ using UnityEngine.Windows;
 
 public class InputController : MonoBehaviour
 {
+    [SerializeField] InteractionDetection ID;
     private InputSystem_Actions inputSystem;
     private InputSystem_Actions.PlayerActions player;
     private PlayerMovement movement;
@@ -18,6 +19,7 @@ public class InputController : MonoBehaviour
         //example
         //pancamera = getcompotent<cameraPanning>();
         //player.pancamera.performed += ctx => function();
+        player.Interact.performed += ctx => ID.interactableInRange?.Interact();
 
     }
     
