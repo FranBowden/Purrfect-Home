@@ -181,6 +181,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6b075b4c-92e4-4543-a275-0693bb376d7f"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Touch"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""2b8327c7-22bf-4c83-99ae-5c28eb874e4f"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
