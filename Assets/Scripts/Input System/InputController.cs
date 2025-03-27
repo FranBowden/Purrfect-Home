@@ -6,6 +6,7 @@ public class InputController : MonoBehaviour
 {
     [SerializeField] InteractionDetection ID;
     [SerializeField] Dialogue Dialogue;
+    [SerializeField] Journal Journal;
     private InputSystem_Actions inputSystem;
     private InputSystem_Actions.PlayerActions player;
     private PlayerMovement movement;
@@ -17,11 +18,12 @@ public class InputController : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
 
 
-        //example
-        //pancamera = getcompotent<cameraPanning>();
-        //player.pancamera.performed += ctx => function();
+      
         player.Interact.performed += ctx => ID.interactableInRange?.Interact();
-       // player.Interact.performed += ctx => Dialogue.CloseDiologue();
+        player.Journal.performed += ctx => Journal.ToggleJournal();
+        player.Sprint.started += ctx => movement.StartSprinting(); // When Shift is pressed
+        player.Sprint.canceled += ctx => movement.StopSprinting();
+        // player.Interact.performed += ctx => Dialogue.CloseDiologue();
 
     }
     

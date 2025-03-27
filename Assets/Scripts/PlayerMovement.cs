@@ -8,19 +8,26 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private AudioSource walkingAudio;
     private Vector3 lastInput;
- 
+    private bool sprint = false;
     public float speed = 1f;
-    
+    public float sprintSpeed = 1.7f;
+    private float currentSpeed;
+
     void Start()
     {
         walkingAudio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        currentSpeed = speed;
     }
   
     public void move(Vector2 input)
     {
-        rb.linearVelocity = input * speed;
+        if (!sprint)
+        {
+            rb.linearVelocity = input * currentSpeed;
+        }
+       
        
         if (input != Vector2.zero)
         {
@@ -40,6 +47,18 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastInputX", lastInput.x);
             animator.SetFloat("LastInputY", lastInput.y);
         }
+
+
+    }
+
+    public void StartSprinting()
+    {
+        currentSpeed = sprintSpeed;
+    }
+
+    public void StopSprinting()
+    {
+        currentSpeed = speed;
     }
 
 }
