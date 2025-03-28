@@ -408,7 +408,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5461964928668722016}
         m_TargetAssemblyTypeName: CloseMenu, Assembly-CSharp
-        m_MethodName: closeCatMenu
+        m_MethodName: destroyMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

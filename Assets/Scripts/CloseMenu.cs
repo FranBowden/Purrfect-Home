@@ -4,8 +4,7 @@ using UnityEngine;
 public class CloseMenu : MonoBehaviour
 {
 
-  
-    public void closeCatMenu()
+    public void destroyMenu()
     {
         Destroy(gameObject);
     }
