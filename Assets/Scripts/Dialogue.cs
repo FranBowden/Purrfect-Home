@@ -8,7 +8,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string dialogueText;
     private GameObject NewDialogueBox;
     private Canvas canvas;
-
+  
     private bool triggered = false;
 
     private void Start()
@@ -39,7 +39,6 @@ public class Dialogue : MonoBehaviour
             gameObject.GetComponent<PauseEvents>().onPause();
             displayDialogue();
             triggered = true;
-            //   gameObject.SetActive(false);
         }
     }
 
