@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: c5b2a2d22da3f094a9d325a63636cefc
+guid: 9f1f85cf8182e49c6a41a9093fc9fd29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5853058532697159078
-    second: IdleCat-export_0
+      213: -8900278480523922038
+    second: doorandpod-export_0
   - first:
-      213: 4095003996499612237
-    second: IdleCat-export_1
+      213: -2831644686291894233
+    second: doorandpod-export_1
   - first:
-      213: -2313902220125343848
-    second: IdleCat-export_2
+      213: -8430282115954623361
+    second: doorandpod-export_2
   - first:
-      213: -8584526298111368574
-    second: IdleCat-export_3
-  - first:
-      213: 8930911326183053223
-    second: IdleCat-export_4
-  - first:
-      213: -3577994638963959371
-    second: IdleCat-export_5
-  - first:
-      213: -4682376311565396970
-    second: IdleCat-export_6
+      213: 7079486027031887804
+    second: doorandpod-export_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -93,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,43 +105,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IdleCat-export_0
+      name: doorandpod-export_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 26
-        height: 24
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a5bbf289bd3a3150800000000000000
-      internalID: 5853058532697159078
+      spriteID: a85715ea0ebdb7480800000000000000
+      internalID: -8900278480523922038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_1
+      name: doorandpod-export_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1
-        width: 26
-        height: 24
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d421a25407064d830800000000000000
-      internalID: 4095003996499612237
+      spriteID: 7200377192af3b8d0800000000000000
+      internalID: -2831644686291894233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_2
+      name: doorandpod-export_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 1
-        width: 29
-        height: 23
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89fe07cb03e53efd0800000000000000
-      internalID: -2313902220125343848
+      spriteID: f7c3232c41f910b80800000000000000
+      internalID: -8430282115954623361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_3
+      name: doorandpod-export_3
       rect:
         serializedVersion: 2
-        x: 95
-        y: 1
-        width: 30
-        height: 23
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,74 +190,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 282a21c80d2add880800000000000000
-      internalID: -8584526298111368574
+      spriteID: cbfb39968036f3260800000000000000
+      internalID: 7079486027031887804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_4
+      name: doorandpod-export_4
       rect:
         serializedVersion: 2
-        x: 127
-        y: 1
-        width: 30
-        height: 22
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7a757ad7888f0fb70800000000000000
-      internalID: 8930911326183053223
+      spriteID: 66075b536364b4191bcbe2b464c1152c
+      internalID: -1826370253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_5
+      name: doorandpod-export_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 1
-        width: 29
-        height: 22
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5b91d4835d8685ec0800000000000000
-      internalID: -3577994638963959371
+      spriteID: ce7a89b2aac5d49679a0c6860bd639b5
+      internalID: 2074219269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_6
+      name: doorandpod-export_6
       rect:
         serializedVersion: 2
-        x: 195
-        y: 1
-        width: 26
-        height: 23
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 614d07c8d8bd40fb0800000000000000
-      internalID: -4682376311565396970
+      spriteID: 8cf49d45f2883483484712b4f4c2acf8
+      internalID: 1096205852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doorandpod-export_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78701e9edfe6345b4af3fd0c499dfafb
+      internalID: 446043350
       vertices: []
       indices: 
       edges: []
@@ -301,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 15372f008b23646c783389cc09dad437
     internalID: 0
     vertices: []
     indices: 
@@ -311,13 +298,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IdleCat-export_0: 5853058532697159078
-      IdleCat-export_1: 4095003996499612237
-      IdleCat-export_2: -2313902220125343848
-      IdleCat-export_3: -8584526298111368574
-      IdleCat-export_4: 8930911326183053223
-      IdleCat-export_5: -3577994638963959371
-      IdleCat-export_6: -4682376311565396970
+      doorandpod-export_0: -8900278480523922038
+      doorandpod-export_1: -2831644686291894233
+      doorandpod-export_10: -1850605103
+      doorandpod-export_11: -72329673
+      doorandpod-export_2: -8430282115954623361
+      doorandpod-export_3: 7079486027031887804
+      doorandpod-export_4: -1826370253
+      doorandpod-export_5: 2074219269
+      doorandpod-export_6: 1096205852
+      doorandpod-export_7: 446043350
+      doorandpod-export_8: 442301636
+      doorandpod-export_9: 1414717893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

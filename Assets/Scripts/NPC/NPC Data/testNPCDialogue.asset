@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: testNPCDialogue
   m_EditorClassIdentifier: 
-  NPCName: Woman1
-  NPCImage: {fileID: 21300000, guid: d4ac14b30c6ba1d4ca74d7802aa1f91c, type: 2}
+  NPCName: npc 1
+  NPCImage: {fileID: -1228036295118841729, guid: ba2ec236ad3b3460a9baa083de105e89, type: 3}
   dialogueLines:
   - This is a test
   - this is useful to have

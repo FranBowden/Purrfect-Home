@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    private float dayDuration = 10f * 60f; //12 minutes in seconds
+    private float dayDuration = 3f * 60f; //12 minutes in seconds
     private float timer = 0f;
     private int day = 1;
     private bool gameOver = false;

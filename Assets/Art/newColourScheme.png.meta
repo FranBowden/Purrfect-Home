@@ -1,28 +1,10 @@
 fileFormatVersion: 2
-guid: c5b2a2d22da3f094a9d325a63636cefc
+guid: 47242066ddee146ea8e501398e14c9c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5853058532697159078
-    second: IdleCat-export_0
-  - first:
-      213: 4095003996499612237
-    second: IdleCat-export_1
-  - first:
-      213: -2313902220125343848
-    second: IdleCat-export_2
-  - first:
-      213: -8584526298111368574
-    second: IdleCat-export_3
-  - first:
-      213: 8930911326183053223
-    second: IdleCat-export_4
-  - first:
-      213: -3577994638963959371
-    second: IdleCat-export_5
-  - first:
-      213: -4682376311565396970
-    second: IdleCat-export_6
+      213: 3265370142558161047
+    second: newColourScheme_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -93,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IdleCat-export_0
+      name: newColourScheme_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 26
-        height: 24
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,140 +115,250 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a5bbf289bd3a3150800000000000000
-      internalID: 5853058532697159078
+      spriteID: 798885f08dce05d20800000000000000
+      internalID: 3265370142558161047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_1
+      name: newColourScheme_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1
-        width: 26
-        height: 24
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d421a25407064d830800000000000000
-      internalID: 4095003996499612237
+      spriteID: 7586979bbd49f43db92f263bde4007d5
+      internalID: 280151682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_2
+      name: newColourScheme_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 1
-        width: 29
-        height: 23
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 89fe07cb03e53efd0800000000000000
-      internalID: -2313902220125343848
+      spriteID: a2bdafdbf9a284a7ca52bc0d48beb8f3
+      internalID: -232482507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_3
+      name: newColourScheme_3
       rect:
         serializedVersion: 2
-        x: 95
-        y: 1
-        width: 30
-        height: 23
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 282a21c80d2add880800000000000000
-      internalID: -8584526298111368574
+      spriteID: 2478808fb223740d295324287627043f
+      internalID: 1288688644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_4
+      name: newColourScheme_4
       rect:
         serializedVersion: 2
-        x: 127
-        y: 1
-        width: 30
-        height: 22
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7a757ad7888f0fb70800000000000000
-      internalID: 8930911326183053223
+      spriteID: fde4052ddb37449d6b22e550331fdcd8
+      internalID: 725828755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_5
+      name: newColourScheme_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 1
-        width: 29
-        height: 22
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5b91d4835d8685ec0800000000000000
-      internalID: -3577994638963959371
+      spriteID: eb3ea5d169f4a4b2996452050976e4a8
+      internalID: -483203899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IdleCat-export_6
+      name: newColourScheme_6
       rect:
         serializedVersion: 2
-        x: 195
-        y: 1
-        width: 26
-        height: 23
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 614d07c8d8bd40fb0800000000000000
-      internalID: -4682376311565396970
+      spriteID: 0dda0b9ac663d4d819634b9afafd3db3
+      internalID: -7112042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newColourScheme_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b272ebc03354949009fe1a6f78fc0a2c
+      internalID: 1062937035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newColourScheme_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f41a97b43854157bbc53eb2f8697c2
+      internalID: -1040536918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newColourScheme_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07737e2dc0dc347bb8952b44bab17cfb
+      internalID: 455813232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newColourScheme_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41872359d481c4f4cacc87fb4a3bd74c
+      internalID: 2078021345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newColourScheme_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a4a8ae5658249c9b875fbf5a9e3adb
+      internalID: 663619493
       vertices: []
       indices: 
       edges: []
@@ -301,7 +367,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c52b08fc05d634adfa03a4779353a81b
     internalID: 0
     vertices: []
     indices: 
@@ -311,13 +377,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IdleCat-export_0: 5853058532697159078
-      IdleCat-export_1: 4095003996499612237
-      IdleCat-export_2: -2313902220125343848
-      IdleCat-export_3: -8584526298111368574
-      IdleCat-export_4: 8930911326183053223
-      IdleCat-export_5: -3577994638963959371
-      IdleCat-export_6: -4682376311565396970
+      newColourScheme_0: 3265370142558161047
+      newColourScheme_1: 280151682
+      newColourScheme_10: 2078021345
+      newColourScheme_11: 663619493
+      newColourScheme_2: -232482507
+      newColourScheme_3: 1288688644
+      newColourScheme_4: 725828755
+      newColourScheme_5: -483203899
+      newColourScheme_6: -7112042
+      newColourScheme_7: 1062937035
+      newColourScheme_8: -1040536918
+      newColourScheme_9: 455813232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
