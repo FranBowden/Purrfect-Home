@@ -33,7 +33,7 @@ public class TimeManager : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(timer);
+  
 
         if (timer >= dayDuration && !isDayOver)
         {
