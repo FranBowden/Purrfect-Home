@@ -12,13 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: testNPCDialogue
   m_EditorClassIdentifier: 
-  NPCName: npc 1
-  NPCImage: {fileID: -1228036295118841729, guid: ba2ec236ad3b3460a9baa083de105e89, type: 3}
+  NPCName: Jake
+  NPCImage: {fileID: 0}
   dialogueLines:
-  - This is a test
-  - this is useful to have
+  - Hi I am looking to adopt a cat
+  - Do you have any black and white cats?
+  - Thats great Thank you
+  - Oh ok
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Yes
+    - No
+    nextDialogueIndex: 0200000003000000
+  endDialogueLines: 00000101
+  autoProgressLines: 00010000
+  autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 8300000, guid: 55aceff9b2fc5004cbbe333e3ae5c33c, type: 3}
   voicePitch: 1
-  autoProgressLines: 0100
-  autoProgressDelay: 1.5
