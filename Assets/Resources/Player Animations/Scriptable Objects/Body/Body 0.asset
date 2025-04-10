@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56554f0f28e3174b9b0f26242568028, type: 3}
+  m_Name: Body 0
+  m_EditorClassIdentifier: 
+  bodyPartName: Light Skin
+  bodyPartAnimationID: 0
+  allBodyPartAnimations:
+  - {fileID: 7400000, guid: 074a0f7925882ba4cb20cebd1b272720, type: 2}
+  - {fileID: 7400000, guid: 840388980fc90e14ea378f6dffd65c65, type: 2}
+  - {fileID: 7400000, guid: 9883184ae4da98a408aff585f97e9851, type: 2}
+  - {fileID: 7400000, guid: 7d8d9ebfe2e8f454b9468e119fadf82d, type: 2}
