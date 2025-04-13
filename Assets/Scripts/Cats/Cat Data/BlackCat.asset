@@ -17,3 +17,7 @@ MonoBehaviour:
   catAge: 6
   catDescription: 'A calm, dignified cat who enjoys a quiet home and warm places
     to nap. Percy is loyal, affectionate in his own time, and a creature of habit. '
+  hunger: 0.6
+  health: 0.9
+  hygiene: 0.3
+  OverallGrade: 66

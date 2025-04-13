@@ -1,13 +1,19 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 public class CatGenerator : MonoBehaviour
 {
-
+    [SerializeField] private GameObject pod;
     [SerializeField] private GameObject CatsParent;
+    [SerializeField] private GameObject cat;
+    [SerializeField] private GameObject CatInfoMenu;
+
     [SerializeField] private CatData[] catData;
     private Vector3 spawnPoint;
-    private int[] previouslyUsedCatIndex;
-    private GameObject[] CatsCurrentlyInShelter;
+    private List<int> previouslyUsedCatIndex;
+    private List<GameObject> CatsCurrentlyInShelter;
 
     private int catDataLength;
 
@@ -19,29 +25,31 @@ public class CatGenerator : MonoBehaviour
     }
 
 
-    public void CreateCat()
+     void CreateCat()
     {
-        Debug.Log("create cat");
+        Debug.Log("Create Cat");
+        //get a random number
         int getRandomIndex = Random.Range(0, catDataLength);
 
-        // catData[getRandomIndex];
+        //Create a new pod
+        GameObject newPod = Instantiate(pod, spawnPoint, Quaternion.identity);
+        newPod.transform.SetParent(CatsParent.transform);
 
+        //Create a new cat and put that inside the pod
         GameObject newCat = Instantiate(catData[getRandomIndex].catPrefab, spawnPoint, Quaternion.identity);
-        newCat.transform.SetParent(CatsParent.transform); //makes the new cat a child of the CATs folder
+         newCat.transform.SetParent(newPod.transform);
 
-        CatInteraction catInteraction = newCat.GetComponent<CatInteraction>();
-        if (catInteraction != null)
+        
+        //CatPodInteraction podInteraction = newPod.GetComponent<CatPodInteraction>();
+      //  podInteraction.CatOptionsMenu = CatOptionsMenu;
+
+        
+        if (newCat.TryGetComponent<DisplayCatInformation>(out var catInfo))
         {
-            catInteraction.catData = catData[getRandomIndex];
+            catInfo.catData = catData[getRandomIndex];
         }
-        else
-        {
-            Debug.LogWarning("CatInteraction script not found on the cat prefab!");
-        }
+
     }
-
-
-
 
     void Update()
     {

@@ -8,4 +8,10 @@ public class CatData : ScriptableObject
     public float catAge;
     [TextArea]
     public string catDescription;
+
+    public float hunger;
+    public float health;
+    public float hygiene;
+
+    public char OverallGrade;
 }
