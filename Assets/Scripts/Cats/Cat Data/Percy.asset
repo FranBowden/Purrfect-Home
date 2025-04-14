@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
-  m_Name: BlackCat
+  m_Name: Percy
   m_EditorClassIdentifier: 
   catName: 'Percy '
-  catPrefab: {fileID: 881794807881531933, guid: 7841387dbe758a64c990b46ef0a14ea8, type: 3}
+  catPrefab: {fileID: 5165667840722573501, guid: 8a3c090fe820fb74ea476e95287f7329, type: 3}
   catAge: 6
   catDescription: 'A calm, dignified cat who enjoys a quiet home and warm places
     to nap. Percy is loyal, affectionate in his own time, and a creature of habit. '

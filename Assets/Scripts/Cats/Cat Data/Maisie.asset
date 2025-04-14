@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
-  m_Name: WhiteCat
+  m_Name: Maisie
   m_EditorClassIdentifier: 
   catName: 'Maisie '
   catPrefab: {fileID: 2712213778800046497, guid: 3c7e742743f90fa4fbfe913ef922aae6, type: 3}
@@ -18,3 +18,7 @@ MonoBehaviour:
   catDescription: "Lively and curious, Maisie is always investigating new corners
     and playing with anything that crinkles. She\u2019s affectionate, playful, and
     full of energy \u2014 ideal for a family or someone who loves interactive play."
+  hunger: 0.4
+  health: 8
+  hygiene: 0.5
+  OverallGrade: 0

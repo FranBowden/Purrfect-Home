@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
+  m_Name: Biscuit
+  m_EditorClassIdentifier: 
+  catName: 'Biscuit '
+  catPrefab: {fileID: 4760517749080014639, guid: 66e73fa6470b0a24f9482ae5ac1f0e79, type: 3}
+  catAge: 4
+  catDescription: Big-hearted and laid-back, Biscuit loves a warm lap and a slow
+    day. He waddles when he walks and is fond of sleeping on laundry piles. He gets
+    on well with older children and calmer pets.
+  hunger: 0.6
+  health: 10
+  hygiene: 0.9
+  OverallGrade: 65

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
+  m_Name: Alfie
+  m_EditorClassIdentifier: 
+  catName: 'Alfie '
+  catPrefab: {fileID: 6016842041823264164, guid: 9a47c6299860f854fa3a1018efffc4f7, type: 3}
+  catAge: 4
+  catDescription: "Wise beyond his years, Alfie is calm, gentle, and deeply affectionate.
+    He prefers soft-spoken company and loves to sit in windows watching the world.
+    He\u2019d suit someone who enjoys a relaxed, companionable pet."
+  hunger: 0
+  health: 0
+  hygiene: 0
+  OverallGrade: 0

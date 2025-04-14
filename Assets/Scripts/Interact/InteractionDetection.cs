@@ -7,6 +7,8 @@ public class InteractionDetection : MonoBehaviour
     public GameObject interactionIcon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    //interaction radius is defined under player -> interactable detector -> and its the radius of circle collider 2D
     void Start()
     {
         interactionIcon.SetActive(false);

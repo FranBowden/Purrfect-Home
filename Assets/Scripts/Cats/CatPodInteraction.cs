@@ -28,18 +28,18 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
     void OpenMenu()
     {
         Debug.Log("Opening Cat Options Menu");
-        CatOptionsMenu = GameObject.Find("Canvas - Screen Space").transform.Find("CatOptionsMenu").gameObject;
-        CatOptionsMenu.SetActive(true);
+        CatOptionsMenu = GameObject.Find("Canvas - Screen Space").transform.Find("CatOptionsMenu").gameObject; //this references cat options menu by canvas (this is because cat options menu starts off as unticked in the inspector) 
+        CatOptionsMenu.SetActive(true); //show the menu
         isMenuOpened = true;
 
-        exitButton = CatOptionsMenu.transform.Find("ButtonsPanel/ExitButton").GetComponent<Button>();
-        infoMenu = CatOptionsMenu.transform.Find("Info").gameObject;
+        exitButton = CatOptionsMenu.transform.Find("ButtonsPanel/ExitButton").GetComponent<Button>(); //get the exit button from the catsoptionmenu
+        infoMenu = CatOptionsMenu.transform.Find("Info").gameObject; //then also get the info menu from catoptionsmenu
 
-        exitButton.onClick.AddListener(() => CloseMenu());
+        exitButton.onClick.AddListener(() => CloseMenu()); //if clicked on the exit button - it closes the menu
 
-        DisplayCatInformation catInfo = transform.GetChild(0).gameObject.GetComponent<DisplayCatInformation>();
+        DisplayCatInformation catInfo = transform.GetChild(0).gameObject.GetComponent<DisplayCatInformation>(); //this gets the cats displaycatinformation script (since the cat is a child of pod)
 
-        catInfo.displayCatInfo(infoMenu);
+        catInfo.displayCatInfo(infoMenu); //call the display function
 
     }
     public void CloseMenu()
