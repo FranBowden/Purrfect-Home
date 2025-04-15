@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 [CreateAssetMenu(fileName = "NewNPCDialogue", menuName = "NPC Dialogue")]
 public class NPCDialogue : ScriptableObject
 {
     public string NPCName;
-    public Sprite NPCImage;
+    public SpriteLibraryAsset NPCSpriteLibraryAsset;
+
     public string[] dialogueLines;
     public DialogueChoice[] choices;
     public bool[] endDialogueLines;

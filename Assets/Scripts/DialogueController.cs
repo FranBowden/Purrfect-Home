@@ -21,10 +21,10 @@ public class DialogueController : MonoBehaviour
         dialoguePanel.SetActive(show);
     }
 
-    public void SetNpcInfo(string npcName, Sprite portrait)
+    public void SetNpcInfo(string npcName)
     {
         nameText.text = npcName;
-        portraitImage.sprite = portrait;
+     //   portraitImage.sprite = portrait;
     }
 
     public void SetDialogueText(string text)

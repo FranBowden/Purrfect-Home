@@ -46,7 +46,7 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = true;
         dialogueIndex = 0;
     
-        dialogueControls.SetNpcInfo(dialogueData.NPCName, dialogueData.NPCImage);
+        dialogueControls.SetNpcInfo(dialogueData.NPCName);
         dialogueControls.ShowDialogueUI(true);
 
         DisplayCurrentLine();
