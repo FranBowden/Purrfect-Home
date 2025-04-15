@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -19,19 +20,21 @@ public class WayPointMovement : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>(); //reminder to self: this might need to be changed because npcs that are not created wont have this at start 
 
         waypoints = new Transform[waypointParent.childCount];
 
         for (int i = 0; i < waypointParent.childCount; i++)
         {
             waypoints[i] = waypointParent.GetChild(i);
+          //  Debug.Log(waypoints[i]);
         }
     }
 
  
     void Update()
     {
+        
         if (isWaiting)
         {
             animator.SetBool("isWalking", false);
@@ -54,7 +57,9 @@ public class WayPointMovement : MonoBehaviour
             lastInputX = direction.x;
             lastInputY = direction.y;
         }
+
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        
         animator.SetFloat("CurrentInputX", direction.x);
         animator.SetFloat("CurrentInputY", direction.y);
         animator.SetBool("isWalking", direction.magnitude > 0f);   
@@ -75,7 +80,7 @@ public class WayPointMovement : MonoBehaviour
         animator.SetFloat("LastInputY", lastInputY);
         yield return new WaitForSeconds(waitTime);
 
-        currentWaypointIndex = loop ? (currentWaypointIndex++) % waypoints.Length : Mathf.Min(currentWaypointIndex++, waypoints.Length - 1);
+        currentWaypointIndex = loop ? (currentWaypointIndex + 1) % waypoints.Length : Mathf.Min(currentWaypointIndex + 1, waypoints.Length - 1);
 
         isWaiting = false;
     }
