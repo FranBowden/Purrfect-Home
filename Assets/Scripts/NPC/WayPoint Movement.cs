@@ -35,7 +35,7 @@ public class WayPointMovement : MonoBehaviour
     void Update()
     {
         
-        if (isWaiting)
+        if (PauseController.IsGamePaused || isWaiting)
         {
             animator.SetBool("isWalking", false);
             animator.SetFloat("LastInputX", lastInputX);

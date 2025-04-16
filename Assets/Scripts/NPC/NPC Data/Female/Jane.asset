@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Jane
   m_EditorClassIdentifier: 
   NPCName: Jane
+  NPCImage: {fileID: -886306568444624806, guid: aa97f278e1b32c34b8735b2d96a4cf79, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 2131071a34084b44ebdd856b462e4ab9, type: 3}
   dialogueLines: []
   choices: []

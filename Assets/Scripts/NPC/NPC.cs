@@ -41,14 +41,16 @@ public class NPC : MonoBehaviour, IInteractable
 
     }
 
+ 
+
     void StartDialogue()
     {
         isDialogueActive = true;
         dialogueIndex = 0;
     
-        dialogueControls.SetNpcInfo(dialogueData.NPCName);
+        dialogueControls.SetNpcInfo(dialogueData.NPCName, dialogueData.NPCImage);
         dialogueControls.ShowDialogueUI(true);
-
+        PauseController.SetPause(true);
         DisplayCurrentLine();
     }
     void NextLine()
@@ -121,6 +123,8 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = false;
         dialogueControls.SetDialogueText("");
         dialogueControls.ShowDialogueUI(false);
+        PauseController.SetPause(false);
+
     }
 
 

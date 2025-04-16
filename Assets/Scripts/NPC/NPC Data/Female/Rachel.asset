@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Rachel
   m_EditorClassIdentifier: 
-  NPCName: 
-  NPCSpriteLibraryAsset: {fileID: 0}
+  NPCName: Rachel
+  NPCImage: {fileID: -3665074108919144920, guid: e874f8ff49fb4bd4f84ad95ceed3f427, type: 3}
+  NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: eb243b09406cb0244b9e97e7ac51170b, type: 3}
   dialogueLines: []
   choices: []
   endDialogueLines: 

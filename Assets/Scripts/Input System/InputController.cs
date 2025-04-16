@@ -5,7 +5,7 @@ using UnityEngine.Windows;
 public class InputController : MonoBehaviour
 {
     [SerializeField] InteractionDetection ID;
-    [SerializeField] Dialogue Dialogue;
+    //[SerializeField] Dialogue Dialogue;
     [SerializeField] Journal Journal;
     private InputSystem_Actions inputSystem;
     private InputSystem_Actions.PlayerActions player;

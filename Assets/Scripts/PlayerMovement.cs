@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +21,18 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         currentSpeed = speed;
     }
-  
+
+    private void Update()
+    {
+
+        if (PauseController.IsGamePaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.SetBool("isWalking", false);
+            return;
+        }
+   //    animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0f);
+    }
     public void move(Vector2 input)
     {
         if (!sprint)

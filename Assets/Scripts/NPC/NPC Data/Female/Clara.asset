@@ -12,12 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Clara
   m_EditorClassIdentifier: 
-  NPCName: 
-  NPCSpriteLibraryAsset: {fileID: 0}
-  dialogueLines: []
-  choices: []
-  endDialogueLines: 
-  autoProgressLines: 
+  NPCName: Clara
+  NPCImage: {fileID: 7138072439519253879, guid: 7d763bda15045f24a84b6578a82499e1, type: 3}
+  NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
+  dialogueLines:
+  - Hi!
+  - Do you have any ginger cats
+  - Brilliant
+  - Oh dear :(
+  choices:
+  - dialogueIndex: 0
+    choices:
+    - yes
+    - no
+    nextDialogueIndex: 0200000003000000
+  endDialogueLines: 00000101
+  autoProgressLines: 00000000
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
