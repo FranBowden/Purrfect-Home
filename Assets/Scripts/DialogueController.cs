@@ -10,6 +10,7 @@ public class DialogueController : MonoBehaviour
     public Image portraitImage;
     public Transform choiceContainer;
     public GameObject choiceBtnPrefab;
+    public GameObject continueUI;
     void Awake()
     {
         if(Instance == null) Instance = this;
@@ -32,24 +33,26 @@ public class DialogueController : MonoBehaviour
         dialogueText.text = text;
     }
 
+    public void ShowContinueUI(bool show)
+    {
+        dialoguePanel.SetActive(show);
+    }
+
     public void ClearChoice()
     {
         foreach (Transform child in choiceContainer) Destroy(child.gameObject);
     }
 
     public void CreateChoiceButton(string choiceText, UnityEngine.Events.UnityAction onClick)
-    { 
+    {
+        
         GameObject choiceBtn = Instantiate(choiceBtnPrefab, choiceContainer);
-        if (choiceBtn != null)
-        {
+      
             choiceBtn.GetComponentInChildren<TMP_Text>().text = choiceText;
             choiceBtn.GetComponent<Button>().onClick.AddListener(onClick);
-        } else
-        {
-            Debug.Log("Did not instantiate button choices");
-        }
- 
- 
+      
+      
+
     }
 
 }

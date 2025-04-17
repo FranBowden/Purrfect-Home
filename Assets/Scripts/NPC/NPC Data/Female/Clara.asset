@@ -17,17 +17,17 @@ MonoBehaviour:
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
   dialogueLines:
   - Hi!
-  - Do you have any ginger cats
-  - Brilliant
-  - Oh dear :(
+  - I am looking for a ginger cat, do you have any?
+  - Oh brilliant! Thank you, I will take a look
+  - Oh okay, I better get going. Bye
   choices:
-  - dialogueIndex: 0
+  - dialogueIndex: 1
     choices:
-    - yes
-    - no
+    - Yes we do!
+    - 'No '
     nextDialogueIndex: 0200000003000000
   endDialogueLines: 00000101
-  autoProgressLines: 00000000
+  autoProgressLines: 01000000
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}

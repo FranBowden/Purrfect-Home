@@ -50,7 +50,9 @@ public class NPC : MonoBehaviour, IInteractable
     
         dialogueControls.SetNpcInfo(dialogueData.NPCName, dialogueData.NPCImage);
         dialogueControls.ShowDialogueUI(true);
+        dialogueControls.ShowContinueUI(false);
         PauseController.SetPause(true);
+
         DisplayCurrentLine();
     }
     void NextLine()
@@ -60,6 +62,8 @@ public class NPC : MonoBehaviour, IInteractable
             //skip typing animation and show the entire line
             StopAllCoroutines();
             dialogueControls.SetDialogueText(dialogueData.dialogueLines[dialogueIndex]);
+            dialogueControls.ShowContinueUI(true);
+
             isTyping = false;
 
         }
@@ -108,8 +112,10 @@ public class NPC : MonoBehaviour, IInteractable
         }
        
         isTyping=false;
+        dialogueControls.ShowContinueUI(true);
 
-        if(dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
+
+        if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
         {
             yield return new WaitForSeconds(dialogueData.autoProgressDelay);
             NextLine();
@@ -123,6 +129,7 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = false;
         dialogueControls.SetDialogueText("");
         dialogueControls.ShowDialogueUI(false);
+        dialogueControls.ShowContinueUI(false);
         PauseController.SetPause(false);
 
     }
@@ -130,13 +137,14 @@ public class NPC : MonoBehaviour, IInteractable
 
     void DisplayChoice(DialogueChoice choice)
     {
-        Debug.Log("Displaying choices");
+      
         for (int i = 0; i < choice.choices.Length; i++)
         {
-            int nextIndex = choice.nextDialogueIndex[i];
-            Debug.Log(nextIndex);
-            dialogueControls.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex));
             
+            int nextIndex = choice.nextDialogueIndex[i];
+            dialogueControls.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex));
+        
+
         }
     }
 
@@ -152,5 +160,6 @@ public class NPC : MonoBehaviour, IInteractable
     {
         StopAllCoroutines();
         StartCoroutine(TypeLine());
+
     }
 }
