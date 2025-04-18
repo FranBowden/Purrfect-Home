@@ -42,7 +42,7 @@ public class CatGenerator : MonoBehaviour
 
      void CreateCat(int PosIndex)
     {
-        Debug.Log("Create Cat");
+       // Debug.Log("Create Cat");
         //get a random number
         int getRandomIndex = Random.Range(0, catDataLength);
 

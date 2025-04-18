@@ -20,5 +20,5 @@ MonoBehaviour:
     on well with older children and calmer pets.
   hunger: 0.6
   health: 10
-  hygiene: 0.9
+  hygiene: 0.4
   OverallGrade: 65

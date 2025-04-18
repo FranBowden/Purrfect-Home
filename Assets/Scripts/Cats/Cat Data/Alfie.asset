@@ -19,6 +19,6 @@ MonoBehaviour:
     He prefers soft-spoken company and loves to sit in windows watching the world.
     He\u2019d suit someone who enjoys a relaxed, companionable pet."
   hunger: 0
-  health: 0
+  health: 0.2
   hygiene: 0
   OverallGrade: 0

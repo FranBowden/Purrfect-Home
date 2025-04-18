@@ -32,8 +32,8 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
         CatOptionsMenu.SetActive(true); //show the menu
         isMenuOpened = true;
 
-        exitButton = CatOptionsMenu.transform.Find("ButtonsPanel/ExitButton").GetComponent<Button>(); //get the exit button from the catsoptionmenu
-        infoMenu = CatOptionsMenu.transform.Find("Info").gameObject; //then also get the info menu from catoptionsmenu
+        exitButton = CatOptionsMenu.transform.Find("Buttons/ExitBtn").GetComponent<Button>(); //get the exit button from the catsoptionmenu
+        infoMenu = CatOptionsMenu.transform.Find("CatInformation").gameObject; //then also get the info menu from catoptionsmenu
 
         exitButton.onClick.AddListener(() => CloseMenu()); //if clicked on the exit button - it closes the menu
 

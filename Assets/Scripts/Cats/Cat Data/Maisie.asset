@@ -19,6 +19,6 @@ MonoBehaviour:
     and playing with anything that crinkles. She\u2019s affectionate, playful, and
     full of energy \u2014 ideal for a family or someone who loves interactive play."
   hunger: 0.4
-  health: 8
+  health: 0.8
   hygiene: 0.5
   OverallGrade: 0
