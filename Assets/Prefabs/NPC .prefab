@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 9112463375009384328}
   m_Layer: 0
   m_Name: 'NPC '
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointParents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 657891783244662490, guid: a55ea096f6589a043bc4b0ad9b037f4d, type: 3}
+  - {fileID: 4348068964823089426, guid: 96a8c1ff089c1284ab14e4ecfac886f1, type: 3}
+  - {fileID: 73658326204043327, guid: cbda871b96c8d0144ad7bca199586f8c, type: 3}
   speed: 2
   waitTime: 1
   loop: 1

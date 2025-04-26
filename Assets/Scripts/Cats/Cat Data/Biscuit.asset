@@ -19,6 +19,6 @@ MonoBehaviour:
     day. He waddles when he walks and is fond of sleeping on laundry piles. He gets
     on well with older children and calmer pets.
   hunger: 0.6
-  health: 10
+  health: 0.2
   hygiene: 0.4
   OverallGrade: 65

@@ -62,8 +62,6 @@ public class HealthBarController : MonoBehaviour
         {
             barMap[type][index].SetActive(true);
         }
-      
-
 
     }
 }
