@@ -4,7 +4,7 @@ public class NPCBehaviour : MonoBehaviour
 {
     public bool followPlayer = false;
     public bool leaveRoom = false;
-    public bool waitingRoom = true;
+    public bool enterCattery = true;
 
     private GameObject player;
     private WayPointMovement npcMovement;

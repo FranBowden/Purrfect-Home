@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
 
 public class WayPointMovement : MonoBehaviour
 {
-    public enum WaypointType { WaitingRoom, Exit, Player }
+    public enum WaypointType { Cattery, Exit, Player }
   
     public Transform[] waypointParents;
 
@@ -24,14 +22,14 @@ public class WayPointMovement : MonoBehaviour
     
 
     void Start()
-    {
+    {        
         NPCbehaviour = GetComponent<NPCBehaviour>();
 
         animator = GetComponent<Animator>(); 
 
         waypointMap = new Dictionary<WaypointType, Transform[]>
      {
-        { WaypointType.WaitingRoom, GetChildWaypoints(waypointParents[0]) },
+        { WaypointType.Cattery, GetChildWaypoints(waypointParents[0]) },
         { WaypointType.Exit,        GetChildWaypoints(waypointParents[1]) },
         { WaypointType.Player,      GetChildWaypoints(waypointParents[2]) },
         };
@@ -40,7 +38,6 @@ public class WayPointMovement : MonoBehaviour
 
     void Update()
     {
-
         if (PauseController.IsGamePaused || isWaiting)
         {
             animator.SetBool("isWalking", false);
@@ -69,9 +66,9 @@ public class WayPointMovement : MonoBehaviour
     {
         Transform target = null;
 
-        if (NPCbehaviour.waitingRoom)
+        if (NPCbehaviour.enterCattery)
         {
-            target = waypointMap[WaypointType.WaitingRoom][currentWaypointIndex];
+            target = waypointMap[WaypointType.Cattery][currentWaypointIndex];
         }
         else if (NPCbehaviour.followPlayer)
         {
@@ -85,6 +82,7 @@ public class WayPointMovement : MonoBehaviour
         {
             Debug.LogWarning($"{gameObject.name} has no valid target set - check waypoints");
         }
+
         Vector2 direction = (target.position - transform.position).normalized;
 
             if (direction.magnitude > 0f)
@@ -116,9 +114,9 @@ public class WayPointMovement : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
 
 
-        if (NPCbehaviour.waitingRoom)
+        if (NPCbehaviour.enterCattery)
         {
-            currentWaypointIndex = GetNextWaypointIndex(WaypointType.WaitingRoom, currentWaypointIndex, loop);
+            currentWaypointIndex = GetNextWaypointIndex(WaypointType.Cattery, currentWaypointIndex, loop);
         }
         else if (NPCbehaviour.followPlayer)
         {
@@ -129,7 +127,6 @@ public class WayPointMovement : MonoBehaviour
             currentWaypointIndex = GetNextWaypointIndex(WaypointType.Exit, currentWaypointIndex, loop);
         }
 
-
         isWaiting = false;
         }
 
@@ -137,13 +134,38 @@ public class WayPointMovement : MonoBehaviour
     private int GetNextWaypointIndex(WaypointType type, int currentIndex, bool loop)
     {
         if (!waypointMap.ContainsKey(type) || waypointMap[type].Length == 0)
-            return 0; 
+            return 0;
 
         int length = waypointMap[type].Length;
 
-        return loop
-            ? (currentIndex + 1) % length
-            : Mathf.Min(currentIndex + 1, length - 1);
+        if (type == WaypointType.Cattery) //if the waypoint is cattery
+        {
+            if (currentIndex < 2)
+            {
+                return currentIndex + 1;
+            }
+            else if (currentIndex == 2) 
+            {
+                waitTime = 5f; //have a longer wait time
+                return 3;
+            }
+            else
+            {
+                
+                int next = currentIndex + 1;
+                if (next > length - 1) //if next is more than length of the array
+                    next = 3; //next should go back to 3
+                return next;
+            }
+        }
+        else
+        {
+           
+            return loop
+                ? (currentIndex + 1) % length
+                : Mathf.Min(currentIndex + 1, length - 1);
+        }
+    }
     }
 
-}
+
