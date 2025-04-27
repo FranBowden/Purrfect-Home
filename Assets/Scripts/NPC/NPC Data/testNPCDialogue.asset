@@ -14,17 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPCName: Jake
   NPCImage: {fileID: 0}
+  NPCSpriteLibraryAsset: {fileID: 0}
+  keyWords: []
   dialogueLines:
   - Hi I am looking to adopt a cat
   - Do you have any black and white cats?
   - Thats great Thank you
   - Oh ok
-  choices:
-  - dialogueIndex: 1
-    choices:
-    - Yes
-    - No
-    nextDialogueIndex: 0200000003000000
+  choices: []
   endDialogueLines: 00000101
   autoProgressLines: 00010000
   autoProgressDelay: 1.5

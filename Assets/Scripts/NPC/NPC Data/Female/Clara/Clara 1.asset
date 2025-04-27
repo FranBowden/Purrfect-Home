@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
+  m_Name: Clara 1
+  m_EditorClassIdentifier: 
+  NPCName: Clara
+  NPCImage: {fileID: 7138072439519253879, guid: 7d763bda15045f24a84b6578a82499e1, type: 3}
+  NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
+  keyWords: []
+  dialogueLines:
+  - Hi!
+  - I am looking for a young playful cat
+  - Can I take a look?
+  - Oh brilliant! Thank you, I will take a look
+  - Oh okay, I better get going. Bye
+  choices:
+  - dialogueIndex: 2
+    choices:
+    - Sure!
+    - No
+    nextDialogueIndex: 0300000004000000
+  endDialogueLines: 0000000101
+  autoProgressLines: 0101010101
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  voiceSound: {fileID: 0}
+  voicePitch: 1

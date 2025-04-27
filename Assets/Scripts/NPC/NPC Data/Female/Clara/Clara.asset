@@ -15,19 +15,21 @@ MonoBehaviour:
   NPCName: Clara
   NPCImage: {fileID: 7138072439519253879, guid: 7d763bda15045f24a84b6578a82499e1, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
+  keyWords: []
   dialogueLines:
   - Hi!
-  - I am looking for a ginger cat, do you have any?
+  - I am looking for a young playful cat
+  - Can I take a look?
   - Oh brilliant! Thank you, I will take a look
   - Oh okay, I better get going. Bye
   choices:
-  - dialogueIndex: 1
+  - dialogueIndex: 2
     choices:
-    - Yes we do!
-    - 'No '
-    nextDialogueIndex: 0200000003000000
-  endDialogueLines: 00000101
-  autoProgressLines: 01000000
+    - Sure!
+    - No
+    nextDialogueIndex: 0300000004000000
+  endDialogueLines: 0000000101
+  autoProgressLines: 0101010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}

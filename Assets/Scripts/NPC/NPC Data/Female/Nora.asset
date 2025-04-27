@@ -15,6 +15,7 @@ MonoBehaviour:
   NPCName: Nora
   NPCImage: {fileID: -6861098466205009496, guid: 9756115e49d94ab41804f4ef534c8fe6, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 78bd1d5ee878fec48b185d3cd18303f4, type: 3}
+  keyWords: []
   dialogueLines: []
   choices: []
   endDialogueLines: 

@@ -8,8 +8,8 @@ public class NPC : MonoBehaviour, IInteractable
 {
     //https://www.youtube.com/watch?v=eSH9mzcMRqw&ab_channel=GameCodeLibrary
     //useful dialogue tutorial and reference
-    public NPCDialogue dialogueData;
-
+    public NPCDialogue[] dialogueData;
+    public int dialogueDataIndex = 0;
     private DialogueController dialogueControls;
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
@@ -47,8 +47,8 @@ public class NPC : MonoBehaviour, IInteractable
     {
         isDialogueActive = true;
         dialogueIndex = 0;
-    
-        dialogueControls.SetNpcInfo(dialogueData.NPCName, dialogueData.NPCImage);
+
+        dialogueControls.SetNpcInfo(dialogueData[dialogueDataIndex].NPCName, dialogueData[dialogueDataIndex].NPCImage);
         dialogueControls.ShowDialogueUI(true);
         dialogueControls.ShowContinueUI(false);
         PauseController.SetPause(true);
@@ -61,7 +61,7 @@ public class NPC : MonoBehaviour, IInteractable
         { 
             //skip typing animation and show the entire line
             StopAllCoroutines();
-            dialogueControls.SetDialogueText(dialogueData.dialogueLines[dialogueIndex]);
+            dialogueControls.SetDialogueText(dialogueData[dialogueDataIndex].dialogueLines[dialogueIndex]);
             dialogueControls.ShowContinueUI(true);
 
             isTyping = false;
@@ -72,13 +72,13 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueControls.ClearChoice(); //clear choice
 
       
-        if (dialogueData.endDialogueLines.Length > dialogueIndex && dialogueData.endDialogueLines[dialogueIndex])
+        if (dialogueData[dialogueDataIndex].endDialogueLines.Length > dialogueIndex && dialogueData[dialogueDataIndex].endDialogueLines[dialogueIndex])
         {
             EndDialogue();
             return;
         }
 
-        foreach (DialogueChoice dialogueChoice in dialogueData.choices)
+        foreach (DialogueChoice dialogueChoice in dialogueData[dialogueDataIndex].choices)
         {
             if (dialogueChoice.dialogueIndex == dialogueIndex)
             {
@@ -88,7 +88,7 @@ public class NPC : MonoBehaviour, IInteractable
             }
         }
 
-        if (dialogueIndex++ < dialogueData.dialogueLines.Length) //if another line, type the next line
+        if (dialogueIndex++ < dialogueData[dialogueDataIndex].dialogueLines.Length) //if another line, type the next line
         {
             DisplayCurrentLine();
         }
@@ -104,20 +104,20 @@ public class NPC : MonoBehaviour, IInteractable
         isTyping = true;
         dialogueControls.SetDialogueText("");
 
-        foreach(char letter in dialogueData.dialogueLines[dialogueIndex])
+        foreach(char letter in dialogueData[dialogueDataIndex].dialogueLines[dialogueIndex])
         {
 
             dialogueControls.SetDialogueText(dialogueControls.dialogueText.text += letter);
-            yield return new WaitForSeconds(dialogueData.typingSpeed);
+            yield return new WaitForSeconds(dialogueData[dialogueDataIndex].typingSpeed);
         }
        
         isTyping=false;
         dialogueControls.ShowContinueUI(true);
 
 
-        if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
+        if (dialogueData[dialogueDataIndex].autoProgressLines.Length > dialogueIndex && dialogueData[dialogueDataIndex].autoProgressLines[dialogueIndex])
         {
-            yield return new WaitForSeconds(dialogueData.autoProgressDelay);
+            yield return new WaitForSeconds(dialogueData[dialogueDataIndex].autoProgressDelay);
             NextLine();
         }
     }

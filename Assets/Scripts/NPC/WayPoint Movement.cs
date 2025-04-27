@@ -14,9 +14,11 @@ public class WayPointMovement : MonoBehaviour
 
     private Dictionary<WaypointType, Transform[]> waypointMap;
     private NPCBehaviour NPCbehaviour;
+    
     private int currentWaypointIndex;
     private bool isWaiting = false;
     private Animator animator;
+
     private float lastInputX;
     private float lastInputY;
     
@@ -41,8 +43,11 @@ public class WayPointMovement : MonoBehaviour
         if (PauseController.IsGamePaused || isWaiting)
         {
             animator.SetBool("isWalking", false);
-            animator.SetFloat("LastInputX", lastInputX);
-            animator.SetFloat("LastInputY", lastInputY);
+            
+            animator.SetFloat("LastInputX", 0f);
+            animator.SetFloat("LastInputY", 1f);
+            // animator.SetFloat("LastInputX", lastInputX);
+            //animator.SetFloat("LastInputY", lastInputY);
             return;
         }
 
@@ -80,7 +85,7 @@ public class WayPointMovement : MonoBehaviour
         }
         if (target == null)
         {
-            Debug.LogWarning($"{gameObject.name} has no valid target set - check waypoints");
+            Debug.Log("no target found");
         }
 
         Vector2 direction = (target.position - transform.position).normalized;
@@ -96,7 +101,7 @@ public class WayPointMovement : MonoBehaviour
             animator.SetFloat("CurrentInputX", direction.x);
             animator.SetFloat("CurrentInputY", direction.y);
             animator.SetBool("isWalking", direction.magnitude > 0f);
-            if (Vector2.Distance(transform.position, target.position) < 0.1f)
+            if (Vector2.Distance(transform.position, target.position) < 0.1f) //calculates distance between npc and the waypoint
             {
                 //wait at the waypoint
                 StartCoroutine(WaitAtWaypoint());
@@ -109,10 +114,11 @@ public class WayPointMovement : MonoBehaviour
             isWaiting = true;
             animator.SetBool("isWalking", false);
 
-            animator.SetFloat("LastInputX", lastInputX);
-            animator.SetFloat("LastInputY", lastInputY);
+        // animator.SetFloat("LastInputX", lastInputX);
+        //animator.SetFloat("LastInputY", lastInputY);
+        animator.SetFloat("LastInputX", 0f);
+           animator.SetFloat("LastInputY", -1f);
             yield return new WaitForSeconds(waitTime);
-
 
         if (NPCbehaviour.enterCattery)
         {
@@ -147,6 +153,14 @@ public class WayPointMovement : MonoBehaviour
             else if (currentIndex == 2) 
             {
                 waitTime = 5f; //have a longer wait time
+
+
+                NPC vistor = GetComponent<NPC>();
+                if(vistor.dialogueData.Length > vistor.dialogueDataIndex++)
+                {
+                    vistor.dialogueDataIndex = 1;
+                }
+               
                 return 3;
             }
             else
