@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class NPC : MonoBehaviour, IInteractable
     private DialogueController dialogueControls;
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
+
 
     private void Start()
     {
@@ -40,8 +42,6 @@ public class NPC : MonoBehaviour, IInteractable
         }
 
     }
-
- 
 
     void StartDialogue()
     {
@@ -140,17 +140,18 @@ public class NPC : MonoBehaviour, IInteractable
       
         for (int i = 0; i < choice.choices.Length; i++)
         {
-            
+            Debug.Log("INDEX: " + i);
+            int choiceIndex = i;
             int nextIndex = choice.nextDialogueIndex[i];
-            dialogueControls.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex));
+            dialogueControls.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex, choiceIndex));
         
 
         }
     }
 
-    void ChooseOption(int nextIndex)
+    void ChooseOption(int nextIndex, int choice)
     {
-        Debug.Log("button clicked - choice: " + nextIndex);
+        ResultOfChoice(choice);
         dialogueIndex = nextIndex;
         dialogueControls.ClearChoice();
         DisplayCurrentLine();
@@ -161,5 +162,26 @@ public class NPC : MonoBehaviour, IInteractable
         StopAllCoroutines();
         StartCoroutine(TypeLine());
 
+    }
+
+    void ResultOfChoice(int choice)
+    {
+      NPCBehaviour vistorBehaviour = GetComponent<NPCBehaviour>();
+        Debug.Log("choice =" + choice);
+        switch (choice)
+        {
+            case 0:
+               if(dialogueDataIndex == 0)
+                {
+                    vistorBehaviour.EnterCattery();
+                } else if (dialogueDataIndex == 1) {
+                    vistorBehaviour.FollowPlayer();
+                   
+                }
+                break;
+            case 1:
+                vistorBehaviour.LeaveShelter();
+                break;
+        }
     }
 }

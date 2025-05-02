@@ -1,30 +1,37 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using static WayPointMovement;
 
 public class NPCBehaviour : MonoBehaviour
 {
     public bool followPlayer = false;
-    public bool leaveRoom = false;
-    public bool enterCattery = true;
-
-    private GameObject player;
-    private WayPointMovement npcMovement;
-  
-    private void Start()
-    {
-        npcMovement = GetComponent<WayPointMovement>();
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-    
-    public void GoToWaitingRoom()
-    {
-    }
+    public bool leaveRoom = true;
+    public bool enterCattery = false;
 
     public void FollowPlayer()
     {
-       
+        followPlayer = true;
+        leaveRoom = false;
+        enterCattery = false;
     }
 
-    public void LeaveRoom()
+    public void LeaveShelter()
     {
+        leaveRoom = true;
+        enterCattery = false;
+        followPlayer = false;
+
     }
+
+
+    public void EnterCattery()
+    {
+        enterCattery = true;
+        followPlayer= false;
+        leaveRoom= false;
+
+    }
+
+
+
 }

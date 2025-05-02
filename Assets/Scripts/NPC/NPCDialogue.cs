@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.U2D.Animation;
 
 [CreateAssetMenu(fileName = "NewNPCDialogue", menuName = "NPC Dialogue")]
@@ -12,13 +13,13 @@ public class NPCDialogue : ScriptableObject
         public KeywordType keyword;
         public bool isWanted;
     }
-
+    public List<KeywordSelection> keyWords = new List<KeywordSelection>();
     public string NPCName;
     public Sprite NPCImage;
     public SpriteLibraryAsset NPCSpriteLibraryAsset;
 
     
-    public List<KeywordSelection> keyWords = new List<KeywordSelection>();
+
     private void OnEnable()
     {
         keyWords.Clear(); //clear the list

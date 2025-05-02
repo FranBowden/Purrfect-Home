@@ -17,19 +17,17 @@ MonoBehaviour:
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
   keyWords: []
   dialogueLines:
-  - Hi!
-  - I am looking for a young playful cat
-  - Can I take a look?
-  - Oh brilliant! Thank you, I will take a look
-  - Oh okay, I better get going. Bye
+  - Wow, these cats are all so cute! Which one would you recommend I meet first?
+  - "Perfect! Lead the way, I\u2019m right behind you!"
+  - Oh okay, I'll come back later
   choices:
-  - dialogueIndex: 2
+  - dialogueIndex: 0
     choices:
-    - Sure!
-    - No
-    nextDialogueIndex: 0300000004000000
-  endDialogueLines: 0000000101
-  autoProgressLines: 0101010101
+    - Follow me!
+    - Not sure
+    nextDialogueIndex: 0100000002000000
+  endDialogueLines: 000101
+  autoProgressLines: 010000
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
