@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 023eda9c06ff6634195a499d899539e9
+guid: 0afcd97378f87de4eba66b6e46e9a980
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3264702164558567511
-    second: OrangeBall-Sheet_0
-  - first:
-      213: -3702994326526198778
-    second: OrangeBall-Sheet_1
-  - first:
-      213: -7261594545684002259
-    second: OrangeBall-Sheet_2
-  - first:
-      213: 8923410217977030236
-    second: OrangeBall-Sheet_3
-  - first:
-      213: 2536096653618476218
-    second: OrangeBall-Sheet_4
+      213: -4756028443593143600
+    second: shadow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -138,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OrangeBall-Sheet_0
+      name: shadow_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 1
         y: 0
-        width: 9
+        width: 14
         height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -153,96 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 75856ff425d8e4d20800000000000000
-      internalID: 3264702164558567511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OrangeBall-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 3
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 60c7e1287425c9cc0800000000000000
-      internalID: -3702994326526198778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OrangeBall-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 8
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d2a4799fb32a93b90800000000000000
-      internalID: -7261594545684002259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OrangeBall-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 0
-        width: 11
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c56ac93a05256db70800000000000000
-      internalID: 8923410217977030236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OrangeBall-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 0
-        width: 11
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab47cfa3876023320800000000000000
-      internalID: 2536096653618476218
+      spriteID: 0da0afd34513ffdb0800000000000000
+      internalID: -4756028443593143600
       vertices: []
       indices: 
       edges: []
@@ -251,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -261,11 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OrangeBall-Sheet_0: 3264702164558567511
-      OrangeBall-Sheet_1: -3702994326526198778
-      OrangeBall-Sheet_2: -7261594545684002259
-      OrangeBall-Sheet_3: 8923410217977030236
-      OrangeBall-Sheet_4: 2536096653618476218
+      shadow_0: -4756028443593143600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
