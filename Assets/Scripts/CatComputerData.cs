@@ -5,16 +5,35 @@ using UnityEngine.UI;
 
 public class CatComputerData : MonoBehaviour
 {
+
     public CatData[] catData;
     [SerializeField] GameObject prefabCatListingItem;
     [SerializeField] Transform prefabCatListing;
-
+    [SerializeField] GameObject prefabCatParent;
 
     private GameObject[] CatListing;
+
+    private Vector2[] spawnPositions = new Vector2[]
+    {
+        new Vector2(-6f, 3.8f),
+        new Vector2(-9f, 3.8f),
+        new Vector2(-12f, 3.8f),
+      //  new Vector2(-15f, 3.8f),
+    };
+    private bool[] podStatus = new bool[3];
+
+
     private void Start()
     {
         CatListing = new GameObject[catData.Length];
-        refillCatSuggestions(3);
+
+        for (int i = 0; i < podStatus.Length; i++)
+        {
+            podStatus[i] = false; //false means the pod is free
+        }
+
+
+        RefillCatSuggestions(3);
 
 
         for(int i = 0; i < CatListing.Length; i++)
@@ -23,24 +42,24 @@ public class CatComputerData : MonoBehaviour
             if (CatListing[i].transform.Find("Button").TryGetComponent<Button>(out var btn))
             {
                 int index = i; 
-                btn.onClick.AddListener(() => catAccepted(index)); //listens to which button has been pressed
+                btn.onClick.AddListener(() => CatAccepted(index)); //listens to which button has been pressed
             }
         }
     }
-   private void refillCatSuggestions(int count)
+   private void RefillCatSuggestions(int count)
     {
-        for (int i = 0; i < count; ++i)
+        for (int i = 0; i < count; i++) 
         {
             GameObject newCatListing = Instantiate(prefabCatListingItem);
             newCatListing.transform.SetParent(prefabCatListing, false);
 
-            CatListing[i] = newCatListing;
+            CatListing[i] = newCatListing; //assigning list to catlisting UI array
 
-            setCatDataToList(i);
+            SetCatDataToList(i);
         }
     }
 
-    private void setCatDataToList(int index)
+    private void SetCatDataToList(int index) //assigns all the data from catdata into catlist ui data
     {
         Image catImage = CatListing[index].transform.Find("Frame/CatImage").GetComponent<Image>();
         TextMeshProUGUI catName = CatListing[index].transform.Find("Cat Information/CatName").GetComponent<TextMeshProUGUI>();
@@ -55,10 +74,66 @@ public class CatComputerData : MonoBehaviour
     }
 
 
-    private void catAccepted(int index)
+    private void CatAccepted(int index)
     {
         Debug.Log("You accepted " + CatListing[index].transform.Find("Cat Information/CatName").GetComponent<TextMeshProUGUI>().text); //shows the name of the selected cat
 
-        Destroy(CatListing[index]); //removes cat from the list
+
+
+        //Set cat to pod
+        int FreePod = GetFreePodIndex();
+
+        if (FreePod != -1)
+        {
+            CatSpawnedInPod(index, FreePod);
+            Destroy(CatListing[index]);
+        }
+        else if (FreePod == -1)
+        {
+            Debug.Log("No pods are free.");
+        }
+     
+    }
+
+
+    private void CatSpawnedInPod(int index, int podIndex)
+    {
+        GameObject newCat = Instantiate(catData[index].catPrefab, spawnPositions[podIndex], Quaternion.identity);
+        newCat.transform.SetParent(prefabCatParent.transform);
+        if (newCat.TryGetComponent<DisplayCatInformation>(out var catInfo))
+        {
+            catInfo.catData = catData[index];
+        }
+
+        MarkPodAsOccupied(podIndex);
+    }
+
+    public int GetFreePodIndex()
+    {
+        for (int i = 0; i < podStatus.Length; i++)
+        {
+            if (!podStatus[i]) //if a pod is free
+            {
+                return i; //return pod index
+            }
+        }
+
+        return -1; //no pod is free
+    }
+
+    public void MarkPodAsOccupied(int index)
+    {
+        if (index >= 0 && index < podStatus.Length)
+        {
+            podStatus[index] = true; 
+        }
+    }
+
+    public void MarkPodAsFree(int index)
+    {
+        if (index >= 0 && index < podStatus.Length)
+        {
+            podStatus[index] = false; 
+        }
     }
 }

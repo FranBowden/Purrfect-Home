@@ -1,10 +1,7 @@
-using System.Linq;
 using TMPro;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 using static HealthBarController;
-using static UnityEngine.Rendering.DebugUI;
 
 public class DisplayCatInformation : MonoBehaviour
 {
@@ -15,7 +12,7 @@ public class DisplayCatInformation : MonoBehaviour
     {
         healthBarController = FindFirstObjectByType<HealthBarController>();
     }
-    public void displayCatInfo(GameObject infoMenu)
+    public void DisplayCatInfo(GameObject infoMenu)
     {
 
             TextMeshProUGUI CatName = infoMenu.transform.Find("CatName").GetComponent<TextMeshProUGUI>();
@@ -31,7 +28,7 @@ public class DisplayCatInformation : MonoBehaviour
                 CatImage.sprite = catData.catPrefab.GetComponent<SpriteRenderer>().sprite;
                 healthBarController.CalculateBar(catData.health, BarType.EnergyBar);
                 healthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
-               healthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
+                healthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
         }
 
     }

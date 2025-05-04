@@ -37,9 +37,9 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
 
         exitButton.onClick.AddListener(() => CloseMenu()); //if clicked on the exit button - it closes the menu
 
-        DisplayCatInformation catInfo = transform.GetChild(0).gameObject.GetComponent<DisplayCatInformation>(); //this gets the cats displaycatinformation script (since the cat is a child of pod)
+        DisplayCatInformation catInfo = gameObject.GetComponent<DisplayCatInformation>(); //this gets the cats displaycatinformation script (since the cat is a child of pod)
 
-        catInfo.displayCatInfo(infoMenu); //call the display function
+        catInfo.DisplayCatInfo(infoMenu); //call the display function
 
     }
     public void CloseMenu()
