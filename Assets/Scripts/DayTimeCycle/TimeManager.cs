@@ -24,11 +24,8 @@ public class TimeManager : MonoBehaviour
     {
         canvas = FindAnyObjectByType<Canvas>();
         player = GameObject.FindWithTag("Player").transform;
-       
-
         GameObject newDay = Instantiate(newDayPrefab); //this will display day 1
         newDay.transform.SetParent(canvas.transform, false); //gets assigned to child of canvas so it shows up
-
     }
     private void Update()
     {
@@ -40,6 +37,8 @@ public class TimeManager : MonoBehaviour
             isDayOver = true;
             EndDay();
         }
+
+
 
         if (timer < dayDuration)
         {

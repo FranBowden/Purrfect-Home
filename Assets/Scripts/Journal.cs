@@ -2,7 +2,18 @@ using UnityEngine;
 
 public class Journal : MonoBehaviour
 {
-   public void ToggleJournal()
+    public static Journal Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    void Start()
+    {
+        gameObject.SetActive(false);
+    }
+    public void ToggleJournal()
    {
         if(gameObject.activeSelf)
         {
