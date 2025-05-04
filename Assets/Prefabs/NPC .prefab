@@ -55,9 +55,11 @@ MonoBehaviour:
   - {fileID: 657891783244662490, guid: a55ea096f6589a043bc4b0ad9b037f4d, type: 3}
   - {fileID: 4348068964823089426, guid: 96a8c1ff089c1284ab14e4ecfac886f1, type: 3}
   - {fileID: 73658326204043327, guid: cbda871b96c8d0144ad7bca199586f8c, type: 3}
+  - {fileID: 5295438115326858164, guid: 3e3b9663206fd2c499a01f638de58735, type: 3}
   speed: 2
   waitTime: 1
   loop: 1
+  currentWaypointIndex: 0
 --- !u!114 &4627274324348923836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followPlayer: 0
   leaveRoom: 0
-  waitingRoom: 1
+  enterCattery: 0
 --- !u!114 &7360420583192845510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +87,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1ac32dd6a080a49a0756dcfb1eab5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 05480b1a312bad848ae1467e0d230f98, type: 2}
+  dialogueData:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  dialogueDataIndex: 0
 --- !u!212 &4771446320115966325
 SpriteRenderer:
   m_ObjectHideFlags: 0

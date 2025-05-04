@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WayPointMovement : MonoBehaviour
 {
-    public enum WaypointType { Cattery, Exit, Player }
+    public enum WaypointType { Cattery, Exit, Player, Waiting }
 
     public Transform[] waypointParents;
 
@@ -21,8 +21,7 @@ public class WayPointMovement : MonoBehaviour
 
     private float lastInputX;
     private float lastInputY;
-    // public Transform playerTransform;
-    public Transform playerTransform;
+
     void Start()
     {
         NPCbehaviour = GetComponent<NPCBehaviour>();
@@ -33,7 +32,9 @@ public class WayPointMovement : MonoBehaviour
         {
             { WaypointType.Cattery, GetChildWaypoints(waypointParents[0]) },
             { WaypointType.Exit,      GetChildWaypoints(waypointParents[1]) },
-             { WaypointType.Player,     new Transform[] { playerTransform } }
+           //  { WaypointType.Player,     new Transform[] { playerTransform } }
+            { WaypointType.Player,    GetChildWaypoints(waypointParents[2]) },
+            { WaypointType.Player,    GetChildWaypoints(waypointParents[3]) }
         };
     }
 
@@ -79,7 +80,8 @@ public class WayPointMovement : MonoBehaviour
         {
             if (waypointMap.ContainsKey(WaypointType.Player) && waypointMap[WaypointType.Player].Length > 0 && waypointMap[WaypointType.Player][0] != null)
             {
-                target = playerTransform;
+             //   target = playerTransform;
+                target = waypointMap[WaypointType.Player][currentWaypointIndex];
             }
             else
             {
@@ -91,6 +93,12 @@ public class WayPointMovement : MonoBehaviour
         {
             target = waypointMap[WaypointType.Exit][currentWaypointIndex];
         }
+        else if (NPCbehaviour.waitingRoom)
+        {
+            target = waypointMap[WaypointType.Waiting][currentWaypointIndex];
+        }
+
+
         if (target == null)
         {
             Debug.LogWarning($"{gameObject.name} has no valid target set - check waypoints");
@@ -139,24 +147,11 @@ public class WayPointMovement : MonoBehaviour
         }
         else if (NPCbehaviour.leaveRoom)
         {
-            if (currentWaypointIndex == 1)
-            {
-                NPCbehaviour.leaveRoom = false;
-                animator.SetBool("isWalking", false);
-
-                StartCoroutine(LeaveAndDestroy());
-            }
-            else if (currentWaypointIndex == 0)
-            {
-                NPCbehaviour.leaveRoom = false;
-                animator.SetBool("isWalking", false);
-
-                Debug.Log("NPC is already at waypoint 0, leaving now.");
-            }
-            else
-            {
-                currentWaypointIndex++;
-            }
+            currentWaypointIndex = GetNextWaypointIndex(WaypointType.Exit, currentWaypointIndex, !loop);
+        }
+        else if (NPCbehaviour.waitingRoom)
+        {
+            currentWaypointIndex = GetNextWaypointIndex(WaypointType.Waiting, currentWaypointIndex, loop);
         }
 
 

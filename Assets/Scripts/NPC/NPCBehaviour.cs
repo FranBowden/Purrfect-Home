@@ -1,18 +1,18 @@
-using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
-using static WayPointMovement;
-
 public class NPCBehaviour : MonoBehaviour
 {
     public bool followPlayer = false;
-    public bool leaveRoom = true;
+    public bool leaveRoom = false;
     public bool enterCattery = false;
+    public bool waitingRoom = true;
 
     public void FollowPlayer()
     {
         followPlayer = true;
         leaveRoom = false;
         enterCattery = false;
+        waitingRoom = false;
     }
 
     public void LeaveShelter()
@@ -20,18 +20,21 @@ public class NPCBehaviour : MonoBehaviour
         leaveRoom = true;
         enterCattery = false;
         followPlayer = false;
-
+        waitingRoom = false;
     }
-
-
     public void EnterCattery()
     {
         enterCattery = true;
         followPlayer= false;
         leaveRoom= false;
-
+        waitingRoom = false;
     }
 
-
-
+    public void WaitingRoom()
+    {
+        waitingRoom = true;
+        enterCattery = false;   
+        followPlayer=false;
+        leaveRoom=false;
+    }
 }
