@@ -14,11 +14,13 @@ public class NPC : MonoBehaviour, IInteractable
     private DialogueController dialogueControls;
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
-
-
+    private NPCBehaviour vistorBehaviour;
+    private WayPointMovement waypointmovement;
     private void Start()
     {
         dialogueControls = DialogueController.Instance;
+        vistorBehaviour = GetComponent<NPCBehaviour>();
+        waypointmovement = GetComponent<WayPointMovement>();
     }
     public bool CanInteract()
     {
@@ -164,9 +166,9 @@ public class NPC : MonoBehaviour, IInteractable
 
     }
 
+
     void ResultOfChoice(int choice)
     {
-      NPCBehaviour vistorBehaviour = GetComponent<NPCBehaviour>();
         Debug.Log("choice =" + choice);
         switch (choice)
         {

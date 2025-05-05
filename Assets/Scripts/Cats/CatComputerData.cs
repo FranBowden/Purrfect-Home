@@ -10,21 +10,19 @@ public class CatComputerData : MonoBehaviour
     [SerializeField] GameObject prefabCatListingItem;
     [SerializeField] Transform prefabCatListing;
     [SerializeField] GameObject prefabCatParent;
+    [SerializeField] Transform catPodsPositions;
+
     private GameObject[] CatListing;
-    private Vector2[] spawnPositions = new Vector2[]
-    {
-        new Vector2(-6f, 3.8f),
-        new Vector2(-9f, 3.8f),
-        new Vector2(-12f, 3.8f),
-      //  new Vector2(-15f, 3.8f),
-    };
     private bool[] podStatus = new bool[3];
     private bool[] listingCatStatus = new bool[3];
-
+    private Transform[] spawnPositions;
 
     private void Start()
     {
         CatListing = new GameObject[catData.Length];
+
+        spawnPositions = getSpawnPoints(catPodsPositions);
+
 
         for (int i = 0; i < podStatus.Length; i++)
         {
@@ -45,6 +43,18 @@ public class CatComputerData : MonoBehaviour
                 btn.onClick.AddListener(() => CatAccepted(index)); //listens to which button has been pressed
             }
         }
+    }
+
+    private Transform[] getSpawnPoints(Transform parent)
+    {
+        Transform[] children = new Transform[parent.childCount];
+
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            children[i] = parent.GetChild(i);
+        }
+
+        return children;
     }
 
     private void Update()
@@ -114,7 +124,8 @@ public class CatComputerData : MonoBehaviour
 
     private void CatSpawnedInPod(int index, int podIndex)
     {
-        GameObject newCat = Instantiate(catData[index].catPrefab, spawnPositions[podIndex], Quaternion.identity);
+       
+        GameObject newCat = Instantiate(catData[index].catPrefab, spawnPositions[index].position , Quaternion.identity);
         newCat.transform.SetParent(prefabCatParent.transform);
         if (newCat.TryGetComponent<DisplayCatInformation>(out var catInfo))
         {

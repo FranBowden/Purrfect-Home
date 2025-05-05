@@ -34,7 +34,7 @@ public class WayPointMovement : MonoBehaviour
             { WaypointType.Exit,      GetChildWaypoints(waypointParents[1]) },
            //  { WaypointType.Player,     new Transform[] { playerTransform } }
             { WaypointType.Player,    GetChildWaypoints(waypointParents[2]) },
-            { WaypointType.Player,    GetChildWaypoints(waypointParents[3]) }
+            { WaypointType.Waiting,    GetChildWaypoints(waypointParents[3]) }
         };
     }
 
@@ -91,7 +91,10 @@ public class WayPointMovement : MonoBehaviour
 
         else if (NPCbehaviour.leaveRoom)
         {
+            currentWaypointIndex = 1;
             target = waypointMap[WaypointType.Exit][currentWaypointIndex];
+          
+
         }
         else if (NPCbehaviour.waitingRoom)
         {
@@ -118,8 +121,15 @@ public class WayPointMovement : MonoBehaviour
         animator.SetFloat("CurrentInputX", direction.x);
         animator.SetFloat("CurrentInputY", direction.y);
         animator.SetBool("isWalking", direction.magnitude > 0f);
+
+
         if (Vector2.Distance(transform.position, target.position) < 0.1f) //calculates distance between npc and the waypoint
         {
+
+            if (NPCbehaviour.leaveRoom)
+            {
+                Destroy(gameObject); //if visitor is leaving - destroy it once it reaches the exit 
+            }
             //wait at the waypoint
             StartCoroutine(WaitAtWaypoint());
         }
@@ -147,7 +157,9 @@ public class WayPointMovement : MonoBehaviour
         }
         else if (NPCbehaviour.leaveRoom)
         {
-            currentWaypointIndex = GetNextWaypointIndex(WaypointType.Exit, currentWaypointIndex, !loop);
+            currentWaypointIndex = GetNextWaypointIndex(WaypointType.Exit, currentWaypointIndex, loop);
+
+            Debug.Log("currentWaypointIndex:" + currentWaypointIndex);
         }
         else if (NPCbehaviour.waitingRoom)
         {
@@ -158,12 +170,6 @@ public class WayPointMovement : MonoBehaviour
         isWaiting = false;
     }
 
-
-    IEnumerator LeaveAndDestroy()
-    {
-        yield return new WaitForSeconds(1f);  // Adjust delay as needed
-        Destroy(gameObject);  // Destroy the NPC when they leave
-    }
 
 
 
@@ -202,6 +208,7 @@ public class WayPointMovement : MonoBehaviour
                 return next;
             }
         }
+       
         else
         {
 

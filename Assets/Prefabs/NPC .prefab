@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 249320315588031394}
   - component: {fileID: 8962173305162864879}
   - component: {fileID: 9112463375009384328}
+  - component: {fileID: 8728494258821258256}
   m_Layer: 0
   m_Name: 'NPC '
   m_TagString: NPC
@@ -75,6 +76,7 @@ MonoBehaviour:
   followPlayer: 0
   leaveRoom: 0
   enterCattery: 0
+  waitingRoom: 1
 --- !u!114 &7360420583192845510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,9 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 05480b1a312bad848ae1467e0d230f98, type: 2}
+  - {fileID: 11400000, guid: 2696ed16731c5f54594e5b1ede4b4a91, type: 2}
   dialogueDataIndex: 0
 --- !u!212 &4771446320115966325
 SpriteRenderer:
@@ -245,3 +246,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.91597414, y: 1.3351307}
   m_EdgeRadius: 0
+--- !u!50 &8728494258821258256
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696165661822996118}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

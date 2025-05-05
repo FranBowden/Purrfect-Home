@@ -12,19 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Nora
   m_EditorClassIdentifier: 
+  keyWords: []
   NPCName: Nora
   NPCImage: {fileID: -6861098466205009496, guid: 9756115e49d94ab41804f4ef534c8fe6, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 78bd1d5ee878fec48b185d3cd18303f4, type: 3}
-  keyWords: []
   dialogueLines:
-  - 
-  - 
+  - "Hello dear, I\u2019m hoping to find a senior cat. I want to give an older kitty
+    a cosy home."
+  - "Thank you, dear! I can\u2019t wait to meet them."
+  - "Oh, that\u2019s a shame. Maybe another time, dear."
   choices:
   - dialogueIndex: 0
-    choices: []
-    nextDialogueIndex: 
-  endDialogueLines: 
-  autoProgressLines: 
+    choices:
+    - Sure, take a look
+    - We don't have any
+    nextDialogueIndex: 0100000002000000
+  endDialogueLines: 000101
+  autoProgressLines: 000000
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}

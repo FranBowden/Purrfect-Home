@@ -12,13 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Rachel
   m_EditorClassIdentifier: 
+  keyWords: []
   NPCName: Rachel
   NPCImage: {fileID: -3665074108919144920, guid: e874f8ff49fb4bd4f84ad95ceed3f427, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: eb243b09406cb0244b9e97e7ac51170b, type: 3}
-  dialogueLines: []
-  choices: []
-  endDialogueLines: 
-  autoProgressLines: 
+  dialogueLines:
+  - "Hi! I\u2019m looking for a black and white kitty \u2014 you know, like a little
+    tuxedo cat!"
+  - Do you have any?
+  - "Yay, thank you! I can\u2019t wait to meet them!"
+  - Aww, bummer. Well, maybe next time!
+  choices:
+  - dialogueIndex: 0
+    choices:
+    - Yeah!
+    - No, sorry
+    nextDialogueIndex: 0200000003000000
+  endDialogueLines: 00000101
+  autoProgressLines: 00000000
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
