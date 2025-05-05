@@ -179,6 +179,11 @@ public class WayPointMovement : MonoBehaviour
              animator.SetFloat("LastInputX", lastInputX);
             animator.SetFloat("LastInputY", lastInputY);
         }
+
+        if(NPCbehaviour.followPlayer)
+        {
+            waitTime = 0f;
+        }
         yield return new WaitForSeconds(waitTime);
 
         if (NPCbehaviour.enterCattery)

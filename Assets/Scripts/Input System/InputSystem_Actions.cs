@@ -789,6 +789,34 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""CursorControls"",
+            ""id"": ""ea06416e-aa6f-42f6-8b55-ed283a18b20d"",
+            ""actions"": [
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""4a7a65cb-b8dc-479f-b80b-6490d0d10c64"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""806a29d4-8e0e-48f8-a260-50128ed0dd8b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -873,12 +901,16 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // CursorControls
+        m_CursorControls = asset.FindActionMap("CursorControls", throwIfNotFound: true);
+        m_CursorControls_Click = m_CursorControls.FindAction("Click", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystem_Actions.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_CursorControls.enabled, "This will cause a leak and performance issues, InputSystem_Actions.CursorControls.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -1132,6 +1164,52 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // CursorControls
+    private readonly InputActionMap m_CursorControls;
+    private List<ICursorControlsActions> m_CursorControlsActionsCallbackInterfaces = new List<ICursorControlsActions>();
+    private readonly InputAction m_CursorControls_Click;
+    public struct CursorControlsActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+        public CursorControlsActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Click => m_Wrapper.m_CursorControls_Click;
+        public InputActionMap Get() { return m_Wrapper.m_CursorControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CursorControlsActions set) { return set.Get(); }
+        public void AddCallbacks(ICursorControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CursorControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CursorControlsActionsCallbackInterfaces.Add(instance);
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
+        }
+
+        private void UnregisterCallbacks(ICursorControlsActions instance)
+        {
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
+        }
+
+        public void RemoveCallbacks(ICursorControlsActions instance)
+        {
+            if (m_Wrapper.m_CursorControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICursorControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CursorControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CursorControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CursorControlsActions @CursorControls => new CursorControlsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1197,5 +1275,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface ICursorControlsActions
+    {
+        void OnClick(InputAction.CallbackContext context);
     }
 }

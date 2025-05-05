@@ -1,15 +1,51 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CursorManager : MonoBehaviour
 {
-    [SerializeField] private Texture2D standardCursor;
-    [SerializeField] private Texture2D PressedCursor;
+    public Texture2D mainCursor;
+    public Texture2D handCursor;
 
-    private Vector2 cursorHotspot;
+    private InputSystem_Actions controls;
+
+    private void Awake()
+    {
+        controls = new InputSystem_Actions();
+        ChangeCursor(mainCursor);
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+    private void ChangeCursor(Texture2D cursor)
+    {
+        Vector2 hotspot = new Vector2(cursor.width/2 , cursor.height/2);
+        Cursor.SetCursor(cursor, hotspot, CursorMode.Auto);
+    }
+
     private void Start()
     {
-        cursorHotspot = new Vector2(PressedCursor.width / 2, PressedCursor.height / 2);
-        Cursor.SetCursor(PressedCursor, cursorHotspot, CursorMode.Auto);
+        controls.CursorControls.Click.started += _ => StartedClick();
+        controls.CursorControls.Click.performed += _ => EndedClick();
     }
+
+    private void StartedClick()
+    {
+        ChangeCursor(handCursor);
+    }
+    
+    private void EndedClick()
+    {
+        ChangeCursor(mainCursor);
+
+    }
+
 
 }

@@ -767,6 +767,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "CursorControls",
+            "id": "ea06416e-aa6f-42f6-8b55-ed283a18b20d",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "4a7a65cb-b8dc-479f-b80b-6490d0d10c64",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "806a29d4-8e0e-48f8-a260-50128ed0dd8b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
