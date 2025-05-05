@@ -69,9 +69,8 @@ public class NPCGenerator : MonoBehaviour
 
     IEnumerator SpawnNpc()
     {
-        yield return new WaitForSeconds(waitTimeSeconds);
         CreateNPC();
-    
+        yield return new WaitForSeconds(waitTimeSeconds);
        }
 
 }

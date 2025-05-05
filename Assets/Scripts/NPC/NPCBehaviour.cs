@@ -2,10 +2,10 @@ using UnityEditor.Rendering;
 using UnityEngine;
 public class NPCBehaviour : MonoBehaviour
 {
-    public bool followPlayer = false;
+    public bool followPlayer = true;
     public bool leaveRoom = false;
     public bool enterCattery = false;
-    public bool waitingRoom = true;
+    public bool waitingRoom = false;
 
     public void FollowPlayer()
     {

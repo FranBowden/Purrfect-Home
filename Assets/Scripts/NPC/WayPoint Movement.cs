@@ -9,6 +9,7 @@ public class WayPointMovement : MonoBehaviour
     public Transform[] waypointParents;
 
     [SerializeField] private float speed = 2f;
+    [SerializeField] private float followDistance = 1f;
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private bool loop = true;
 
@@ -32,8 +33,7 @@ public class WayPointMovement : MonoBehaviour
         {
             { WaypointType.Cattery, GetChildWaypoints(waypointParents[0]) },
             { WaypointType.Exit,      GetChildWaypoints(waypointParents[1]) },
-           //  { WaypointType.Player,     new Transform[] { playerTransform } }
-            { WaypointType.Player,    GetChildWaypoints(waypointParents[2]) },
+                { WaypointType.Player, new Transform[] { waypointParents[2] } },      
             { WaypointType.Waiting,    GetChildWaypoints(waypointParents[3]) }
         };
     }
@@ -44,11 +44,17 @@ public class WayPointMovement : MonoBehaviour
         if (PauseController.IsGamePaused || isWaiting)
         {
             animator.SetBool("isWalking", false);
-
-            animator.SetFloat("LastInputX", 0f);
-            animator.SetFloat("LastInputY", 1f);
-            // animator.SetFloat("LastInputX", lastInputX);
-            //animator.SetFloat("LastInputY", lastInputY);
+            if (NPCbehaviour.enterCattery)
+            {
+                animator.SetFloat("LastInputX", 0f);
+                animator.SetFloat("LastInputY", -1f);
+            }
+            else
+            {
+                animator.SetFloat("LastInputX", lastInputX);
+                animator.SetFloat("LastInputY", lastInputY);
+            }
+           
             return;
         }
 
@@ -78,11 +84,8 @@ public class WayPointMovement : MonoBehaviour
         }
         else if (NPCbehaviour.followPlayer)
         {
-            if (waypointMap.ContainsKey(WaypointType.Player) && waypointMap[WaypointType.Player].Length > 0 && waypointMap[WaypointType.Player][0] != null)
-            {
-             //   target = playerTransform;
-                target = waypointMap[WaypointType.Player][currentWaypointIndex];
-            }
+            if (waypointMap.ContainsKey(WaypointType.Player) && waypointMap[WaypointType.Player].Length > 0)
+                target = waypointMap[WaypointType.Player][0];
             else
             {
                 Debug.LogError("WaypointType.Player key NOT found in waypointMap!");
@@ -104,11 +107,15 @@ public class WayPointMovement : MonoBehaviour
 
         if (target == null)
         {
-            Debug.LogWarning($"{gameObject.name} has no valid target set - check waypoints");
+            //Debug.LogWarning($"{gameObject.name} has no valid target set - check waypoints");
+            return;
         }
 
 
+
+
         Vector2 direction = (target.position - transform.position).normalized;
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
         if (direction.magnitude > 0f)
         {
@@ -116,12 +123,31 @@ public class WayPointMovement : MonoBehaviour
             lastInputY = direction.y;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        if (NPCbehaviour.followPlayer)
+        {
+            if (distanceToTarget > followDistance) //lets the npc have some distance from the player so they dont overlap.
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            }
+
+            if(distanceToTarget < followDistance) //if the npc is where the palyer is
+            {
+                StartCoroutine(WaitAtWaypoint()); //wait
+            }
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        }
+
 
         animator.SetFloat("CurrentInputX", direction.x);
         animator.SetFloat("CurrentInputY", direction.y);
         animator.SetBool("isWalking", direction.magnitude > 0f);
 
+       
 
         if (Vector2.Distance(transform.position, target.position) < 0.1f) //calculates distance between npc and the waypoint
         {
@@ -143,8 +169,16 @@ public class WayPointMovement : MonoBehaviour
 
         // animator.SetFloat("LastInputX", lastInputX);
         //animator.SetFloat("LastInputY", lastInputY);
-        animator.SetFloat("LastInputX", 0f);
-        animator.SetFloat("LastInputY", -1f);
+
+        if (NPCbehaviour.enterCattery)
+        {
+            animator.SetFloat("LastInputX", 0f);
+            animator.SetFloat("LastInputY", -1f);
+        } else
+        {
+             animator.SetFloat("LastInputX", lastInputX);
+            animator.SetFloat("LastInputY", lastInputY);
+        }
         yield return new WaitForSeconds(waitTime);
 
         if (NPCbehaviour.enterCattery)
@@ -153,7 +187,7 @@ public class WayPointMovement : MonoBehaviour
         }
         else if (NPCbehaviour.followPlayer)
         {
-            currentWaypointIndex = GetNextWaypointIndex(WaypointType.Player, currentWaypointIndex, loop);
+            currentWaypointIndex = 0;
         }
         else if (NPCbehaviour.leaveRoom)
         {
