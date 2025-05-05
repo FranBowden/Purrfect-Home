@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
@@ -7,11 +9,16 @@ public class NPCGenerator : MonoBehaviour
     [SerializeField] private GameObject NPCPrefab;
     [SerializeField] private GameObject NPCParent;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject OpenShelterBtnText;
     public NpcsDialogues[] NPCData;
 
     private NPC npc;
     private SpriteLibrary spriteLibrary;
 
+    private bool isShelterOpen = false;
+   
+
+    public int waitTimeSeconds = 10;
 
     private void CreateNPC()
     {
@@ -22,7 +29,7 @@ public class NPCGenerator : MonoBehaviour
         spriteLibrary = newNPC.GetComponent<SpriteLibrary>();
         npc = newNPC.GetComponent<NPC>();
 
-        
+
         for (int i = 0; i < NPCData[index].dialogues.Length; i++)
         {
             npc.dialogueData[i] = NPCData[index].dialogues[i]; //assign that npc with dialogue data
@@ -30,7 +37,7 @@ public class NPCGenerator : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void Update() //test purposes
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -41,7 +48,30 @@ public class NPCGenerator : MonoBehaviour
     [System.Serializable]
     public class NpcsDialogues
     {
-        public NPCDialogue[] dialogues;    
+        public NPCDialogue[] dialogues;
     }
+
+
+    public void ShelterOpen()
+    {
+        if(!isShelterOpen) //if shelter is closed -> its now open
+        {
+            isShelterOpen = true;
+            StartCoroutine(SpawnNpc()); //spawns a new npc every 10 seconds
+            OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Close Shelter"; 
+        } else //shelter was open -> now closed
+        {
+            isShelterOpen = false;
+            OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Open Shelter";
+        }
+      
+    }
+
+    IEnumerator SpawnNpc()
+    {
+        yield return new WaitForSeconds(waitTimeSeconds);
+        CreateNPC();
+    
+       }
 
 }
