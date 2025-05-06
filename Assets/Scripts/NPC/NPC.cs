@@ -16,11 +16,13 @@ public class NPC : MonoBehaviour, IInteractable
     private bool isTyping, isDialogueActive;
     private NPCBehaviour vistorBehaviour;
     public AudioSource textAudio;
+    private WayPointMovement wayPointMovement;
 
     private void Start()
     {
         dialogueControls = DialogueController.Instance;
         vistorBehaviour = GetComponent<NPCBehaviour>();
+        wayPointMovement = GetComponent<WayPointMovement>();
     }
     public bool CanInteract()
     {
@@ -180,14 +182,21 @@ public class NPC : MonoBehaviour, IInteractable
                if(dialogueDataIndex == 0)
                 {
                     vistorBehaviour.EnterCattery();
+               
+                    wayPointMovement.waitTime = 0f;
                 } else if (dialogueDataIndex == 1) {
+              
                     vistorBehaviour.FollowPlayer();
-                   
+                    wayPointMovement.waitTime = 0f;
                 }
+            
+
                 break;
             case 1:
                 vistorBehaviour.LeaveShelter();
                 break;
         }
+        wayPointMovement.currentWaypointIndex = 0;
+
     }
 }

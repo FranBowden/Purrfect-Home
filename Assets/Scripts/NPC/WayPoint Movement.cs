@@ -10,7 +10,7 @@ public class WayPointMovement : MonoBehaviour
 
     [SerializeField] private float speed = 2f;
     [SerializeField] private float followDistance = 1f;
-    [SerializeField] private float waitTime = 1f;
+    public float waitTime = 1f;
     [SerializeField] private bool loop = true;
 
     public Dictionary<WaypointType, Transform[]> waypointMap;
