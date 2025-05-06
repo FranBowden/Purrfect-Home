@@ -15,12 +15,12 @@ public class NPC : MonoBehaviour, IInteractable
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
     private NPCBehaviour vistorBehaviour;
-    private WayPointMovement waypointmovement;
+    public AudioSource textAudio;
+
     private void Start()
     {
         dialogueControls = DialogueController.Instance;
         vistorBehaviour = GetComponent<NPCBehaviour>();
-        waypointmovement = GetComponent<WayPointMovement>();
     }
     public bool CanInteract()
     {
@@ -103,6 +103,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     IEnumerator TypeLine()
     {
+        textAudio.Play();
         isTyping = true;
         dialogueControls.SetDialogueText("");
 
@@ -114,7 +115,9 @@ public class NPC : MonoBehaviour, IInteractable
         }
        
         isTyping=false;
+        textAudio.Stop();
         dialogueControls.ShowContinueUI(true);
+
 
 
         if (dialogueData[dialogueDataIndex].autoProgressLines.Length > dialogueIndex && dialogueData[dialogueDataIndex].autoProgressLines[dialogueIndex])
@@ -133,6 +136,7 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueControls.ShowDialogueUI(false);
         dialogueControls.ShowContinueUI(false);
         PauseController.SetPause(false);
+        textAudio.Stop();
 
     }
 

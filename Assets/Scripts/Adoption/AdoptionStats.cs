@@ -4,7 +4,7 @@ public class AdoptionStats : MonoBehaviour
 {
     public static AdoptionStats Instance { get; private set; }
     public int numCatsAdopted = 0;
-    public GameObject adoptionMessagePrefab;
+    public GameObject adoptionMessagePanel;
 
     private void Awake()
     {

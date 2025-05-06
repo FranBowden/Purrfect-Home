@@ -27,8 +27,9 @@ public class AdoptionDecision : MonoBehaviour
         return template.Replace("{catName}", catName).Replace("{npcName}", npcName);
     }
 
-    public IEnumerator DisplayMessage(string catName, string npcName, GameObject adoptionMsg)
+    private IEnumerator DisplayMessage(string catName, string npcName)
     {
+        GameObject adoptionMsg = AdoptionStats.Instance.adoptionMessagePanel;
         TextMeshProUGUI messageText = adoptionMsg.GetComponentInChildren<TextMeshProUGUI>();
         messageText.text = GetRandomMessage(catName, npcName);
 
@@ -37,33 +38,26 @@ public class AdoptionDecision : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
 
         adoptionMsg.SetActive(false);
+        Destroy(gameObject);
+       
     }
 
     public void AdoptCat()
     {
-
         GameObject cat = PlayerController.Instance.catSelected;
         GameObject npc = PlayerController.Instance.companionNPC;
-        //NPC leaves the shelter
+
         npc.GetComponent<NPCBehaviour>().LeaveShelter();
+        AdoptionStats.Instance.numCatsAdopted++;
 
-        AdoptionStats.Instance.numCatsAdopted++; //increase count of cats adopted
-
-       
-        GameObject adoptionMessageInstance = AdoptionStats.Instance.adoptionMessagePrefab;
-     
-
-        adoptionMessageInstance.SetActive(true);
-        TextMeshProUGUI message = adoptionMessageInstance.GetComponentInChildren<TextMeshProUGUI>();
-
-        string catName = cat.GetComponent<DisplayCatInformation>().catData.catName; 
+        string catName = cat.GetComponent<DisplayCatInformation>().catData.catName;
         string npcName = npc.GetComponent<NPC>().dialogueData[0].NPCName;
-        message.text = GetRandomMessage(catName, npcName);
 
+        StartCoroutine(DisplayMessage(catName, npcName));
 
-        Destroy(gameObject); //destroy gameobject
-        Destroy(cat); //removes the cat (probs best to replace this with an animation that then triggers destroy e.g. fade cat out)
-
+        gameObject.SetActive(false);
+        Destroy(cat);
+        
     }
 
     public void CancelAdoption()

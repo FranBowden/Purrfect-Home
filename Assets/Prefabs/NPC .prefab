@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001218454158987439}
   - component: {fileID: 5323042314687993115}
+  - component: {fileID: 534491201315226562}
   - component: {fileID: 4627274324348923836}
   - component: {fileID: 7360420583192845510}
   - component: {fileID: 4771446320115966325}
@@ -62,6 +63,19 @@ MonoBehaviour:
   waitTime: 1
   loop: 1
   currentWaypointIndex: 0
+--- !u!114 &534491201315226562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696165661822996118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b8bd5e0a418be43a290d6bcc29ea2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adoptionMenuPrefab: {fileID: 0}
 --- !u!114 &4627274324348923836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +108,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 05480b1a312bad848ae1467e0d230f98, type: 2}
   - {fileID: 11400000, guid: 2696ed16731c5f54594e5b1ede4b4a91, type: 2}
   dialogueDataIndex: 0
+  textAudio: {fileID: 0}
 --- !u!212 &4771446320115966325
 SpriteRenderer:
   m_ObjectHideFlags: 0
