@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public bool hasCompanionNPC;
     public GameObject companionNPC;
+    public GameObject catSelected;
 
     private void Awake()
     {

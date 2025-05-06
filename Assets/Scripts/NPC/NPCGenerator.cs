@@ -16,7 +16,6 @@ public class NPCGenerator : MonoBehaviour
     private SpriteLibrary spriteLibrary;
 
     private bool isShelterOpen = false;
-   
 
     public int waitTimeSeconds = 10;
 

@@ -11,6 +11,7 @@ public class AdoptManager : MonoBehaviour
     public void OpenAdoptionMenu()
     {
         Debug.Log("open adoption menu!");
+        PlayerController.Instance.catSelected = gameObject;
         GameObject canvasObject = GameObject.Find("Canvas - Screen Space");
         if (canvasObject != null)
         {
@@ -25,7 +26,6 @@ public class AdoptManager : MonoBehaviour
         }
    
     }
-
 
     private void PassNPCDataIntoMenu(GameObject menu)
     {
@@ -55,4 +55,7 @@ public class AdoptManager : MonoBehaviour
         catImage.sprite = image;
         catName.text = name;
     }
+
+
+
 }
