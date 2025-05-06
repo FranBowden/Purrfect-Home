@@ -2,6 +2,8 @@ using UnityEditor.Rendering;
 using UnityEngine;
 public class NPCBehaviour : MonoBehaviour
 {
+
+
     public bool followPlayer = false;
     public bool leaveRoom = false;
     public bool enterCattery = false;
@@ -9,6 +11,8 @@ public class NPCBehaviour : MonoBehaviour
 
     public void FollowPlayer()
     {
+        PlayerController.Instance.hasCompanionNPC = true;
+        PlayerController.Instance.companionNPC = gameObject;
         followPlayer = true;
         leaveRoom = false;
         enterCattery = false;
@@ -21,6 +25,9 @@ public class NPCBehaviour : MonoBehaviour
         enterCattery = false;
         followPlayer = false;
         waitingRoom = false;
+        PlayerController.Instance.hasCompanionNPC = false;
+        PlayerController.Instance.companionNPC = null;
+
     }
     public void EnterCattery()
     {
@@ -28,6 +35,9 @@ public class NPCBehaviour : MonoBehaviour
         followPlayer= false;
         leaveRoom= false;
         waitingRoom = false;
+        PlayerController.Instance.hasCompanionNPC = false;
+        PlayerController.Instance.companionNPC = null;
+
     }
 
     public void WaitingRoom()
@@ -36,5 +46,8 @@ public class NPCBehaviour : MonoBehaviour
         enterCattery = false;   
         followPlayer=false;
         leaveRoom=false;
+        PlayerController.Instance.hasCompanionNPC = false;
+        PlayerController.Instance.companionNPC = null;
+
     }
 }

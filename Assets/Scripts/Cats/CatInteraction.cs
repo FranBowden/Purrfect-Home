@@ -3,12 +3,18 @@ using UnityEngine.UI;
 
 public class CatPodInteraction : MonoBehaviour, IInteractable
 {
+
+    private AdoptManager adoptManager;
     public bool isMenuOpened { get; private set; } = false;
     private GameObject CatOptionsMenu;
     private Button exitButton;
     private GameObject infoMenu;
-    
 
+
+    private void Start()
+    {
+        adoptManager = GetComponent<AdoptManager>();
+    }
     public bool CanInteract()
     {
         return true;
@@ -21,8 +27,17 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
 
     private void DisplayOptions()
     {
-        if (!isMenuOpened) OpenMenu();
-        
+        if (isMenuOpened || PlayerController.Instance == null)
+            return;
+
+        if (!PlayerController.Instance.hasCompanionNPC)
+        {
+            OpenMenu();
+        }
+        else
+        {
+            adoptManager.OpenAdoptionMenu();
+        }
     }
 
     void OpenMenu()
