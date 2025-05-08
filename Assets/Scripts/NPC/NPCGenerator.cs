@@ -56,7 +56,8 @@ public class NPCGenerator : MonoBehaviour
         if(!isShelterOpen) //if shelter is closed -> its now open
         {
             isShelterOpen = true;
-            StartCoroutine(SpawnNpc()); //spawns a new npc every 10 seconds
+            CreateNPC();
+           // StartCoroutine(SpawnNpc()); //spawns a new npc every 10 seconds
             OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Close Shelter"; 
         } else //shelter was open -> now closed
         {
@@ -65,11 +66,11 @@ public class NPCGenerator : MonoBehaviour
         }
       
     }
-
+    /*
     IEnumerator SpawnNpc()
     {
         CreateNPC();
         yield return new WaitForSeconds(waitTimeSeconds);
        }
-
+    */
 }

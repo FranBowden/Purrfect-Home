@@ -18,8 +18,6 @@ public class NPCDialogue : ScriptableObject
     public Sprite NPCImage;
     public SpriteLibraryAsset NPCSpriteLibraryAsset;
 
-    
-
     private void OnEnable()
     {
         keyWords.Clear(); //clear the list

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CatOptionsMenuController : MonoBehaviour
 {
-    public bool isCatMenuOpened;
 
     public GameObject infoMenu;
     public GameObject foodMenu;
@@ -12,25 +11,18 @@ public class CatOptionsMenuController : MonoBehaviour
 
     void Start()
     {
-        menus = new GameObject[] {infoMenu, foodMenu, cleanMenu};
-        isCatMenuOpened = false;
-}
+        menus = new GameObject[] { infoMenu, foodMenu, cleanMenu };
 
-public void ToggleMenu(GameObject menuToToggle)
+    }
+
+  
+    public void ToggleMenu(GameObject menuToToggle)
     {
         foreach (GameObject menu in menus)
         {
-            if (menu == menuToToggle)
-            {
-                menu.SetActive(!menu.activeSelf);
-            }
-            else
-            {
-                menu.SetActive(false);
-            }
+            menu.SetActive(menu == menuToToggle);
         }
     }
-
 
 
     public void ToggleInfoMenu() => ToggleMenu(infoMenu);

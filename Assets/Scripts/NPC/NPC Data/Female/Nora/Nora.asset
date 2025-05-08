@@ -28,8 +28,6 @@ MonoBehaviour:
     - We don't have any
     nextDialogueIndex: 0100000002000000
   endDialogueLines: 000101
-  autoProgressLines: 000000
+  autoProgressLines: 010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1

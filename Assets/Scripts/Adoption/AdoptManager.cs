@@ -6,7 +6,7 @@ public class AdoptManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject adoptionMenuPrefab;
-    private bool isMenuOpen = false;
+  
 
     public void OpenAdoptionMenu()
     {

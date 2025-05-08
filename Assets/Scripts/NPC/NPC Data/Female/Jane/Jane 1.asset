@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Jane 1
   m_EditorClassIdentifier: 
+  keyWords: []
   NPCName: Jane
   NPCImage: {fileID: -886306568444624806, guid: aa97f278e1b32c34b8735b2d96a4cf79, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 2131071a34084b44ebdd856b462e4ab9, type: 3}
-  keyWords: []
   dialogueLines:
   - Is there any black boy cats you recommend?
   - Thanks! I'll follow you
@@ -27,8 +27,6 @@ MonoBehaviour:
     - No Sorry...
     nextDialogueIndex: 0100000002000000
   endDialogueLines: 000101
-  autoProgressLines: 000000
+  autoProgressLines: 010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1

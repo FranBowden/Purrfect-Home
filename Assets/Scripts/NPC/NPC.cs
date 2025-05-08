@@ -15,13 +15,14 @@ public class NPC : MonoBehaviour, IInteractable
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
     private NPCBehaviour vistorBehaviour;
-    public AudioSource textAudio;
+    private AudioSource textAudio;
     private WayPointMovement wayPointMovement;
 
     private void Start()
     {
         dialogueControls = DialogueController.Instance;
         vistorBehaviour = GetComponent<NPCBehaviour>();
+        textAudio = GameObject.Find("AudioController").transform.Find("Text Audio").GetComponent<AudioSource>();
         wayPointMovement = GetComponent<WayPointMovement>();
     }
     public bool CanInteract()
@@ -81,12 +82,10 @@ public class NPC : MonoBehaviour, IInteractable
             EndDialogue();
             return;
         }
-
         foreach (DialogueChoice dialogueChoice in dialogueData[dialogueDataIndex].choices)
         {
             if (dialogueChoice.dialogueIndex == dialogueIndex)
             {
-                //display choices
                 DisplayChoice(dialogueChoice);
                 return;
             }
@@ -105,13 +104,11 @@ public class NPC : MonoBehaviour, IInteractable
 
     IEnumerator TypeLine()
     {
-        textAudio.Play();
         isTyping = true;
         dialogueControls.SetDialogueText("");
-
-        foreach(char letter in dialogueData[dialogueDataIndex].dialogueLines[dialogueIndex])
+        textAudio.Play();
+        foreach (char letter in dialogueData[dialogueDataIndex].dialogueLines[dialogueIndex])
         {
-
             dialogueControls.SetDialogueText(dialogueControls.dialogueText.text += letter);
             yield return new WaitForSeconds(dialogueData[dialogueDataIndex].typingSpeed);
         }
@@ -119,8 +116,6 @@ public class NPC : MonoBehaviour, IInteractable
         isTyping=false;
         textAudio.Stop();
         dialogueControls.ShowContinueUI(true);
-
-
 
         if (dialogueData[dialogueDataIndex].autoProgressLines.Length > dialogueIndex && dialogueData[dialogueDataIndex].autoProgressLines[dialogueIndex])
         {
@@ -148,7 +143,6 @@ public class NPC : MonoBehaviour, IInteractable
       
         for (int i = 0; i < choice.choices.Length; i++)
         {
-            Debug.Log("INDEX: " + i);
             int choiceIndex = i;
             int nextIndex = choice.nextDialogueIndex[i];
             dialogueControls.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex, choiceIndex));
