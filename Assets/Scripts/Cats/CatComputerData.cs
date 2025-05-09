@@ -1,21 +1,24 @@
 using TMPro;
 using Unity.VisualScripting;
+using Unity.XR.GoogleVr;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CatComputerData : MonoBehaviour
 {
-
+     
     public CatData[] catData;
     [SerializeField] GameObject prefabCatListingItem;
     [SerializeField] Transform prefabCatListing;
     [SerializeField] GameObject prefabCatParent;
     [SerializeField] Transform catPodsPositions;
-
+  
     private GameObject[] CatListing;
     private bool[] podStatus = new bool[3];
     private bool[] listingCatStatus = new bool[3];
     private Transform[] spawnPositions;
+
+
 
     private void Start()
     {
@@ -57,11 +60,7 @@ public class CatComputerData : MonoBehaviour
         return children;
     }
 
-    private void Update()
-    {
-      
-    }
-    private void RefillCatSuggestions()
+    public void RefillCatSuggestions()
     {
               //int i and listingCatStatus.length need to be changed e.g. 0 , 3, 3 to 6, 6 to 9 - there always needs to be a 3 or something like that?
               //the index needs to be updated every time? otherwise its going 0 1 2 0 1 2 resulting in the same cats.
