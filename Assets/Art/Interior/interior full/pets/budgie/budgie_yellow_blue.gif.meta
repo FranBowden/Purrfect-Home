@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      budgie_yellow_blue_0: 3588334519902135281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

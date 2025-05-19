@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TV_drama_0: -2183221255656854583
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

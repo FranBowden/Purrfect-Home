@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hamstercage_purple_0: -4898291389952316064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

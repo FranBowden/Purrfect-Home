@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      aquarium_saltwater_0: -5301879065769047259
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

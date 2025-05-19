@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      yorkie drink_0: -3646418195488673017
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

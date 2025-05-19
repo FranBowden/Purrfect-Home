@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      retroTV_weather_cloudy_0: 206344033517662609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

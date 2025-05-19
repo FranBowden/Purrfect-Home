@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hamstercage_black_0: 3570031589070313450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TV_cooking_breakfast_0: 8049704767881166934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

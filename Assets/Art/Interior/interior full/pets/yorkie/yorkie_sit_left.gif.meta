@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      yorkie_sit_left_0: 6729915085670970148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

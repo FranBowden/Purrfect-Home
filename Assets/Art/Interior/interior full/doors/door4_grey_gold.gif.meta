@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door4_grey_gold_0: -646996611241438747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

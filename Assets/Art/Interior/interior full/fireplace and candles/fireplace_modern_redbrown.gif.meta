@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fireplace_modern_redbrown_0: 3672891292542338332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

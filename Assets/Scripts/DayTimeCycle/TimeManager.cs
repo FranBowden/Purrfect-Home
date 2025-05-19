@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
- //   private float dayDuration = 3f * 10f; //debugging time
-    private float dayDuration = 3f * 60f;
+    private float dayDuration = 3f * 10f; //debugging time
+  //  private float dayDuration = 3f * 60f;
     private float timer = 0f;
     public int day = 1;
     private bool gameOver = false;
     public bool isDayOver = false;
+    private bool hasStartedMusic = false;
+
     private Canvas canvas;
 
     [SerializeField] private CinemachineConfiner2D confiner;
@@ -22,12 +24,15 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TimeOfDayUI;
     [SerializeField] private GameObject newDayPrefab; //this is the black canvas that says DAY 1.. DAY 2
 
+    [SerializeField] private AudioSource backgroundMusic;
+
     private void Start()
     {
         canvas = FindAnyObjectByType<Canvas>();
         GameObject newDay = Instantiate(newDayPrefab); //this will display day 1
         newDay.transform.SetParent(canvas.transform, false); //gets assigned to child of canvas so it shows up
     }
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -39,9 +44,16 @@ public class TimeManager : MonoBehaviour
             EndDay();
         }
 
+        if (timer >= 2.5f && !hasStartedMusic)
+        {
+            hasStartedMusic = true;
 
+            backgroundMusic.loop = true; 
+            backgroundMusic.Play();
+        }
         if (timer < dayDuration)
         {
+           
             string timeOfDay = GetTimeOfDay();
             switch (timeOfDay)
             {
@@ -85,7 +97,14 @@ public class TimeManager : MonoBehaviour
 
     void EndDay()
     {
-        if(day == 7) //once the 7 days are up - the game is over
+        if (hasStartedMusic)
+        {
+            backgroundMusic.Stop();
+            hasStartedMusic = false;
+        }
+
+
+        if (day == 7) //once the 7 days are up - the game is over
         {
             gameOver = true;
             Debug.Log("The game is over");

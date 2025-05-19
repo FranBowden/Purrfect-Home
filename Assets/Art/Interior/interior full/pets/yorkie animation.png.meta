@@ -735,7 +735,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      yorkie animation_0: 8461869054864771825
+      yorkie animation_1: -4748933257192309945
+      yorkie animation_10: -8834762268206328685
+      yorkie animation_11: 2005710169673737087
+      yorkie animation_12: 3415314695452326332
+      yorkie animation_13: -2846923809987913537
+      yorkie animation_14: 1587039578217896973
+      yorkie animation_15: 2312519544520365072
+      yorkie animation_16: -810790731122642114
+      yorkie animation_17: 8794250800120444837
+      yorkie animation_18: 4314114002542419447
+      yorkie animation_19: -2501362809051808382
+      yorkie animation_2: -8245187512712870291
+      yorkie animation_20: 8872829479563932013
+      yorkie animation_21: 8274385822886126394
+      yorkie animation_22: 5671197359603480045
+      yorkie animation_23: 4620361186806300631
+      yorkie animation_3: -2700750224053384445
+      yorkie animation_4: -2663605758069809030
+      yorkie animation_5: -5172249936560780432
+      yorkie animation_6: 8896854716081185537
+      yorkie animation_7: -4742789713463881814
+      yorkie animation_8: -4776293540662745195
+      yorkie animation_9: -5860883638467675289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

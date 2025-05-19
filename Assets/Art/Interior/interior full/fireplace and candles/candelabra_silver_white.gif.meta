@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      candelabra_silver_white_0: -3760137689719167962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

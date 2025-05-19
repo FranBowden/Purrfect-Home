@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      retroTV_weather_sun_0: -6806065747182102035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

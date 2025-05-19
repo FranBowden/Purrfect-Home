@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      yorkie sleep_0: -1193728586228784982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

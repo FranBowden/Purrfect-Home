@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TV_weather_snow_0: 7557238192221676687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

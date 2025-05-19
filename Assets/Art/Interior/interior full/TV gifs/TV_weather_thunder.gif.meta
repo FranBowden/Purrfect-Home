@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TV_weather_thunder_0: 5253790127006719418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
