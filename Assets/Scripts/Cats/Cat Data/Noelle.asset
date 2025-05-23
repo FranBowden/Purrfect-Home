@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
+  m_Name: Noelle
+  m_EditorClassIdentifier: 
+  catName: Noelle
+  catSprite: {fileID: 1412338688431055056, guid: a02b9452e1ba7b9409f98ee68ccb7e7d, type: 3}
+  catAge: 2
+  catDescription: "Noelle is a quiet, soft-furred cat who\u2019s shy around strangers
+    but blossoms into a cuddlebug once she knows you. She adores curling up next
+    to her favourite people and can\u2019t resist playing with anything stringy 
+    shoelaces, hoodie cords, you name it. Oddly enough, she absolutely refuses to
+    eat wet food, no matter the brand. Biscuits only, thank you very much."
+  catListingDescription: 
+  keyWords: []
+  hunger: 0
+  health: 0
+  hygiene: 0
+  OverallGrade: 0

@@ -47,7 +47,7 @@ public class AdoptManager : MonoBehaviour
         CatData Cat = gameObject.GetComponent<DisplayCatInformation>().catData;
 
         string name = Cat.catName;
-        Sprite image = Cat.catPrefab.GetComponent<SpriteRenderer>().sprite;
+        Sprite image = Cat.catSprite;
 
         Image catImage = menu.transform.Find("FrameCat/CatImage").GetComponent<Image>();
         TextMeshProUGUI catName = menu.transform.Find("FrameCat/CatName").GetComponent<TextMeshProUGUI>();

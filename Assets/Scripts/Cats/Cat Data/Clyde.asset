@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
+  m_Name: Clyde
+  m_EditorClassIdentifier: 
+  catName: Clyde
+  catSprite: {fileID: -7604626195403540549, guid: 936bab93bd5c5c049aaf477509899b7d, type: 3}
+  catAge: 1
+  catDescription: "Clyde was abandoned at just one year old, left behind when his
+    previous owners moved out and never came back. He\u2019s still learning to trust
+    people again, but behind those wary eyes is a softie who wants a second chance.
+    Health-wise, he\u2019s in good condition, though a bit underweight from his time
+    on the streets."
+  catListingDescription: 
+  keyWords: []
+  hunger: 0
+  health: 0
+  hygiene: 0
+  OverallGrade: 0

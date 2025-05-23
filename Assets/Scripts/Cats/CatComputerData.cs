@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CatComputerData : MonoBehaviour
-{
-     
+{ 
     public CatData[] catData;
+
+    [SerializeField] GameObject CatPrefab;
+
     [SerializeField] GameObject prefabCatListingItem;
     [SerializeField] Transform prefabCatListing;
     [SerializeField] GameObject prefabCatParent;
@@ -90,9 +92,10 @@ public class CatComputerData : MonoBehaviour
         TextMeshProUGUI catAge = CatListing[index].transform.Find("Cat Information/Cat Age").GetComponent<TextMeshProUGUI>();
 
 
-        catImage.sprite = catData[index].catPrefab.GetComponent<SpriteRenderer>().sprite;
+        catImage.sprite = catData[index].catSprite;
+
         catName.text = catData[index].catName.ToString();
-        catDescription.text = catData[index].catDescription.ToString();
+        catDescription.text = catData[index].catListingDescription.ToString();
         catAge.text = "Age: " + catData[index].catAge.ToString();
     }
 
@@ -123,9 +126,13 @@ public class CatComputerData : MonoBehaviour
 
     private void CatSpawnedInPod(int index, int podIndex)
     {
-       
-        GameObject newCat = Instantiate(catData[index].catPrefab, spawnPositions[index].position , Quaternion.identity);
+
+        //   GameObject newCat = Instantiate(catData[index].catPrefab, spawnPositions[index].position , Quaternion.identity);
+        GameObject newCat = Instantiate(CatPrefab, spawnPositions[index].position, Quaternion.identity);
         newCat.transform.SetParent(prefabCatParent.transform);
+
+        newCat.GetComponent<SpriteRenderer>().sprite = catData[index].catSprite;
+
         if (newCat.TryGetComponent<DisplayCatInformation>(out var catInfo))
         {
             catInfo.catData = catData[index];

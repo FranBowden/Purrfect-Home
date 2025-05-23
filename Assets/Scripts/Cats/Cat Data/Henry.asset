@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
-  m_Name: Percy
+  m_Name: Henry
   m_EditorClassIdentifier: 
-  catName: 'Percy '
+  catName: Henry
   catSprite: {fileID: -7604626195403540549, guid: 64dc43f32c45f0047a4e04ed61bb52e7, type: 3}
-  catAge: 6
-  catDescription: 'A calm, dignified cat who enjoys a quiet home and warm places
-    to nap. Percy is loyal, affectionate in his own time, and a creature of habit. '
+  catAge: 5
+  catDescription: "Henry is a ginger whirlwind of energy and mischief. He\u2019s
+    always climbing something he shouldn\u2019t or ambushing your ankles. At four
+    years old, he hasn\u2019t outgrown his kitten antics and probably never will.
+    He\u2019s healthy, loud, endlessly curious, and definitely thinks he runs the
+    shelter."
   catListingDescription: 
   keyWords: []
-  hunger: 0.1
-  health: 0.3
-  hygiene: 0.3
-  OverallGrade: 66
+  hunger: 0
+  health: 0
+  hygiene: 0
+  OverallGrade: 0

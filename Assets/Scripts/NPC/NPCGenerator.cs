@@ -62,7 +62,7 @@ public class NPCGenerator : MonoBehaviour
         } else //shelter was open -> now closed
         {
             isShelterOpen = false;
-            OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Open Shelter";
+           // OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Open Shelter";
         }
       
     }

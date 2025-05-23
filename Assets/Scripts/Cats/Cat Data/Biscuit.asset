@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Biscuit
   m_EditorClassIdentifier: 
   catName: 'Biscuit '
-  catPrefab: {fileID: 4760517749080014639, guid: 66e73fa6470b0a24f9482ae5ac1f0e79, type: 3}
+  catSprite: {fileID: -7644608086992181289, guid: bdbfac2a8bb0bea47b765ca095d6aa37, type: 3}
   catAge: 4
   catDescription: Big-hearted and laid-back, Biscuit loves a warm lap and a slow
     day. He waddles when he walks and is fond of sleeping on laundry piles. He gets
     on well with older children and calmer pets.
+  catListingDescription: 
+  keyWords: []
   hunger: 0.6
   health: 0.2
   hygiene: 0.4

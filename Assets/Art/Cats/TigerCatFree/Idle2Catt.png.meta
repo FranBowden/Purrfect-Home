@@ -1,46 +1,49 @@
 fileFormatVersion: 2
-guid: 20abb22cd5106c44e90b23f2c9687b86
+guid: 0c1f6016bd61fae40a8cfd2c450dd4f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1436028187438152508
-    second: JumpCattt 2_0
+      213: 3660676557692501871
+    second: Idle2Catt_0
   - first:
-      213: -7212007663200106354
-    second: JumpCattt 2_1
+      213: -1013490962444667904
+    second: Idle2Catt_1
   - first:
-      213: 8628103760597324031
-    second: JumpCattt 2_2
+      213: -1390642320695700548
+    second: Idle2Catt_2
   - first:
-      213: -6633704804256807497
-    second: JumpCattt 2_3
+      213: -3509513983661267817
+    second: Idle2Catt_3
   - first:
-      213: -3050374878317467435
-    second: JumpCattt 2_4
+      213: -1626705169134108682
+    second: Idle2Catt_4
   - first:
-      213: -9093877013046990378
-    second: JumpCattt 2_5
+      213: -5340045053391678615
+    second: Idle2Catt_5
   - first:
-      213: 4082271368024463497
-    second: JumpCattt 2_6
+      213: -1120737930621391619
+    second: Idle2Catt_6
   - first:
-      213: -5247769181334081826
-    second: JumpCattt 2_7
+      213: 3413428551771674110
+    second: Idle2Catt_7
   - first:
-      213: 3385948543907355519
-    second: JumpCattt 2_8
+      213: 7167655755686806601
+    second: Idle2Catt_8
   - first:
-      213: 3218460954793222787
-    second: JumpCattt 2_9
+      213: -6182365416299908886
+    second: Idle2Catt_9
   - first:
-      213: -2378487494332305152
-    second: JumpCattt 2_10
+      213: -8017620090987482495
+    second: Idle2Catt_10
   - first:
-      213: 2707727064141172541
-    second: JumpCattt 2_11
+      213: 4011758502344620213
+    second: Idle2Catt_11
   - first:
-      213: 9168054101011465023
-    second: JumpCattt 2_12
+      213: 4924144981467624238
+    second: Idle2Catt_12
+  - first:
+      213: -6978696193148973975
+    second: Idle2Catt_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +90,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 42
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -162,11 +165,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpCattt 2_0
+      name: Idle2Catt_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 0
+        y: 1
         width: 26
         height: 24
       alignment: 0
@@ -177,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c40d40d8f3321ce0800000000000000
-      internalID: -1436028187438152508
+      spriteID: f6f7cd22fe55dc230800000000000000
+      internalID: 3660676557692501871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpCattt 2_1
+      name: Idle2Catt_1
       rect:
         serializedVersion: 2
         x: 35
-        y: 0
-        width: 27
-        height: 19
+        y: 1
+        width: 26
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,129 +202,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e88009dbd3dc9eb90800000000000000
-      internalID: -7212007663200106354
+      spriteID: 004ba60e65b5fe1f0800000000000000
+      internalID: -1013490962444667904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpCattt 2_2
+      name: Idle2Catt_2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 0
-        width: 27
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ff09d9718ae2db770800000000000000
-      internalID: 8628103760597324031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_3
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 0
-        width: 23
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b5887d90a850f3a0800000000000000
-      internalID: -6633704804256807497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_4
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 2
-        width: 23
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d8ac12b534eaa5d0800000000000000
-      internalID: -3050374878317467435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_5
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 6
-        width: 23
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6d96e3eb90f0cc180800000000000000
-      internalID: -9093877013046990378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_6
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 10
-        width: 27
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98898df2e2427a830800000000000000
-      internalID: 4082271368024463497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_7
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 5
-        width: 27
+        x: 64
+        y: 1
+        width: 29
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -331,19 +224,107 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: edee653cbbd2c27b0800000000000000
-      internalID: -5247769181334081826
+      spriteID: cb3de416d2273bce0800000000000000
+      internalID: -1390642320695700548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpCattt 2_8
+      name: Idle2Catt_3
       rect:
         serializedVersion: 2
-        x: 258
-        y: 2
-        width: 27
+        x: 95
+        y: 1
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 794aa9540a3bb4fc0800000000000000
+      internalID: -3509513983661267817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff387f6448cc69e0800000000000000
+      internalID: -1626705169134108682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963d104115954e5b0800000000000000
+      internalID: -5340045053391678615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_6
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc610f3ac65270f0800000000000000
+      internalID: -1120737930621391619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_7
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1
+        width: 26
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -353,86 +334,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7b595bd24e4dfe20800000000000000
-      internalID: 3385948543907355519
+      spriteID: ef5d686ce2fee5f20800000000000000
+      internalID: 3413428551771674110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpCattt 2_9
+      name: Idle2Catt_8
       rect:
         serializedVersion: 2
-        x: 290
-        y: 0
-        width: 27
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3822aedaf254aac20800000000000000
-      internalID: 3218460954793222787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_10
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 0
-        width: 27
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0013d95c93aedfed0800000000000000
-      internalID: -2378487494332305152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_11
-      rect:
-        serializedVersion: 2
-        x: 354
-        y: 0
-        width: 27
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d3f88de2b67c39520800000000000000
-      internalID: 2707727064141172541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpCattt 2_12
-      rect:
-        serializedVersion: 2
-        x: 387
-        y: 0
+        x: 259
+        y: 1
         width: 26
-        height: 21
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,8 +356,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f330a5461a87b3f70800000000000000
-      internalID: 9168054101011465023
+      spriteID: 9440ff51fe0a87360800000000000000
+      internalID: 7167655755686806601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1
+        width: 29
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0b8c1d863d33aa0800000000000000
+      internalID: -6182365416299908886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 182f7a4a101bbb090800000000000000
+      internalID: -8017620090987482495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_11
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 1
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b877e84a11aca730800000000000000
+      internalID: 4011758502344620213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2376ea75c3165440800000000000000
+      internalID: 4924144981467624238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle2Catt_13
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c0cfb79c0b62f90800000000000000
+      internalID: -6978696193148973975
       vertices: []
       indices: 
       edges: []
@@ -461,19 +486,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      JumpCattt 2_0: -1436028187438152508
-      JumpCattt 2_1: -7212007663200106354
-      JumpCattt 2_10: -2378487494332305152
-      JumpCattt 2_11: 2707727064141172541
-      JumpCattt 2_12: 9168054101011465023
-      JumpCattt 2_2: 8628103760597324031
-      JumpCattt 2_3: -6633704804256807497
-      JumpCattt 2_4: -3050374878317467435
-      JumpCattt 2_5: -9093877013046990378
-      JumpCattt 2_6: 4082271368024463497
-      JumpCattt 2_7: -5247769181334081826
-      JumpCattt 2_8: 3385948543907355519
-      JumpCattt 2_9: 3218460954793222787
+      Idle2Catt_0: 3660676557692501871
+      Idle2Catt_1: -1013490962444667904
+      Idle2Catt_10: -8017620090987482495
+      Idle2Catt_11: 4011758502344620213
+      Idle2Catt_12: 4924144981467624238
+      Idle2Catt_13: -6978696193148973975
+      Idle2Catt_2: -1390642320695700548
+      Idle2Catt_3: -3509513983661267817
+      Idle2Catt_4: -1626705169134108682
+      Idle2Catt_5: -5340045053391678615
+      Idle2Catt_6: -1120737930621391619
+      Idle2Catt_7: 3413428551771674110
+      Idle2Catt_8: 7167655755686806601
+      Idle2Catt_9: -6182365416299908886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

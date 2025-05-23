@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 [CreateAssetMenu(fileName = "NewCat", menuName = "Cats")]
 public class CatData : ScriptableObject
@@ -12,7 +13,10 @@ public class CatData : ScriptableObject
     }
 
     public string catName;
-    public GameObject catPrefab;
+  
+
+    public Sprite catSprite;
+
     public float catAge;
     [TextArea]
     public string catDescription;

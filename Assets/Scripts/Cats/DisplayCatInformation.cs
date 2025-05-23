@@ -25,7 +25,7 @@ public class DisplayCatInformation : MonoBehaviour
             {
                 CatName.text = catData.catName;
                 CatDesc.text = catData.catDescription;
-                CatImage.sprite = catData.catPrefab.GetComponent<SpriteRenderer>().sprite;
+                CatImage.sprite = catData.catSprite;
                 healthBarController.CalculateBar(catData.health, BarType.EnergyBar);
                 healthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
                 healthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);

@@ -5,6 +5,7 @@ using UnityEngine.Windows;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] TimeManager time;
     private Rigidbody2D rb;
     private Animator animator;
     private AudioSource walkingAudio;
@@ -54,10 +55,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            
             walkingAudio.Stop();
             animator.SetBool("isWalking", false);
             animator.SetFloat("LastInputX", lastInput.x);
             animator.SetFloat("LastInputY", lastInput.y);
+
+         
         }
 
 
