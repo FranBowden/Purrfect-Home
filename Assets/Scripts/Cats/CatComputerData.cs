@@ -1,6 +1,6 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
-using Unity.XR.GoogleVr;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,42 +15,38 @@ public class CatComputerData : MonoBehaviour
     [SerializeField] GameObject prefabCatParent;
     [SerializeField] Transform catPodsPositions;
   
-    private GameObject[] CatListing;
-    private bool[] podStatus = new bool[3];
-    private bool[] listingCatStatus = new bool[3];
+    private GameObject[] CatListing; //stores the cats listed on computer for that day
+    private bool[] podStatus;
+    private bool[] listingCatStatus;
     private Transform[] spawnPositions;
 
-
-
+    private readonly int numberOfListings = 3;
+    private int numberOfPods = 3;
+    private int CatDataLength = 0;
+    private List<int> chosenCatIndices = new List<int>();
     private void Start()
     {
-        CatListing = new GameObject[catData.Length];
+        listingCatStatus = new bool[numberOfListings];
+        CatListing = new GameObject[numberOfListings];
 
-        spawnPositions = getSpawnPoints(catPodsPositions);
-
+        podStatus = new bool[numberOfPods];
+        spawnPositions = GetSpawnPoints(catPodsPositions);
+        CatDataLength = catData.Length;
 
         for (int i = 0; i < podStatus.Length; i++)
         {
             podStatus[i] = false; //false means the pod is free
         }
+
         for (int i = 0; i < listingCatStatus.Length; i++)
         {
             listingCatStatus[i] = false; //false means the list is free
         }
 
         RefillCatSuggestions();
-        for (int i = 0; i < CatListing.Length; i++)
-        {
-
-            if (CatListing[i].transform.Find("Button").TryGetComponent<Button>(out var btn))
-            {
-                int index = i;
-                btn.onClick.AddListener(() => CatAccepted(index)); //listens to which button has been pressed
-            }
-        }
     }
 
-    private Transform[] getSpawnPoints(Transform parent)
+    private Transform[] GetSpawnPoints(Transform parent)
     {
         Transform[] children = new Transform[parent.childCount];
 
@@ -64,71 +60,151 @@ public class CatComputerData : MonoBehaviour
 
     public void RefillCatSuggestions()
     {
-              //int i and listingCatStatus.length need to be changed e.g. 0 , 3, 3 to 6, 6 to 9 - there always needs to be a 3 or something like that?
-              //the index needs to be updated every time? otherwise its going 0 1 2 0 1 2 resulting in the same cats.
-        for (int i = 0; i < listingCatStatus.Length; i++) 
-        {
+        ClearCatListings(); //destroy/clear previous cat listings
+
+        //Refill cat listing
+        for (int i = 0; i < listingCatStatus.Length; i++)
+        {   
             if (!listingCatStatus[i]) //if there is a listing spot avaiable then take it
             {
+                //create a new listening prefab 
                 GameObject newCatListing = Instantiate(prefabCatListingItem);
                 newCatListing.transform.SetParent(prefabCatListing, false);
 
-                CatListing[i] = newCatListing; //assigning list to catlisting UI array
+                CatListing[i] = newCatListing; //assigning cat list prefab gameobject to catlisting UI array
+
+                int catIndex = UnityEngine.Random.Range(0, CatDataLength);  //gets a random number
+
+                chosenCatIndices.Add(catIndex); //stores chosen cats in an array to reference later if they get accepted
 
                 SetCatDataToList(i);
                 listingCatStatus[i] = true; //set listing to true
-                
+
+
+                // if (CatListing[i] == null) continue;
+
+                var buttonTransform = CatListing[i].transform.Find("Button");
+                if (buttonTransform.TryGetComponent<Button>(out var btn))
+                {
+                    int index = i;
+                    btn.onClick.AddListener(() => CatAccepted(index));
+                }
+
+
             }
-           
         }
+        
+    }
+
+    private void ClearCatListings()
+{
+     chosenCatIndices.Clear();
+     if (CatListing == null) return;
+
+    for (int i = 0; i < CatListing.Length; i++)
+    {
+        if (CatListing[i] != null)
+        {
+            var buttonTransform = CatListing[i].transform.Find("Button");
+            if (buttonTransform != null && buttonTransform.TryGetComponent<Button>(out var btn))
+            {
+                btn.onClick.RemoveAllListeners();
+            }
+            Destroy(CatListing[i]);
+            listingCatStatus[i] = false;
+            CatListing[i] = null;
+        }
+    }
+
+        CatListing = new GameObject[listingCatStatus.Length];
     }
 
     private void SetCatDataToList(int index) //assigns all the data from catdata into catlist ui data
     {
-        
+
         Image catImage = CatListing[index].transform.Find("Frame/CatImage").GetComponent<Image>();
         TextMeshProUGUI catName = CatListing[index].transform.Find("Cat Information/CatName").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI catDescription = CatListing[index].transform.Find("Cat Information/CatDescription").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI catAge = CatListing[index].transform.Find("Cat Information/Cat Age").GetComponent<TextMeshProUGUI>();
 
 
-        catImage.sprite = catData[index].catSprite;
+        catImage.sprite = catData[chosenCatIndices[index]].catSprite;
 
-        catName.text = catData[index].catName.ToString();
-        catDescription.text = catData[index].catListingDescription.ToString();
-        catAge.text = "Age: " + catData[index].catAge.ToString();
+        catName.text = catData[chosenCatIndices[index]].catName.ToString();
+        catDescription.text = catData[chosenCatIndices[index]].catListingDescription.ToString();
+        catAge.text = "Age: " + catData[chosenCatIndices[index]].catAge.ToString();
     }
 
 
-    private void CatAccepted(int index)
+    private void CatAccepted(int listingIndex)
     {
-        Debug.Log("You accepted " + CatListing[index].transform.Find("Cat Information/CatName").GetComponent<TextMeshProUGUI>().text); //shows the name of the selected cat
-
-
+        if (CatListing[listingIndex] != null)
+        {
+            var nameTransform = CatListing[listingIndex].transform.Find("Cat Information/CatName");
+            if (nameTransform != null)
+            {
+                var nameText = nameTransform.GetComponent<TextMeshProUGUI>();
+                if (nameText != null)
+                {
+                    Debug.Log("You accepted " + nameText.text);
+                }
+                else
+                {
+                    Debug.LogWarning("No text mesh pro component found on cat name");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Cat name transform not found");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Cat listing is null maybe destroyed?");
+        }
         //Set cat to pod
+
+
         int FreePod = GetFreePodIndex();
 
-        if (FreePod != -1)
+        if (FreePod >= 0)
         {
-            CatSpawnedInPod(index, FreePod);
-            Destroy(CatListing[index]);
-            listingCatStatus[index] = false;
-
+            CatSpawnedInPod(chosenCatIndices[listingIndex], FreePod);
+            Destroy(CatListing[listingIndex]);
+            listingCatStatus[listingIndex] = false;
+            MarkPodAsOccupied(FreePod);
 
         }
         else if (FreePod == -1)
         {
-            Debug.Log("No pods are free.");
+            Debug.Log("No pods are free");
+            if (CatListing[listingIndex] != null)
+            {
+                Transform warningTransform = CatListing[listingIndex].transform.Find("WarningError");
+                if (warningTransform != null)
+                {
+                    GameObject WarningUI = warningTransform.gameObject;
+                    WarningUI.SetActive(true);
+                }
+                else
+                {
+                    Debug.LogWarning("WarningError child not found!");
+                }
+
+            }
+
+            for (int i = 0; i < podStatus.Length; i++)
+            {
+                Debug.Log("Pod Status: " + i + " = " + podStatus[i]);
+            }
         }
-     
     }
 
-
+  
     private void CatSpawnedInPod(int index, int podIndex)
     {
 
-        //   GameObject newCat = Instantiate(catData[index].catPrefab, spawnPositions[index].position , Quaternion.identity);
-        GameObject newCat = Instantiate(CatPrefab, spawnPositions[index].position, Quaternion.identity);
+        GameObject newCat = Instantiate(CatPrefab, spawnPositions[podIndex].position, Quaternion.identity);
         newCat.transform.SetParent(prefabCatParent.transform);
 
         newCat.GetComponent<SpriteRenderer>().sprite = catData[index].catSprite;
@@ -138,7 +214,7 @@ public class CatComputerData : MonoBehaviour
             catInfo.catData = catData[index];
         }
 
-        MarkPodAsOccupied(podIndex);
+        
     }
 
     public int GetFreePodIndex()
@@ -150,7 +226,6 @@ public class CatComputerData : MonoBehaviour
                 return i; //return pod index
             }
         }
-
         return -1; //no pod is free
     }
 
@@ -158,7 +233,12 @@ public class CatComputerData : MonoBehaviour
     {
         if (index >= 0 && index < podStatus.Length)
         {
+            Debug.Log("Marking pod " + index + " as occupied");
             podStatus[index] = true; 
+        }
+        else
+        {
+            Debug.Log("Tried to mark invalid pod index: " + index);
         }
     }
 

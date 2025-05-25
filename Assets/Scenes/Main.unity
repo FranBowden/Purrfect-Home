@@ -5858,7 +5858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0117fa3ad52c840b5ddd6682d23771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  computerScreen: {fileID: 1858960011357564547, guid: b7d43fdbbbf2dfe40a9ded047769e8db, type: 3}
+  computerScreen: {fileID: 1205071205}
 --- !u!1 &419597929
 GameObject:
   m_ObjectHideFlags: 0
@@ -11419,6 +11419,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204088559}
   m_CullTransparentMesh: 1
+--- !u!1 &1205071205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1858960011357564547, guid: b7d43fdbbbf2dfe40a9ded047769e8db, type: 3}
+  m_PrefabInstance: {fileID: 7227087054011981036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1205071206 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4775227547321033407, guid: b7d43fdbbbf2dfe40a9ded047769e8db, type: 3}
@@ -11429,7 +11434,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4517516346599659576, guid: b7d43fdbbbf2dfe40a9ded047769e8db, type: 3}
   m_PrefabInstance: {fileID: 7227087054011981036}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1205071205}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f5d71d92dae34b4bbe71091b02d85ec, type: 3}
@@ -17626,7 +17631,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9811321, g: 0.836683, b: 0.50445, a: 1}
+  m_BackGroundColor: {r: 0.9372549, g: 0.81960785, b: 0.6039216, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

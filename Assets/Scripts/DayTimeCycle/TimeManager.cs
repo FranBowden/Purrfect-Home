@@ -48,7 +48,7 @@ public class TimeManager : MonoBehaviour
 
         }
 
-        if (timer >= 2.5f && !hasStartedMusic)
+        if (timer >= 0 && !hasStartedMusic)
         {
             hasStartedMusic = true;
 
@@ -125,7 +125,7 @@ public class TimeManager : MonoBehaviour
         Debug.Log("Game day has ended!");
         day++; //starts a new day
 
-       // catComputerData.RefillCatSuggestions();
+        catComputerData.RefillCatSuggestions();
         GameObject newDay = Instantiate(newDayPrefab);
         newDay.transform.SetParent(canvas.transform, false);
         TextMeshProUGUI text = newDay.transform.Find("Day").GetComponent<TextMeshProUGUI>();

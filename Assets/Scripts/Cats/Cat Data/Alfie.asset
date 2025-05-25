@@ -18,7 +18,8 @@ MonoBehaviour:
   catDescription: "Wise beyond his years, Alfie is calm, gentle, and deeply affectionate.
     He prefers soft-spoken company and loves to sit in windows watching the world.
     He\u2019d suit someone who enjoys a relaxed, companionable pet."
-  catListingDescription: 
+  catListingDescription: Alfie is a calm and affectionate cat who loves quiet company
+    and watching the world go by from a window.
   keyWords: []
   hunger: 0.2
   health: 0.2

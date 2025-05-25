@@ -17,7 +17,8 @@ MonoBehaviour:
   catAge: 6
   catDescription: 'A calm, dignified cat who enjoys a quiet home and warm places
     to nap. Percy is loyal, affectionate in his own time, and a creature of habit. '
-  catListingDescription: 
+  catListingDescription: Percy is a calm, dignified, and loyal cat who loves quiet
+    homes, warm naps, and shows affection on his own terms.
   keyWords: []
   hunger: 0.1
   health: 0.3

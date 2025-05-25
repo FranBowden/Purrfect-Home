@@ -18,7 +18,8 @@ MonoBehaviour:
   catDescription: "Lively and curious, Maisie is always investigating new corners
     and playing with anything that crinkles. She\u2019s affectionate, playful, and
     full of energy \u2014 ideal for a family or someone who loves interactive play."
-  catListingDescription: 
+  catListingDescription: Maisie is an affectionate, playful, and curious cat full
+    of energy, perfect for families or those who enjoy interactive play.
   keyWords: []
   hunger: 0.4
   health: 0.8
