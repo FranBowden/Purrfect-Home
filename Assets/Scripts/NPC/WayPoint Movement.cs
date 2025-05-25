@@ -7,6 +7,7 @@ public class WayPointMovement : MonoBehaviour
     public enum WaypointType { Cattery, Exit, Player, Waiting }
 
     public Transform[] waypointParents;
+    private Transform Player;
 
     [SerializeField] private float speed = 2f;
     [SerializeField] private float followDistance = 1f;
@@ -25,6 +26,7 @@ public class WayPointMovement : MonoBehaviour
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         NPCbehaviour = GetComponent<NPCBehaviour>();
 
         animator = GetComponent<Animator>();
@@ -33,8 +35,7 @@ public class WayPointMovement : MonoBehaviour
         {
             { WaypointType.Cattery, GetChildWaypoints(waypointParents[0]) },
             { WaypointType.Exit,      GetChildWaypoints(waypointParents[1]) },
-                { WaypointType.Player, new Transform[] { waypointParents[2] } },      
-            { WaypointType.Waiting,    GetChildWaypoints(waypointParents[3]) }
+            { WaypointType.Waiting,    GetChildWaypoints(waypointParents[2]) }
         };
     }
 
@@ -84,12 +85,10 @@ public class WayPointMovement : MonoBehaviour
         }
         else if (NPCbehaviour.followPlayer)
         {
-            if (waypointMap.ContainsKey(WaypointType.Player) && waypointMap[WaypointType.Player].Length > 0)
-                target = waypointMap[WaypointType.Player][0];
+            if (Player != null)
+                target = Player;
             else
-            {
-                Debug.LogError("WaypointType.Player key NOT found in waypointMap!");
-            }
+                Debug.LogError("Player transform not assigned!");
         }
 
         else if (NPCbehaviour.leaveRoom)
@@ -126,14 +125,16 @@ public class WayPointMovement : MonoBehaviour
 
         if (NPCbehaviour.followPlayer)
         {
-            if (distanceToTarget > followDistance) //lets the npc have some distance from the player so they dont overlap.
+            Debug.Log($"Following player. Distance: {distanceToTarget}");
+
+            if (distanceToTarget > followDistance) //move towards the player
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
-
-            if(distanceToTarget < followDistance) //if the npc is where the palyer is
+            else //within follow distance and wait
             {
-                StartCoroutine(WaitAtWaypoint()); //wait
+                Debug.Log("Within follow distance, waiting");
+                StartCoroutine(WaitAtWaypoint());
             }
         }
         else

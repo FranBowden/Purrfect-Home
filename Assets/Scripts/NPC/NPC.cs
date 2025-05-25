@@ -177,12 +177,9 @@ public class NPC : MonoBehaviour, IInteractable
                
                     wayPointMovement.waitTime = 0f;
                 } else if (dialogueDataIndex == 1) {
-              
                     vistorBehaviour.FollowPlayer();
                     wayPointMovement.waitTime = 0f;
                 }
-            
-
                 break;
             case 1:
                 vistorBehaviour.LeaveShelter();
