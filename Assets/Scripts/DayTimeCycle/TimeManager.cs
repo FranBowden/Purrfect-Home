@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
 
-    private float dayDuration = 3f * 2f; //debugging time
-  //  private float dayDuration = 3f * 60f;
+  //  private float dayDuration = 3f * 2f; //debugging time
+    private float dayDuration = 3f * 60f;
     private float timer = 0f;
     private bool gameOver = false;
     private bool hasStartedMusic = false;

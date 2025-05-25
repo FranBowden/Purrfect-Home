@@ -32,8 +32,8 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if(dialogueData == null && !isDialogueActive)
-             return;
+        //if(dialogueData == null && !isDialogueActive)
+          //   return;
 
         if (isDialogueActive)
         {
@@ -52,10 +52,9 @@ public class NPC : MonoBehaviour, IInteractable
     {
         isDialogueActive = true;
         dialogueIndex = 0;
-
         dialogueControls.SetNpcInfo(dialogueData[dialogueDataIndex].NPCName, dialogueData[dialogueDataIndex].NPCImage);
         dialogueControls.ShowDialogueUI(true);
-        dialogueControls.ShowContinueUI(false);
+       // dialogueControls.ShowContinueUI(false); causes ERROR with dialogue UI displaying
         PauseController.SetPause(true);
 
         DisplayCurrentLine();
@@ -67,7 +66,7 @@ public class NPC : MonoBehaviour, IInteractable
             //skip typing animation and show the entire line
             StopAllCoroutines();
             dialogueControls.SetDialogueText(dialogueData[dialogueDataIndex].dialogueLines[dialogueIndex]);
-            dialogueControls.ShowContinueUI(true);
+         //   dialogueControls.ShowContinueUI(true);
 
             isTyping = false;
 
@@ -115,7 +114,7 @@ public class NPC : MonoBehaviour, IInteractable
        
         isTyping=false;
         textAudio.Stop();
-        dialogueControls.ShowContinueUI(true);
+       // dialogueControls.ShowContinueUI(true);
 
         if (dialogueData[dialogueDataIndex].autoProgressLines.Length > dialogueIndex && dialogueData[dialogueDataIndex].autoProgressLines[dialogueIndex])
         {
@@ -130,7 +129,7 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = false;
         dialogueControls.SetDialogueText("");
         dialogueControls.ShowDialogueUI(false);
-        dialogueControls.ShowContinueUI(false);
+       // dialogueControls.ShowContinueUI(false);
         PauseController.SetPause(false);
         textAudio.Stop();
 

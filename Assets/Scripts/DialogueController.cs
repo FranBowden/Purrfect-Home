@@ -24,6 +24,9 @@ public class DialogueController : MonoBehaviour
 
     public void SetNpcInfo(string npcName, Sprite portrait)
     {
+        if (nameText == null) Debug.LogError("nameText is not assigned!");
+        if (portraitImage == null) Debug.LogError("portraitImage is not assigned!");
+
         nameText.text = npcName;
         portraitImage.sprite = portrait;
     }
