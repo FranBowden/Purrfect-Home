@@ -10,14 +10,17 @@ public class NPCGenerator : MonoBehaviour
     [SerializeField] private GameObject NPCParent;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject OpenShelterBtnText;
+    [SerializeField] private GameObject TimeOfDayUI;
+    [SerializeField] private GameObject WarningMessage;
+
+    [SerializeField] private TimeManager TimeManager;
     public NpcsDialogues[] NPCData;
 
     private NPC npc;
     private SpriteLibrary spriteLibrary;
 
-    private bool isShelterOpen = false;
-
-    public int waitTimeSeconds = 10;
+    public bool letVisitorsInside = false;
+    private bool isWarningShowing = false;
 
     private void CreateNPC()
     {
@@ -50,27 +53,43 @@ public class NPCGenerator : MonoBehaviour
         public NPCDialogue[] dialogues;
     }
 
-
     public void ShelterOpen()
     {
-        if(!isShelterOpen) //if shelter is closed -> its now open
+        if(!letVisitorsInside) 
         {
-            isShelterOpen = true;
+            TimeOfDayUI.GetComponent<TextMeshProUGUI>().text = "Afternoon";
+            letVisitorsInside = true;
             CreateNPC();
-           // StartCoroutine(SpawnNpc()); //spawns a new npc every 10 seconds
-            OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Close Shelter"; 
-        } else //shelter was open -> now closed
+            OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "End Day"; 
+        } else 
         {
-            isShelterOpen = false;
-           // OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Open Shelter";
+            if(AdoptionStats.Instance.numCatsPlacedInShelter == 0)
+            {
+                ShowWarning();
+            } else
+            {
+                letVisitorsInside = false;
+                TimeManager.EndDay();
+
+            }
         }
       
     }
-    /*
-    IEnumerator SpawnNpc()
+
+    public void ShowWarning()
     {
-        CreateNPC();
-        yield return new WaitForSeconds(waitTimeSeconds);
-       }
-    */
+        if (!isWarningShowing)
+        {
+            StartCoroutine(DisplayWarningMessage());
+        }
+    }
+
+    IEnumerator DisplayWarningMessage()
+    {
+        isWarningShowing = true;
+        WarningMessage.SetActive(true);
+        yield return new WaitForSeconds(3);
+        WarningMessage.SetActive(false);
+        isWarningShowing = false;
+    }
 }

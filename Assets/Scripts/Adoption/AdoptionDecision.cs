@@ -27,19 +27,13 @@ public class AdoptionDecision : MonoBehaviour
         return template.Replace("{catName}", catName).Replace("{npcName}", npcName);
     }
 
-    private IEnumerator DisplayMessage(string catName, string npcName)
+    private void DisplayMessage(string catName, string npcName)
     {
         GameObject adoptionMsg = AdoptionStats.Instance.adoptionMessagePanel;
         TextMeshProUGUI messageText = adoptionMsg.GetComponentInChildren<TextMeshProUGUI>();
         messageText.text = GetRandomMessage(catName, npcName);
 
         adoptionMsg.SetActive(true);
-
-        yield return new WaitForSecondsRealtime(3);
-
-        adoptionMsg.SetActive(false);
-        Destroy(gameObject);
-       
     }
 
     public void AdoptCat()
@@ -53,7 +47,7 @@ public class AdoptionDecision : MonoBehaviour
         string catName = cat.GetComponent<DisplayCatInformation>().catData.catName;
         string npcName = npc.GetComponent<NPC>().dialogueData[0].NPCName;
 
-        StartCoroutine(DisplayMessage(catName, npcName));
+        DisplayMessage(catName, npcName);
 
         gameObject.SetActive(false);
         Destroy(cat);
