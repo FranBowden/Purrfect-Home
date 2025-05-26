@@ -28,6 +28,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private NPCGenerator NPCGenerator;
     [SerializeField] private GameObject NPCParent;
+    [SerializeField] private GameObject GameOverMenu;
     private void Start()
     {
         GameObject newDay = Instantiate(newDayPrefab); //this will display day 1
@@ -71,11 +72,12 @@ public class TimeManager : MonoBehaviour
 
     private void CheckIfGameIsOver()
     {
-        if (day == 7)
+        if (day == 5)
         {
             gameOver = true;
             Debug.Log("The game is over");
             PauseController.SetPause(true);
+            GameOver();
             return;
         }
     }
@@ -108,4 +110,37 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void GameOver()
+    {
+        var rep = AdoptionShelterReputation.Instance;
+        var stats = AdoptionStats.Instance;
+
+        GameOverMenu.SetActive(true);
+        string statsMessage = "You helped " + stats.numCatsAdopted + " find homes! " +
+            "Total points: " + rep.currentPoints;
+
+        //display stars
+        rep.DisplayStars(rep.starRating, GameOverMenu.transform.Find("Stars").GetComponent<Image>());
+
+        TextMeshProUGUI friendlyMessageUI = GameOverMenu.transform.Find("FriendlyMessage").GetComponent<TextMeshProUGUI>();
+        friendlyMessageUI.text = GetFriendlyMessage(rep.starRating);
+
+        TextMeshProUGUI statsMessageUI = GameOverMenu.transform.Find("Stats").GetComponent<TextMeshProUGUI>();
+
+        statsMessageUI.text = statsMessage;
+
+
+    }
+
+    private string GetFriendlyMessage(int starRating)
+    {
+        if (starRating == 5)
+            return "Purrfect job!";
+        else if (starRating >= 3)
+            return "Good try!";
+        else if (starRating > 0)
+            return "Keep trying!";
+        else
+            return "Oops!";
+    }
 }

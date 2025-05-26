@@ -8,10 +8,12 @@ public class AdoptionShelterReputation : MonoBehaviour
 
     [SerializeField] private Sprite[] stars;
     [SerializeField] private GameObject ratingStars;
-    [SerializeField] private float currentPoints = 0;
+    public float currentPoints = 0;
     private readonly float MaxPoints = 1000;
     private Image ratingStarImage;
-   
+
+    public int starRating = 0;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -39,11 +41,11 @@ public class AdoptionShelterReputation : MonoBehaviour
     {
 
         float decimalResult = currentPoints / MaxPoints;
-        int starRating = Mathf.FloorToInt(decimalResult * 5);
-        DisplayStars(starRating);
+        starRating = Mathf.FloorToInt(decimalResult * 5);
+        DisplayStars(starRating, ratingStarImage);
     }
 
-    void DisplayStars(int starRating)
+    public void DisplayStars(int starRating, Image ratingStarImage)
     {
         ratingStarImage.sprite = stars[starRating];
     }
