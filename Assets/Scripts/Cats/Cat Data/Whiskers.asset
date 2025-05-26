@@ -24,6 +24,6 @@ MonoBehaviour:
     issues.
   keyWords: []
   hunger: 1
-  health: 10
-  hygiene: 5
-  OverallGrade: 0
+  health: 1
+  hygiene: 1
+  value: 100

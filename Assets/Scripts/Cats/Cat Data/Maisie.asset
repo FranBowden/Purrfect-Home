@@ -21,7 +21,7 @@ MonoBehaviour:
   catListingDescription: Maisie is an affectionate, playful, and curious cat full
     of energy, perfect for families or those who enjoy interactive play.
   keyWords: []
-  hunger: 0.4
-  health: 0.8
-  hygiene: 0.5
-  OverallGrade: 0
+  hunger: 1
+  health: 1
+  hygiene: 1
+  value: 80

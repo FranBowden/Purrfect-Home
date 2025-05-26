@@ -21,7 +21,7 @@ MonoBehaviour:
   catListingDescription: Biscuit is a gentle, laid-back cat who loves warm laps,
     cozy naps on laundry piles, and enjoys the company of older kids and calm pets.
   keyWords: []
-  hunger: 0.6
-  health: 0.2
-  hygiene: 0.4
-  OverallGrade: 65
+  hunger: 1
+  health: 1
+  hygiene: 1
+  value: 80

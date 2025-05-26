@@ -31,5 +31,5 @@ public class CatData : ScriptableObject
     public float health;
     public float hygiene;
 
-    public char OverallGrade;
+    public int value;
 }

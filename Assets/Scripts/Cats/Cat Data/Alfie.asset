@@ -21,7 +21,7 @@ MonoBehaviour:
   catListingDescription: Alfie is a calm and affectionate cat who loves quiet company
     and watching the world go by from a window.
   keyWords: []
-  hunger: 0.2
-  health: 0.2
-  hygiene: 0.6
-  OverallGrade: 65
+  hunger: 1
+  health: 1
+  hygiene: 1
+  value: 80

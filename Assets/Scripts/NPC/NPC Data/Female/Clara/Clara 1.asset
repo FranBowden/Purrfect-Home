@@ -26,7 +26,7 @@ MonoBehaviour:
     - Follow me!
     - Not sure
     nextDialogueIndex: 0100000002000000
-  endDialogueLines: 010101
+  endDialogueLines: 000101
   autoProgressLines: 010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05

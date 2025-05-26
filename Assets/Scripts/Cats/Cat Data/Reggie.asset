@@ -23,7 +23,7 @@ MonoBehaviour:
   catListingDescription: Reggie is a gentle, anxious black-and-white cat who loves
     quiet, safe spaces and becomes deeply affectionate once he feels secure.
   keyWords: []
-  hunger: 0
-  health: 0
-  hygiene: 0
-  OverallGrade: 0
+  hunger: 1
+  health: 1
+  hygiene: 1
+  value: 120

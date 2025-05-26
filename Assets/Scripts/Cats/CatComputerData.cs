@@ -153,6 +153,8 @@ public class CatComputerData : MonoBehaviour
 
     private void CatAccepted(int listingIndex)
     {
+        AdoptionShelterReputation.Instance.SetCurrentPoints(10); //10 points for just accepting the cat into the shelter
+           
         if (CatListing[listingIndex] != null)
         {
             var nameTransform = CatListing[listingIndex].transform.Find("Cat Information/CatName");

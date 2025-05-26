@@ -23,6 +23,6 @@ MonoBehaviour:
     fully recovered and just needs occasional check-ups."
   keyWords: []
   hunger: 1
-  health: 7
+  health: 1
   hygiene: 1
-  OverallGrade: 0
+  value: 70

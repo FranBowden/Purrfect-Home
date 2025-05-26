@@ -41,13 +41,16 @@ public class AdoptionDecision : MonoBehaviour
         GameObject cat = PlayerController.Instance.catSelected;
         GameObject npc = PlayerController.Instance.companionNPC;
 
+        var catData = cat.GetComponent<DisplayCatInformation>().catData;
+
         npc.GetComponent<NPCBehaviour>().LeaveShelter();
         AdoptionStats.Instance.numCatsAdopted++;
 
-        string catName = cat.GetComponent<DisplayCatInformation>().catData.catName;
+        string catName = catData.catName;
         string npcName = npc.GetComponent<NPC>().dialogueData[0].NPCName;
 
         DisplayMessage(catName, npcName);
+        AdoptionShelterReputation.Instance.SetCurrentPoints(catData.value);
 
         gameObject.SetActive(false);
         Destroy(cat);
