@@ -38,14 +38,17 @@ public class NPCGenerator : MonoBehaviour
             spriteLibrary.spriteLibraryAsset = NPCData[index].dialogues[i].NPCSpriteLibraryAsset; //and assign its animation
         }
     }
+    /*
 
     private void Update() //test purposes
     {
+     
         if (Input.GetKeyDown(KeyCode.F))
         {
             CreateNPC();
         }
     }
+    */
 
     [System.Serializable]
     public class NpcsDialogues
@@ -63,17 +66,24 @@ public class NPCGenerator : MonoBehaviour
             OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "End Day"; 
         } else 
         {
-            if(AdoptionStats.Instance.numCatsPlacedInShelter == 0)
+            if(AdoptionStats.Instance.CatsShelteredToday == 0)
             {
                 ShowWarning();
             } else
             {
-                letVisitorsInside = false;
                 TimeManager.EndDay();
-
             }
         }
-      
+    }
+
+    public void ResetShelter()
+    {
+        letVisitorsInside = false;
+        TimeOfDayUI.GetComponent<TextMeshProUGUI>().text = "Morning";
+        OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "Open Shelter";
+
+
+
     }
 
     public void ShowWarning()

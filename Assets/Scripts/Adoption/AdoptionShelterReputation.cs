@@ -41,7 +41,7 @@ public class AdoptionShelterReputation : MonoBehaviour
     {
 
         float decimalResult = currentPoints / MaxPoints;
-        starRating = Mathf.FloorToInt(decimalResult * 5);
+        starRating = Mathf.RoundToInt(decimalResult * 5);
         DisplayStars(starRating, ratingStarImage);
     }
 

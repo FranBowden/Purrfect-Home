@@ -25,8 +25,18 @@ public class CatComputerData : MonoBehaviour
     private int CatDataLength = 0;
     private List<int> chosenCatIndices;
 
+    public static CatComputerData Instance { get; private set; }
+
     private void Awake()
     {
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
         listingCatStatus = new bool[numberOfListings];
         CatListing = new GameObject[numberOfListings];
         chosenCatIndices = new List<int>();
@@ -153,8 +163,7 @@ public class CatComputerData : MonoBehaviour
 
     private void CatAccepted(int listingIndex)
     {
-        AdoptionShelterReputation.Instance.SetCurrentPoints(10); //10 points for just accepting the cat into the shelter
-           
+       
         if (CatListing[listingIndex] != null)
         {
             var nameTransform = CatListing[listingIndex].transform.Find("Cat Information/CatName");
@@ -179,6 +188,11 @@ public class CatComputerData : MonoBehaviour
                 Destroy(CatListing[listingIndex]);
                 listingCatStatus[listingIndex] = false;
                 MarkPodAsOccupied(FreePod);
+
+
+
+                AdoptionShelterReputation.Instance.SetCurrentPoints(10); //10 points for just accepting the cat into the shelter
+                AdoptionStats.Instance.CatsShelteredToday++;
 
             }
             else if (FreePod == -1)
@@ -219,9 +233,12 @@ public class CatComputerData : MonoBehaviour
         if (newCat.TryGetComponent<DisplayCatInformation>(out var catInfo))
         {
             catInfo.catData = catData[index];
+
+            catInfo.catData.catPodAssigned = podIndex; //assign the cat a pod
+
         }
 
-        
+
     }
 
     public int GetFreePodIndex()

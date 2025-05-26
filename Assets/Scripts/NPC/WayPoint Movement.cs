@@ -125,7 +125,7 @@ public class WayPointMovement : MonoBehaviour
 
         if (NPCbehaviour.followPlayer)
         {
-            Debug.Log($"Following player. Distance: {distanceToTarget}");
+        //    Debug.Log($"Following player. Distance: {distanceToTarget}");
 
             if (distanceToTarget > followDistance) //move towards the player
             {
@@ -133,7 +133,7 @@ public class WayPointMovement : MonoBehaviour
             }
             else //within follow distance and wait
             {
-                Debug.Log("Within follow distance, waiting");
+              //  Debug.Log("Within follow distance, waiting");
                 StartCoroutine(WaitAtWaypoint());
             }
         }
@@ -199,7 +199,7 @@ public class WayPointMovement : MonoBehaviour
         {
             currentWaypointIndex = GetNextWaypointIndex(WaypointType.Exit, currentWaypointIndex, loop);
 
-            Debug.Log("currentWaypointIndex:" + currentWaypointIndex);
+        //    Debug.Log("currentWaypointIndex:" + currentWaypointIndex);
         }
         else if (NPCbehaviour.waitingRoom)
         {

@@ -7,8 +7,14 @@ public class ButtonNavigation : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void settings()
+    public void MainMenu()
     {
+        SceneManager.LoadScene(0);
+
+    }
+    public void MainGame()
+    {
+        SceneManager.LoadScene(2);
 
     }
 

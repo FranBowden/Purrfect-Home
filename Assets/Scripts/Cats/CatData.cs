@@ -32,4 +32,6 @@ public class CatData : ScriptableObject
     public float hygiene;
 
     public int value;
+
+    public int catPodAssigned;
 }

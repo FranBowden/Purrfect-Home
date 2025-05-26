@@ -8,16 +8,6 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-
-  //  private float dayDuration = 3f * 2f; //debugging time
-  //  private float dayDuration = 3f * 60f;
-    private float timer = 0f;
-    private bool gameOver = false;
-    private bool hasStartedMusic = false;
-   
-    public bool isDayOver = false;
-    public int day = 1;
-
     [SerializeField] private CatComputerData catComputerData;
     [SerializeField] private TextMeshProUGUI DayUI; //this is the day textmeshpro
     [SerializeField] private TextMeshProUGUI TimeOfDayUI;
@@ -29,6 +19,10 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private NPCGenerator NPCGenerator;
     [SerializeField] private GameObject NPCParent;
     [SerializeField] private GameObject GameOverMenu;
+
+    private bool hasStartedMusic = false;
+    public bool isDayOver = false;
+    public int day = 1;
     private void Start()
     {
         GameObject newDay = Instantiate(newDayPrefab); //this will display day 1
@@ -41,19 +35,22 @@ public class TimeManager : MonoBehaviour
         HandleDayEndState();
         ResetPlayerPosition();
         StopBackgroundMusicIfPlaying();
-        CheckIfGameIsOver();
-        StartNewDay();
+        if (day < 5)
+        {
+            StartNewDay();
+        } else
+        {
+            CheckIfGameIsOver();
+        }
     }
 
     private void HandleDayEndState()
     {
         isDayOver = true;
         EndDayButton.SetActive(false);
-        NPCGenerator.letVisitorsInside = false;
-
-        //destroy all NPCs
+        NPCGenerator.ResetShelter();
+        AdoptionStats.Instance.CatsShelteredToday = 0;
         DestroyAllNPCs();
-
     }
 
     private void ResetPlayerPosition()
@@ -72,14 +69,11 @@ public class TimeManager : MonoBehaviour
 
     private void CheckIfGameIsOver()
     {
-        if (day == 5)
-        {
-            gameOver = true;
             Debug.Log("The game is over");
             PauseController.SetPause(true);
             GameOver();
             return;
-        }
+        
     }
 
     private void StartNewDay()
@@ -89,7 +83,6 @@ public class TimeManager : MonoBehaviour
 
         catComputerData.RefillCatSuggestions();
         ShowNewDayUI();
-        timer = -2.5f;
         DayUI.text = "Day: " + day.ToString();
         isDayOver = false;
     }
@@ -116,7 +109,7 @@ public class TimeManager : MonoBehaviour
         var stats = AdoptionStats.Instance;
 
         GameOverMenu.SetActive(true);
-        string statsMessage = "You helped " + stats.numCatsAdopted + " find homes! " +
+        string statsMessage = "You helped " + stats.numCatsAdopted + " cats find a home! " +
             "Total points: " + rep.currentPoints;
 
         //display stars
@@ -141,6 +134,6 @@ public class TimeManager : MonoBehaviour
         else if (starRating > 0)
             return "Keep trying!";
         else
-            return "Oops!";
+            return "Oops! Try again";
     }
 }

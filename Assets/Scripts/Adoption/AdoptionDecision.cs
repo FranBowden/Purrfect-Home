@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AdoptionDecision : MonoBehaviour
 {
+   
 
     private List<string> messages = new List<string>
     {
@@ -38,23 +39,33 @@ public class AdoptionDecision : MonoBehaviour
 
     public void AdoptCat()
     {
+
         GameObject cat = PlayerController.Instance.catSelected;
         GameObject npc = PlayerController.Instance.companionNPC;
 
-        var catData = cat.GetComponent<DisplayCatInformation>().catData;
+        CatData catData = cat.GetComponent<DisplayCatInformation>().catData;
 
+        Debug.Log("Cat pod assigned: " + catData.catPodAssigned);
+
+
+
+        CatComputerData.Instance.MarkPodAsFree(catData.catPodAssigned);
+    
         npc.GetComponent<NPCBehaviour>().LeaveShelter();
-        AdoptionStats.Instance.numCatsAdopted++;
-
+      
         string catName = catData.catName;
         string npcName = npc.GetComponent<NPC>().dialogueData[0].NPCName;
 
         DisplayMessage(catName, npcName);
         AdoptionShelterReputation.Instance.SetCurrentPoints(catData.value);
+        AdoptionStats.Instance.numCatsAdopted++;
 
         gameObject.SetActive(false);
         Destroy(cat);
-        
+
+
+
+
     }
 
     public void CancelAdoption()
