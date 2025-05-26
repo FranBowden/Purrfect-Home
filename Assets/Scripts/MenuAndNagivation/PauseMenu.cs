@@ -9,9 +9,11 @@ public class PauseMenu : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    //needed for input system
+    private void Start()
     {
-        gameObject.SetActive(false); 
+        gameObject.SetActive(false);
+
     }
     public void pauseMenu()
     {

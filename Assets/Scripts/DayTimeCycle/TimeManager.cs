@@ -12,7 +12,6 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DayUI; //this is the day textmeshpro
     [SerializeField] private TextMeshProUGUI TimeOfDayUI;
     [SerializeField] private GameObject newDayPrefab; //this is the black canvas that says DAY 1.. DAY 2
-    [SerializeField] private GameObject EndDayButton;
     [SerializeField] private GameObject player;
     [SerializeField] private AudioSource backgroundMusic;
     [SerializeField] private Canvas canvas;
@@ -46,10 +45,14 @@ public class TimeManager : MonoBehaviour
 
     private void HandleDayEndState()
     {
+        if(AdoptionStats.Instance.CatsAdoptedToday == 0)
+        {
+            AdoptionShelterReputation.Instance.RemovePoints(100); //100 points get removed for not adopting any cats...
+        }
         isDayOver = true;
-        EndDayButton.SetActive(false);
         NPCGenerator.ResetShelter();
         AdoptionStats.Instance.CatsShelteredToday = 0;
+        AdoptionStats.Instance.CatsAdoptedToday = 0;
         DestroyAllNPCs();
     }
 

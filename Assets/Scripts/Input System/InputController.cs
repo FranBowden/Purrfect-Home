@@ -14,14 +14,11 @@ public class InputController : MonoBehaviour
         inputSystem = new InputSystem_Actions();
         player = inputSystem.Player;
         movement = GetComponent<PlayerMovement>();
-
       
         player.Interact.performed += ctx => ID.interactableInRange?.Interact();
-        player.Sprint.started += ctx => movement.StartSprinting(); // When Shift is pressed
+        player.Sprint.started += ctx => movement.StartSprinting();
         player.Sprint.canceled += ctx => movement.StopSprinting();
 
-
-        player.Journal.performed += ctx => Journal.Instance.ToggleJournal();
         player.Escape.performed += ctx => PauseMenu.Instance.pauseMenu();
     }
 

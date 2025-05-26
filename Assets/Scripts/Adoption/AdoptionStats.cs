@@ -6,6 +6,7 @@ public class AdoptionStats : MonoBehaviour
     public int numCatsAdopted = 0;
     public int numCatsPlacedInShelter = 0;
     public int CatsShelteredToday = 0;
+    public int CatsAdoptedToday = 0;
    
     public GameObject adoptionMessagePanel;
 

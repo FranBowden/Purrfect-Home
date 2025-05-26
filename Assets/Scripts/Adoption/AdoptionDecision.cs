@@ -59,6 +59,7 @@ public class AdoptionDecision : MonoBehaviour
         DisplayMessage(catName, npcName);
         AdoptionShelterReputation.Instance.SetCurrentPoints(catData.value);
         AdoptionStats.Instance.numCatsAdopted++;
+        AdoptionStats.Instance.CatsAdoptedToday++;
 
         gameObject.SetActive(false);
         Destroy(cat);
