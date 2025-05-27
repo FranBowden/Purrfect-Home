@@ -17,7 +17,7 @@ MonoBehaviour:
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 2131071a34084b44ebdd856b462e4ab9, type: 3}
   desiredTraits: 020000000b000000
   dialogueLines:
-  - Are there any black male cats you recommend?
+  - Are there any black cats you recommend?
   - Thanks! I'll follow you
   - Aw okay, maybe next time
   choices:

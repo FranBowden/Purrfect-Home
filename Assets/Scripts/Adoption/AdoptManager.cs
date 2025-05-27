@@ -1,4 +1,6 @@
+using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +8,7 @@ public class AdoptManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject adoptionMenuPrefab;
+    public float adoptionChance = 0;
   
 
     public void OpenAdoptionMenu()
@@ -21,13 +24,12 @@ public class AdoptManager : MonoBehaviour
                 GameObject newMenu = Instantiate(adoptionMenuPrefab, canvas.transform);
                 PassNPCDataIntoMenu(newMenu);
                 PassCatDataIntoMenu(newMenu);
+                CatAdoptionPrediction(newMenu);
             } else
             {
                 Debug.Log("Cannot find canvas");
             }
-
         }
-   
     }
 
     private void PassNPCDataIntoMenu(GameObject menu)
@@ -59,6 +61,32 @@ public class AdoptManager : MonoBehaviour
         catName.text = name;
     }
 
+    private void CatAdoptionPrediction(GameObject menu)
+    {
+        CatData Cat = gameObject.GetComponent<DisplayCatInformation>().catData;
+        GameObject NPC = PlayerController.Instance.companionNPC;
+        TextMeshProUGUI percentage = menu.transform.Find("Adoption Likelihood/Percentage").GetComponent<TextMeshProUGUI>();
 
+        NPCDialogue npcData = NPC.GetComponent<NPC>().dialogueData[1];
+
+        int matchCount = 0;
+
+        //checks if the keywords match and then counts how many do
+        foreach (KeywordType desired in npcData.desiredTraits)
+        {
+            if (Cat.traits.Contains(desired))
+            {
+                matchCount++;
+            }
+        }
+
+
+        //calculates the adoptability
+        float matchRatio = (float)matchCount / npcData.desiredTraits.Count;
+
+        adoptionChance = Mathf.Lerp(30f, 100f, matchRatio);
+
+        percentage.text = adoptionChance.ToString("F1") + "%";
+    }
 
 }

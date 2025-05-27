@@ -6,7 +6,6 @@ using UnityEngine;
 public class AdoptionDecision : MonoBehaviour
 {
    
-
     private List<string> messages = new List<string>
     {
         "{catName} has found a loving home with {npcName}!",
@@ -37,32 +36,55 @@ public class AdoptionDecision : MonoBehaviour
         adoptionMsg.SetActive(true);
     }
 
+    private void FailedAdoptionMessage ()
+    {
+        GameObject adoptionMsg = AdoptionStats.Instance.adoptionMessagePanel;
+        TextMeshProUGUI messageText = adoptionMsg.GetComponentInChildren<TextMeshProUGUI>();
+        messageText.text = "The adoption was unsuccessful...";
+
+        adoptionMsg.SetActive(true);
+
+    }
     public void AdoptCat()
     {
-
-        GameObject cat = PlayerController.Instance.catSelected;
         GameObject npc = PlayerController.Instance.companionNPC;
+        if (TakeChance())
+        {
+            GameObject cat = PlayerController.Instance.catSelected;
 
-        CatData catData = cat.GetComponent<DisplayCatInformation>().catData;
+            CatData catData = cat.GetComponent<DisplayCatInformation>().catData;
 
-        Debug.Log("Cat pod assigned: " + catData.catPodAssigned);
+            Debug.Log("Cat pod assigned: " + catData.catPodAssigned);
 
+            CatComputerData.Instance.MarkPodAsFree(catData.catPodAssigned);
 
-        CatComputerData.Instance.MarkPodAsFree(catData.catPodAssigned);
-    
-        npc.GetComponent<NPCBehaviour>().LeaveShelter();
-      
-        string catName = catData.catName;
-        string npcName = npc.GetComponent<NPC>().dialogueData[0].NPCName;
+            npc.GetComponent<NPCBehaviour>().LeaveShelter();
 
-        DisplayMessage(catName, npcName);
-        AdoptionShelterReputation.Instance.SetCurrentPoints(catData.value);
-        AdoptionStats.Instance.numCatsAdopted++;
-        AdoptionStats.Instance.CatsAdoptedToday++;
+            string catName = catData.catName;
+            string npcName = npc.GetComponent<NPC>().dialogueData[0].NPCName;
 
-        gameObject.SetActive(false);
-        Destroy(cat);
+            DisplayMessage(catName, npcName);
+            AdoptionShelterReputation.Instance.SetCurrentPoints(catData.value);
+            AdoptionStats.Instance.numCatsAdopted++;
+            AdoptionStats.Instance.CatsAdoptedToday++;
 
+            gameObject.SetActive(false);
+            Destroy(cat);
+        }
+        else
+        {
+            Debug.Log("Adoption was unsucessful....");
+            FailedAdoptionMessage();
+            gameObject.SetActive(false);
+            npc.GetComponent<NPCBehaviour>().LeaveShelter();
+
+        }
+    }
+
+    bool TakeChance()
+    {
+        float chance = PlayerController.Instance.catSelected.GetComponent<AdoptManager>().adoptionChance;
+        return Random.Range(0f, 100f) <= chance;
     }
 
     public void CancelAdoption()
