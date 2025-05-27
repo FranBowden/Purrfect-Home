@@ -21,7 +21,7 @@ MonoBehaviour:
     healthy, loud, endlessly curious, and definitely thinks he runs the shelter."
   catListingDescription: Henry is a lively, mischievous ginger cat full of energy,
     curiosity, and playful antics who loves to be the center of attention.
-  keyWords: []
+  traits: 0b000000090000000d0000000e000000
   hunger: 1
   health: 1
   hygiene: 1

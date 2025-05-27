@@ -19,8 +19,9 @@ MonoBehaviour:
     to nap. Percy is loyal, affectionate in his own time, and a creature of habit. '
   catListingDescription: Percy is a calm, dignified, and loyal cat who loves quiet
     homes, warm naps, and shows affection on his own terms.
-  keyWords: []
+  traits: 0d0000000b0000000c000000
   hunger: 1
   health: 1
   hygiene: 1
   value: 70
+  catPodAssigned: 0

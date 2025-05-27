@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cleo
   m_EditorClassIdentifier: 
   catName: Cleo
-  catSprite: {fileID: 0}
+  catSprite: {fileID: 5705233417441561639, guid: b6be68d964609ca49b230a8f7989a1ad, type: 3}
   catAge: 15
   catDescription: "Cleo was handed in after her family moved to Australia and sadly
     couldn\u2019t take her with them. She\u2019s a dignified older lady with early-stage
@@ -22,8 +22,9 @@ MonoBehaviour:
     best spot in the sun."
   catListingDescription: Cleo is a dignified, affectionate older cat with early-stage
     kidney disease who thrives on quiet company, a special diet, and sunny spots.
-  keyWords: []
+  traits: 00000000120000000c0000000a000000
   hunger: 1
   health: 1
   hygiene: 1
   value: 90
+  catPodAssigned: 0

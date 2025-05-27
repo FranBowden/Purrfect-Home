@@ -21,8 +21,9 @@ MonoBehaviour:
     check-ups to monitor her injury."
   catListingDescription: "Bella is a sweet, playful cat with a slight limp who\u2019s
     fully recovered and just needs occasional check-ups."
-  keyWords: []
+  traits: 090000000a000000
   hunger: 1
   health: 1
   hygiene: 1
   value: 70
+  catPodAssigned: 0

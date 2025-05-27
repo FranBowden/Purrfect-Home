@@ -20,7 +20,7 @@ MonoBehaviour:
     full of energy. Ideal for a family or someone who loves interactive play."
   catListingDescription: Maisie is an affectionate, playful, and curious cat full
     of energy, perfect for families or those who enjoy interactive play.
-  keyWords: []
+  traits: 0d0000001100000009000000010000000a000000
   hunger: 1
   health: 1
   hygiene: 1

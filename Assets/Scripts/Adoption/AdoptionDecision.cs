@@ -48,7 +48,6 @@ public class AdoptionDecision : MonoBehaviour
         Debug.Log("Cat pod assigned: " + catData.catPodAssigned);
 
 
-
         CatComputerData.Instance.MarkPodAsFree(catData.catPodAssigned);
     
         npc.GetComponent<NPCBehaviour>().LeaveShelter();
@@ -63,9 +62,6 @@ public class AdoptionDecision : MonoBehaviour
 
         gameObject.SetActive(false);
         Destroy(cat);
-
-
-
 
     }
 

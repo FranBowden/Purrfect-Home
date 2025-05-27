@@ -12,16 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Rachel
   m_EditorClassIdentifier: 
-  keyWords:
-  - keyword: 10
-    isWanted: 1
-  - keyword: 9
-    isWanted: 1
-  - keyword: 14
-    isWanted: 1
   NPCName: Rachel
   NPCImage: {fileID: -3665074108919144920, guid: e874f8ff49fb4bd4f84ad95ceed3f427, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: eb243b09406cb0244b9e97e7ac51170b, type: 3}
+  desiredTraits: 0a00000009000000
   dialogueLines:
   - Hi!!!!!
   - I REALLY want to adopt a little girl cat that is SUPER playful! Can I take a

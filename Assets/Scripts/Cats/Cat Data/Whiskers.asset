@@ -22,8 +22,9 @@ MonoBehaviour:
   catListingDescription: Whiskers is an energetic, brave cat recovering from a hoarding
     rescue, learning to socialize and thriving with stable medication for minor respiratory
     issues.
-  keyWords: []
+  traits: 010000000b0000000e000000
   hunger: 1
   health: 1
   hygiene: 1
   value: 100
+  catPodAssigned: 1

@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &110782064272088406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1395,9 +1395,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AdoptionDecision, Assembly-CSharp
-        m_MethodName: cancelAdoption
+      - m_Target: {fileID: 4296602446325366302}
+        m_TargetAssemblyTypeName: CloseMenu, Assembly-CSharp
+        m_MethodName: destroyMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1603,7 +1603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4379442988091116726}
         m_TargetAssemblyTypeName: AdoptionDecision, Assembly-CSharp
         m_MethodName: AdoptCat
         m_Mode: 1

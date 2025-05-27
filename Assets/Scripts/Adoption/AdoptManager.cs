@@ -21,6 +21,9 @@ public class AdoptManager : MonoBehaviour
                 GameObject newMenu = Instantiate(adoptionMenuPrefab, canvas.transform);
                 PassNPCDataIntoMenu(newMenu);
                 PassCatDataIntoMenu(newMenu);
+            } else
+            {
+                Debug.Log("Cannot find canvas");
             }
 
         }

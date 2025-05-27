@@ -20,8 +20,9 @@ MonoBehaviour:
     He\u2019d suit someone who enjoys a relaxed, companionable pet."
   catListingDescription: Alfie is a calm and affectionate cat who loves quiet company
     and watching the world go by from a window.
-  keyWords: []
+  traits: 120000000d0000000b000000
   hunger: 1
   health: 1
   hygiene: 1
   value: 80
+  catPodAssigned: 0

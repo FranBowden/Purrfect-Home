@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Rachel 1
   m_EditorClassIdentifier: 
-  keyWords: []
   NPCName: Rachel
   NPCImage: {fileID: -3665074108919144920, guid: e874f8ff49fb4bd4f84ad95ceed3f427, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: eb243b09406cb0244b9e97e7ac51170b, type: 3}
+  desiredTraits: 0a00000009000000
   dialogueLines:
   - Is there a playful cat I can adopt? I'm so excited!
   - "Yay, thank you! I can\u2019t wait to meet them!"

@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Jane
   m_EditorClassIdentifier: 
-  keyWords:
-  - keyword: 2
-    isWanted: 1
-  - keyword: 11
-    isWanted: 1
   NPCName: Jane
   NPCImage: {fileID: -886306568444624806, guid: aa97f278e1b32c34b8735b2d96a4cf79, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 2131071a34084b44ebdd856b462e4ab9, type: 3}
+  desiredTraits: 020000000b000000
   dialogueLines:
   - Hello. I'm interested in adopting a black boy cat. Can I go up and visit?
   - Oh thank you! I will take a look!

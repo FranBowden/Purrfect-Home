@@ -21,8 +21,9 @@ MonoBehaviour:
     with people."
   catListingDescription: Luna is a gentle cat recovering from neglect, steadily gaining
     weight, with mild dental issues, who enjoys slow, patient bonding.
-  keyWords: []
+  traits: 0a0000000000000012000000
   hunger: 1
   health: 1
   hygiene: 1
   value: 80
+  catPodAssigned: 0
