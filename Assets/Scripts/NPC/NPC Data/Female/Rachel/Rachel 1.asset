@@ -12,20 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Rachel 1
   m_EditorClassIdentifier: 
-  keyWords:
-  - keyword: 10
-    isWanted: 1
-  - keyword: 9
-    isWanted: 1
-  - keyword: 14
-    isWanted: 1
+  keyWords: []
   NPCName: Rachel
   NPCImage: {fileID: -3665074108919144920, guid: e874f8ff49fb4bd4f84ad95ceed3f427, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: eb243b09406cb0244b9e97e7ac51170b, type: 3}
   dialogueLines:
-  - Hi!!!!!
-  - I REALLY want to adopt a little girl cat that is SUPER playful! Can I take a
-    look?
+  - Is there a playful cat I can adopt? I'm so excited!
   - "Yay, thank you! I can\u2019t wait to meet them!"
   - Aww, bummer. Well, maybe next time!
   choices:
@@ -34,7 +26,7 @@ MonoBehaviour:
     - Yeah!
     - No, sorry
     nextDialogueIndex: 0200000003000000
-  endDialogueLines: 00000101
-  autoProgressLines: 01010101
+  endDialogueLines: 000101
+  autoProgressLines: 010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05

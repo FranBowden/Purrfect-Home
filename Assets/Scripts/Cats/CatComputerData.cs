@@ -22,11 +22,12 @@ public class CatComputerData : MonoBehaviour
 
     private readonly int numberOfListings = 3;
     private int numberOfPods = 3;
-    private int CatDataLength = 0;
+    
     private List<int> chosenCatIndices;
+    private List<int> previousCats = new List<int>();
+
 
     public static CatComputerData Instance { get; private set; }
-
     private void Awake()
     {
 
@@ -42,7 +43,7 @@ public class CatComputerData : MonoBehaviour
         chosenCatIndices = new List<int>();
         podStatus = new bool[numberOfPods];
         spawnPositions = GetSpawnPoints(catPodsPositions);
-        CatDataLength = catData.Length;
+  
 
         for (int i = 0; i < podStatus.Length; i++)
         {
@@ -73,6 +74,29 @@ public class CatComputerData : MonoBehaviour
         return children;
     }
 
+    private int GetUniqueCatIndex()
+    {
+        int index;
+        bool isDuplicate;
+
+        do
+        {
+            index = UnityEngine.Random.Range(0, catData.Length);
+            isDuplicate = false;
+
+            for (int i = 0; i < previousCats.Count; i++)
+            {
+                if (index == previousCats[i])
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+        } while (isDuplicate);
+
+        return index;
+    }
     public void RefillCatSuggestions()
     {
         ClearCatListings(); //destroy/clear previous cat listings
@@ -89,10 +113,10 @@ public class CatComputerData : MonoBehaviour
 
                 CatListing[i] = newCatListing; //assigning cat list prefab gameobject to catlisting UI array
 
-                int catIndex = UnityEngine.Random.Range(0, CatDataLength);  //gets a random number
 
+                int catIndex = GetUniqueCatIndex();
                 chosenCatIndices.Add(catIndex); //stores chosen cats in an array to reference later if they get accepted
-
+                previousCats.Add(catIndex); //stores for history throughout entire game
                 SetCatDataToList(i);
                 listingCatStatus[i] = true; //set listing to true
 

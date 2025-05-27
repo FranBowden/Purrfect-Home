@@ -6,22 +6,11 @@ using UnityEngine.U2D.Animation;
 [CreateAssetMenu(fileName = "NewNPCDialogue", menuName = "NPC Dialogue")]
 public class NPCDialogue : ScriptableObject
 {
-
-    [System.Serializable]
-    public class KeywordSelection
-    {
-        public KeywordType keyword;
-        public bool isWanted;
-    }
-    public List<KeywordSelection> keyWords = new List<KeywordSelection>();
     public string NPCName;
     public Sprite NPCImage;
     public SpriteLibraryAsset NPCSpriteLibraryAsset;
 
-    private void OnEnable()
-    {
-        keyWords.Clear(); //clear the list
-    }
+    public List<KeywordType> desiredTraits;
 
     public string[] dialogueLines;
     public DialogueChoice[] choices;
