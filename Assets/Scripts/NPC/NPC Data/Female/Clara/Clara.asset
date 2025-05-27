@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Clara
   m_EditorClassIdentifier: 
-  keyWords: []
+  keyWords:
+  - keyword: 18
+    isWanted: 1
+  - keyword: 19
+    isWanted: 1
   NPCName: Clara
   NPCImage: {fileID: 7138072439519253879, guid: 7d763bda15045f24a84b6578a82499e1, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
   dialogueLines:
-  - Hi!
-  - I am looking for a young playful cat
+  - Good afternoon!
+  - I am looking to adopt a cat that is very laid back and calm.
   - Can I take a look?
-  - Oh brilliant! Thank you, I will take a look
-  - Oh okay, I better get going. Bye
+  - Oh brilliant! Thanks!
+  - Oh okay, I will come back another time...
   choices:
   - dialogueIndex: 2
     choices:

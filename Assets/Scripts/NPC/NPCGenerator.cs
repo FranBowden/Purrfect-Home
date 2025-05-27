@@ -38,8 +38,9 @@ public class NPCGenerator : MonoBehaviour
             spriteLibrary.spriteLibraryAsset = NPCData[index].dialogues[i].NPCSpriteLibraryAsset; //and assign its animation
         }
     }
-    /*
+ 
 
+    /*
     private void Update() //test purposes
     {
      
@@ -48,6 +49,8 @@ public class NPCGenerator : MonoBehaviour
             CreateNPC();
         }
     }
+
+
     */
 
     [System.Serializable]

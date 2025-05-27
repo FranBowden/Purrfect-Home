@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catName: Henry
   catSprite: {fileID: -7604626195403540549, guid: 64dc43f32c45f0047a4e04ed61bb52e7, type: 3}
-  catAge: 5
-  catDescription: "Henry is a ginger whirlwind of energy and mischief. He\u2019s
-    always climbing something he shouldn\u2019t or ambushing your ankles. At four
-    years old, he hasn\u2019t outgrown his kitten antics and probably never will.
-    He\u2019s healthy, loud, endlessly curious, and definitely thinks he runs the
-    shelter."
+  catAge: 4
+  catDescription: "Henry is a whirlwind of energy and mischief. He\u2019s always
+    climbing something he shouldn\u2019t or ambushing your ankles. At four years
+    old, he hasn\u2019t outgrown his kitten antics and probably never will. He\u2019s
+    healthy, loud, endlessly curious, and definitely thinks he runs the shelter."
   catListingDescription: Henry is a lively, mischievous ginger cat full of energy,
     curiosity, and playful antics who loves to be the center of attention.
   keyWords: []
@@ -27,3 +26,4 @@ MonoBehaviour:
   health: 1
   hygiene: 1
   value: 150
+  catPodAssigned: 0

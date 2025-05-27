@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
+  m_Name: Aiden 1
+  m_EditorClassIdentifier: 
+  keyWords: []
+  NPCName: Aiden
+  NPCImage: {fileID: -3337596133161120101, guid: d2ffb4a4aca78804f92d048005569827, type: 3}
+  NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: c90bd808a77a6f7469c011478a49c120, type: 3}
+  dialogueLines:
+  - I really want a shy cat that can lay next to me when I read...
+  - Is there a cat you recommend?
+  - Oh good! I can't wait to meet them!
+  - Oh... I better go
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Yes!
+    - No sorry
+    nextDialogueIndex: 0200000003000000
+  endDialogueLines: 00000101
+  autoProgressLines: 01010101
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05

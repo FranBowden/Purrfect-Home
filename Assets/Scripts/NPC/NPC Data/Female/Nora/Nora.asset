@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Nora
   m_EditorClassIdentifier: 
-  keyWords: []
+  keyWords:
+  - keyword: 0
+    isWanted: 1
+  - keyword: 18
+    isWanted: 1
+  - keyword: 12
+    isWanted: 1
+  - keyword: 19
+    isWanted: 1
+  - keyword: 4
+    isWanted: 1
   NPCName: Nora
   NPCImage: {fileID: -6861098466205009496, guid: 9756115e49d94ab41804f4ef534c8fe6, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 78bd1d5ee878fec48b185d3cd18303f4, type: 3}

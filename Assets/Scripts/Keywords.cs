@@ -1,15 +1,24 @@
 public enum KeywordType
 {
-    Ginger,
     Old,
     Young,
     Black,
     White,
     Lazy,
+    Sleepy,
     Excited,
     Friendly,
     Shy,
     Playful,
     Female,
-    Male
+    Male,
+    Quiet,
+    Affectionate,
+    Energetic,
+    FamilyCat,
+    Anxious,
+    Curious,
+    Calm,
+    Laidback
+
 }
