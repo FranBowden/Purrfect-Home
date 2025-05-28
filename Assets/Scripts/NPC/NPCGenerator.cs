@@ -69,7 +69,7 @@ public class NPCGenerator : MonoBehaviour
         return index;
     }
 
-    /*
+    
     private void Update() //test purposes
     {
      
@@ -80,7 +80,7 @@ public class NPCGenerator : MonoBehaviour
     }
 
 
-    */
+    
 
     [System.Serializable]
     public class NpcsDialogues

@@ -6158,9 +6158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Task: Accept cats from PC
-
-    Status: Not Ready to Open'
+  m_text: 'Task: Accept cats from computer'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a41e1b39d22886d4e859e40ac0c75a7f, type: 2}
   m_sharedMaterial: {fileID: -7985694764098994321, guid: a41e1b39d22886d4e859e40ac0c75a7f, type: 2}
@@ -16244,7 +16242,7 @@ Camera:
   far clip plane: 5000
   field of view: 21.4
   orthographic: 0
-  orthographic size: 10
+  orthographic size: 0.9
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

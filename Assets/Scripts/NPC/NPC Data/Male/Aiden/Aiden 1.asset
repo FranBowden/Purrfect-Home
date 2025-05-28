@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
   m_Name: Aiden 1
   m_EditorClassIdentifier: 
-  keyWords: []
   NPCName: Aiden
   NPCImage: {fileID: -3337596133161120101, guid: d2ffb4a4aca78804f92d048005569827, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: c90bd808a77a6f7469c011478a49c120, type: 3}
+  desiredTraits: 080000000c000000
   dialogueLines:
   - I really want a shy cat that can lay next to me when I read...
   - Is there a cat you recommend?
