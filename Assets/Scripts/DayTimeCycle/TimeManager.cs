@@ -47,7 +47,7 @@ public class TimeManager : MonoBehaviour
     {
         if(AdoptionStats.Instance.CatsAdoptedToday == 0)
         {
-            AdoptionShelterReputation.Instance.RemovePoints(100); //100 points get removed for not adopting any cats...
+            AdoptionShelterReputation.Instance.RemovePoints(50); //50 points get removed for not adopting any cats...
         }
         isDayOver = true;
         NPCGenerator.ResetShelter();

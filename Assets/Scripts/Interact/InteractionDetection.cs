@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,9 @@ public class InteractionDetection : MonoBehaviour
     public GameObject interactionIcon;
     public GameObject catIcon;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private HashSet<Collider2D> catsInRange = new HashSet<Collider2D>();
+    private HashSet<Collider2D> otherCollisions = new HashSet<Collider2D>();
+
 
     //interaction radius is defined under player -> interactable detector -> and its the radius of circle collider 2D
     void Start()
@@ -21,29 +24,34 @@ public class InteractionDetection : MonoBehaviour
         if(collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
         {
             interactableInRange = interactable;
-
-           if(collision.CompareTag("Cat")) {
-                catIcon.SetActive(true);
-            } else
+            if (collision.CompareTag("Cat"))
             {
+                catsInRange.Add(collision);
+                catIcon.SetActive(true);
+            }
+            else
+            {
+                otherCollisions.Add(collision);
                 interactionIcon.SetActive(true);
             }
 
-           
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
+        if (collision.CompareTag("Cat"))
         {
-            interactableInRange = null;
-
-            if (collision.CompareTag("Cat"))
+            catsInRange.Remove(collision);
+            if (catsInRange.Count == 0)
             {
                 catIcon.SetActive(false);
             }
-            else
+        }
+        else 
+        {
+            otherCollisions.Remove(collision);
+            if (otherCollisions.Count == 0)
             {
                 interactionIcon.SetActive(false);
             }

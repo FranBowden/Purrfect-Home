@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adoptionMenuPrefab: {fileID: 2704786920426180030, guid: fe14d30578d7bfe4dbe78c5239330e44, type: 3}
+  adoptionChance: 0
 --- !u!114 &4627274324348923836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +337,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0024092197, y: -0.33243465}
+  m_Offset: {x: 0.019447207, y: -0.42350292}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -346,7 +347,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.91597414, y: 1.3351307}
+  m_Size: {x: 1.0762546, y: 1.5172672}
   m_EdgeRadius: 0
 --- !u!50 &8728494258821258256
 Rigidbody2D:

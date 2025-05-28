@@ -25,7 +25,7 @@ public class NPCGenerator : MonoBehaviour
 
 
     private List<int> previousNPCs = new List<int>();
-    private void CreateNPC()
+    public void CreateNPC()
     {
         int index = GetUniqueNpcIndex();
         previousNPCs.Add(index); //store that into array as history

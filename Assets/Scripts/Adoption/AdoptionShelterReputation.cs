@@ -13,6 +13,10 @@ public class AdoptionShelterReputation : MonoBehaviour
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject PointsPrefab;
 
+    public Color color1;
+    public Color color2;
+
+
     public float currentPoints = 0;
     private readonly float MaxPoints = 1000;
     private Image ratingStarImage;
@@ -39,7 +43,7 @@ public class AdoptionShelterReputation : MonoBehaviour
     public void SetCurrentPoints(int newPoints)
     {
         currentPoints += newPoints;
-        ShowPoints("+ " + newPoints, Color.green);
+        ShowPoints("+ " + newPoints, color2);
 
         RecalculateStars();
     }
@@ -47,7 +51,7 @@ public class AdoptionShelterReputation : MonoBehaviour
     public void RemovePoints(int pointsRemoved)
     {
       currentPoints -= pointsRemoved;
-        ShowPoints("- " + pointsRemoved, Color.red);
+        ShowPoints("- " + pointsRemoved, color1);
         RecalculateStars();
     }
 

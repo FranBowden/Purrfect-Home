@@ -78,7 +78,16 @@ public class AdoptionDecision : MonoBehaviour
             gameObject.SetActive(false);
             npc.GetComponent<NPCBehaviour>().LeaveShelter();
 
+            //another NPC should spawn
+
+            NPCGenerator NPCGen = FindAnyObjectByType<NPCGenerator>();
+
+            NPCGen.CreateNPC();
+
         }
+
+        npc.GetComponent<BoxCollider2D>().enabled = false;
+
     }
 
     bool TakeChance()
