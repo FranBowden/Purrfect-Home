@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.XR.GoogleVr;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,7 @@ public class CatComputerData : MonoBehaviour
     private Transform[] spawnPositions;
 
     private readonly int numberOfListings = 3;
-    private int numberOfPods = 3;
+    private readonly int numberOfPods = 3;
     
     private List<int> chosenCatIndices;
     private List<int> previousCats = new List<int>();
@@ -76,64 +77,85 @@ public class CatComputerData : MonoBehaviour
 
     private int GetUniqueCatIndex()
     {
+        if (previousCats.Count >= catData.Length)
+        {
+            Debug.LogWarning("All unique cats have been used. Consider resetting previousCats.");
+            previousCats.Clear(); // or handle this however your game logic requires
+        }
+
         int index;
         bool isDuplicate;
 
         do
         {
             index = UnityEngine.Random.Range(0, catData.Length);
-            isDuplicate = false;
-
-            for (int i = 0; i < previousCats.Count; i++)
-            {
-                if (index == previousCats[i])
-                {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-
+            isDuplicate = previousCats.Contains(index); 
         } while (isDuplicate);
 
         return index;
     }
     public void RefillCatSuggestions()
     {
-        ClearCatListings(); //destroy/clear previous cat listings
 
-        Debug.Log("listcating cat status length = " + listingCatStatus.Length);
-        //Refill cat listing
+/*
+        try
+        {
+            ClearCatListings(); //clear previous listings
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Exception in ClearCatListings: " + e);
+            return; //stop early if this errors
+        }
+*/
+
+
         for (int i = 0; i < listingCatStatus.Length; i++)
-        {   
-            if (!listingCatStatus[i]) //if there is a listing spot avaiable then take it
+        {
+            try
             {
-                //create a new listening prefab 
-                GameObject newCatListing = Instantiate(prefabCatListingItem);
-                newCatListing.transform.SetParent(prefabCatListing, false);
 
-                CatListing[i] = newCatListing; //assigning cat list prefab gameobject to catlisting UI array
-
-
-                int catIndex = GetUniqueCatIndex();
-                chosenCatIndices.Add(catIndex); //stores chosen cats in an array to reference later if they get accepted
-                previousCats.Add(catIndex); //stores for history throughout entire game
-                SetCatDataToList(i);
-                listingCatStatus[i] = true; //set listing to true
-
-
-                // if (CatListing[i] == null) continue;
-
-                var buttonTransform = CatListing[i].transform.Find("Button");
-                if (buttonTransform.TryGetComponent<Button>(out var btn))
+                if (!listingCatStatus[i])
                 {
-                    int index = i;
-                    btn.onClick.AddListener(() => CatAccepted(index));
+                 
+                    GameObject newCatListing = Instantiate(prefabCatListingItem);
+                    newCatListing.transform.SetParent(prefabCatListing.transform, false);
+
+                    CatListing[i] = newCatListing;
+
+                    int catIndex = GetUniqueCatIndex();
+                //int catIndex = UnityEngine.Random.Range(0, catData.Length);
+
+
+                    chosenCatIndices.Add(catIndex);
+                    previousCats.Add(catIndex);
+
+
+                    listingCatStatus[i] = true;
+
+                    SetCatDataToList(i);
+
+                    var buttonTransform = CatListing[i].transform.Find("Button");
+                    if (buttonTransform == null)
+                    {
+                        continue;
+                    }
+
+                    if (buttonTransform.TryGetComponent<Button>(out var btn))
+                    {
+                        int index = i;
+                        btn.onClick.AddListener(() => CatAccepted(index));
+                    }
+                    else
+                    {
+                    }
                 }
-
-
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Exception in RefillCatSuggestions loop at index {i}: {e}");
             }
         }
-        
     }
 
     private void ClearCatListings()
@@ -141,7 +163,7 @@ public class CatComputerData : MonoBehaviour
       
         if (chosenCatIndices == null)
         {
-            Debug.LogWarning("chosenCatIndices was null");
+         //   Debug.LogWarning("chosenCatIndices was null");
             chosenCatIndices = new List<int>();
         }
         else
@@ -187,32 +209,33 @@ public class CatComputerData : MonoBehaviour
 
     private void CatAccepted(int listingIndex)
     {
-       
+ 
+        
         if (CatListing[listingIndex] != null)
         {
-            var nameTransform = CatListing[listingIndex].transform.Find("Cat Information/CatName");
+            Transform nameTransform = CatListing[listingIndex].transform.Find("Cat Information/CatName");
             if (nameTransform != null)
             {
-                var nameText = nameTransform.GetComponent<TextMeshProUGUI>();
-                if (nameText != null)
-                {
-                    Debug.Log("You accepted " + nameText.text);
-
-                }
-
+                TextMeshProUGUI nameText = nameTransform.GetComponent<TextMeshProUGUI>();
+              
             }
 
 
             int FreePod = GetFreePodIndex();
 
-            if (FreePod >= 0)
+            if (FreePod >= 0 && FreePod < numberOfPods) //there is a free pod for the cat to enter!
             {
                 CatSpawnedInPod(chosenCatIndices[listingIndex], FreePod);
                 AdoptionStats.Instance.numCatsPlacedInShelter++;
                 Destroy(CatListing[listingIndex]);
-                listingCatStatus[listingIndex] = false;
-                MarkPodAsOccupied(FreePod);
 
+
+                if (listingIndex >= 0 && listingIndex < listingCatStatus.Length)
+                {
+                    listingCatStatus[listingIndex] = false;
+                }
+              
+              MarkPodAsOccupied(FreePod);
 
 
                 AdoptionShelterReputation.Instance.SetCurrentPoints(10); //10 points for just accepting the cat into the shelter
@@ -245,7 +268,7 @@ public class CatComputerData : MonoBehaviour
         }
     }
 
-  
+
     private void CatSpawnedInPod(int index, int podIndex)
     {
 
@@ -281,13 +304,9 @@ public class CatComputerData : MonoBehaviour
     {
         if (index >= 0 && index < podStatus.Length)
         {
-            Debug.Log("Marking pod " + index + " as occupied");
             podStatus[index] = true; 
         }
-        else
-        {
-            Debug.Log("Tried to mark invalid pod index: " + index);
-        }
+     
     }
 
     public void MarkPodAsFree(int index)

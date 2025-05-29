@@ -1,9 +1,6 @@
+using System;
 using TMPro;
-using Unity.Cinemachine;
-using Unity.VisualScripting;
-using Unity.XR.GoogleVr;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
@@ -31,13 +28,17 @@ public class TimeManager : MonoBehaviour
 
     public void EndDay()
     {
+     
+
         HandleDayEndState();
         ResetPlayerPosition();
-        StopBackgroundMusicIfPlaying();
+       // StopBackgroundMusicIfPlaying();
+
         if (day < 5)
         {
             StartNewDay();
-        } else
+        }
+        else
         {
             CheckIfGameIsOver();
         }
@@ -45,10 +46,14 @@ public class TimeManager : MonoBehaviour
 
     private void HandleDayEndState()
     {
+
+
+
         if(AdoptionStats.Instance.CatsAdoptedToday == 0)
         {
-            AdoptionShelterReputation.Instance.RemovePoints(50); //50 points get removed for not adopting any cats...
+            AdoptionShelterReputation.Instance.RemovePoints(100); //100 points get removed for not adopting any cats...
         }
+
         isDayOver = true;
         NPCGenerator.ResetShelter();
         AdoptionStats.Instance.CatsShelteredToday = 0;
@@ -58,9 +63,17 @@ public class TimeManager : MonoBehaviour
 
     private void ResetPlayerPosition()
     {
-        player.transform.localPosition = new Vector2(0f, -7.5f);
+        if (player != null)
+        {
+            player.transform.localPosition = new Vector2(0f, -7.5f);
+        }
+        else
+        {
+            Debug.LogWarning("Player is missing");
+        }
     }
 
+    /*
     private void StopBackgroundMusicIfPlaying()
     {
         if (hasStartedMusic)
@@ -68,7 +81,7 @@ public class TimeManager : MonoBehaviour
             backgroundMusic.Stop();
             hasStartedMusic = false;
         }
-    }
+    }*/
 
     private void CheckIfGameIsOver()
     {
@@ -81,10 +94,14 @@ public class TimeManager : MonoBehaviour
 
     private void StartNewDay()
     {
-        Debug.Log("Game day has ended!");
+        
+        //Debug.Log("Game day has ended!");
         day++;
 
+        
         catComputerData.RefillCatSuggestions();
+     
+        
         ShowNewDayUI();
         DayUI.text = "Day: " + day.ToString();
         isDayOver = false;
@@ -92,17 +109,44 @@ public class TimeManager : MonoBehaviour
 
     private void ShowNewDayUI()
     {
+        if (canvas == null || newDayPrefab == null)
+        {
+            Debug.LogWarning("Missing canvas or newDayPrefab.");
+            return;
+        }
+
         GameObject newDay = Instantiate(newDayPrefab);
         newDay.transform.SetParent(canvas.transform, false);
-        TextMeshProUGUI text = newDay.transform.Find("Day").GetComponent<TextMeshProUGUI>();
+
+        var dayTextTransform = newDay.transform.Find("Day");
+        if (dayTextTransform == null)
+        {
+            Debug.LogWarning("NewDay prefab missing 'Day' child object.");
+            return;
+        }
+
+        TextMeshProUGUI text = dayTextTransform.GetComponent<TextMeshProUGUI>();
+        if (text == null)
+        {
+            Debug.LogWarning("'Day' child missing TextMeshProUGUI component.");
+            return;
+        }
+
         text.text = "Day " + day;
     }
 
     private void DestroyAllNPCs()
     {
-        foreach (Transform child in NPCParent.transform)
+        if (NPCParent != null)
         {
-            Destroy(child.gameObject);
+            foreach (Transform child in NPCParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("NPCParent is null cannot destroy NPCs");
         }
     }
 

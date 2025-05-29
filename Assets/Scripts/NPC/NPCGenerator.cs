@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
@@ -45,31 +45,27 @@ public class NPCGenerator : MonoBehaviour
        
     }
 
+
     private int GetUniqueNpcIndex()
     {
+        if (previousNPCs.Count >= NPCData.Length)
+        {
+            Debug.LogWarning("All unique cats have been used. Consider resetting previousNPCs.");
+            previousNPCs.Clear(); // or handle this however your game logic requires
+        }
+
         int index;
         bool isDuplicate;
 
         do
         {
-            index = Random.Range(0, NPCData.Length);
-            isDuplicate = false;
-
-            for (int i = 0; i < previousNPCs.Count; i++)
-            {
-                if (index == previousNPCs[i])
-                {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-
+            index = UnityEngine.Random.Range(0, NPCData.Length);
+            isDuplicate = previousNPCs.Contains(index);
         } while (isDuplicate);
 
         return index;
     }
 
-    
     private void Update() //test purposes
     {
      

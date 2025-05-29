@@ -19,7 +19,7 @@ public class Computer : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Interact called");
+       
         if (!CanInteract()) return;
         TurnOnComputer();
 
@@ -28,7 +28,7 @@ public class Computer : MonoBehaviour, IInteractable
     private void TurnOnComputer()
     {
         computerScreen.SetActive(true);
-        Debug.Log("Turn on Computer");   
+     
     }
    
 
