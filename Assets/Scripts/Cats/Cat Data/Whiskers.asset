@@ -23,7 +23,7 @@ MonoBehaviour:
     rescue, learning to socialize and thriving with stable medication for minor respiratory
     issues.
   traits: 010000000b0000000e000000
-  hunger: 1
+  hunger: 0.1
   health: 1
   hygiene: 1
   value: 100

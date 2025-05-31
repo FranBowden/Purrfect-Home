@@ -17,7 +17,7 @@ public class AdoptionShelterReputation : MonoBehaviour
 
 
     public float currentPoints = 0;
-    private readonly float MaxPoints = 1000;
+    private readonly float MaxPoints = 500;
     private Image ratingStarImage;
 
     public int starRating = 0;

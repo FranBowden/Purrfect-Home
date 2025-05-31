@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class HealthBarController : MonoBehaviour
 {
-
     public enum BarType { EnergyBar, HungerBar, HygieneBar }
    
-    [SerializeField] private GameObject[] BarParents;
-
     private Dictionary<BarType, GameObject[]> barMap;
+    public int barsToShow = 0;
 
-    private void Start()
+    public void ReAssignBarMap(GameObject[] BarParents)
     {
         barMap = new Dictionary<BarType, GameObject[]>
          {
@@ -20,9 +18,10 @@ public class HealthBarController : MonoBehaviour
         };
     }
 
-
     private GameObject[] GetChildrenBars(GameObject parent)
     {
+        if(parent == null) return null; 
+
         Transform parentTransform = parent.transform;
         GameObject[] children = new GameObject[parentTransform.childCount];
 
@@ -38,7 +37,7 @@ public class HealthBarController : MonoBehaviour
     public void CalculateBar(float data, BarType type)
     {
         int totalBars = 6;
-        int barsToShow = Mathf.RoundToInt(data * totalBars);
+        barsToShow = Mathf.RoundToInt(data * totalBars);
 
         BarData(barsToShow, type);
     }

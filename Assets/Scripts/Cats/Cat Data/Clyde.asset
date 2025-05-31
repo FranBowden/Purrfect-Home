@@ -23,7 +23,7 @@ MonoBehaviour:
   catListingDescription: Clyde is a gentle young cat recovering trust after abandonment,
     healthy but a bit underweight, and ready for a loving second chance.
   traits: 010000000b00000008000000
-  hunger: 1
+  hunger: 0.1
   health: 1
   hygiene: 1
   value: 140

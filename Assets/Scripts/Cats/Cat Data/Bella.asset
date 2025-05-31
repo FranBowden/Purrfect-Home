@@ -22,7 +22,7 @@ MonoBehaviour:
   catListingDescription: "Bella is a sweet, playful cat with a slight limp who\u2019s
     fully recovered and just needs occasional check-ups."
   traits: 090000000a000000
-  hunger: 1
+  hunger: 0.1
   health: 1
   hygiene: 1
   value: 70

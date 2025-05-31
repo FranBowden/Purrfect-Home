@@ -20,7 +20,7 @@ MonoBehaviour:
   catListingDescription: Percy is a calm, dignified, and loyal cat who loves quiet
     homes, warm naps, and shows affection on his own terms.
   traits: 0d0000000b0000000c000000
-  hunger: 1
+  hunger: 0.1
   health: 1
   hygiene: 1
   value: 70

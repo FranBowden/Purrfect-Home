@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - Cat
+  - Biscuit
   layers:
   - Default
   - TransparentFX

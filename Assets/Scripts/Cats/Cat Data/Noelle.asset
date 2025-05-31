@@ -23,7 +23,7 @@ MonoBehaviour:
   catListingDescription: Noelle is a shy but loving cat who warms up to trusted people,
     loves cuddles and stringy toys, and prefers dry food only.
   traits: 08000000090000000a000000
-  hunger: 1
+  hunger: 0.1
   health: 1
   hygiene: 1
   value: 120
