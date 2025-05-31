@@ -33,7 +33,7 @@ public class CleaningMechanics : MonoBehaviour
     }
     void GeneratePoop()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 8; i++)
         {
             GameObject Poop = Instantiate(poop);
             Poop.transform.SetParent(tray.transform);

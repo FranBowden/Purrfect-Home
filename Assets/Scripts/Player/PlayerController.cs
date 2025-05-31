@@ -10,6 +10,14 @@ public class PlayerController : MonoBehaviour
     public GameObject catSelected;
     public GameObject catViewing;
 
+    [Header("Shop Items: ")]
+    public int CatFood = 0;
+    public int CatLitter = 0;
+    public int CatPod = 0;
+    [Header("Currency: ")]
+    public float Money = 1000;
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

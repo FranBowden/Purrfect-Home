@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using static HealthBarController;
@@ -16,6 +17,9 @@ public class CatOptionsMenuController : MonoBehaviour
     public GameObject[] food;
     public GameObject[] clean;
 
+    [Header("Stock")]
+    public TextMeshProUGUI FoodStock;
+    public TextMeshProUGUI CleanStock;
 
     public bool hasDataTransferred = false;
 
@@ -43,7 +47,7 @@ public class CatOptionsMenuController : MonoBehaviour
 
             if (menu == infoMenu)
             {
-                gameObject.GetComponent<CatEnergy>().CalculateEnergy();
+                gameObject.GetComponent<CatEnergy>().CalculateEnergy(); //calculate energy/health first
 
                 HealthBarController.ReAssignBarMap(info);
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
@@ -58,6 +62,8 @@ public class CatOptionsMenuController : MonoBehaviour
                 HealthBarController.ReAssignBarMap(food);
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
                 cleaningMenuShowing = false;
+                FoodStock.text = "Stock: " + PlayerController.Instance.CatFood.ToString();
+
 
             }
             else if (menu == cleanMenu)
@@ -65,6 +71,8 @@ public class CatOptionsMenuController : MonoBehaviour
                 cleaningMenuShowing = true;
                 HealthBarController.ReAssignBarMap(clean);
                 HealthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
+                CleanStock.text = "Stock: " +  PlayerController.Instance.CatLitter.ToString();
+
 
 
             }

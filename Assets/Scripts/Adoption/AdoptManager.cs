@@ -86,6 +86,20 @@ public class AdoptManager : MonoBehaviour
 
         adoptionChance = Mathf.Lerp(30f, 100f, matchRatio);
 
+        //bonus based on cat's health
+        float healthBonus = 0f;
+
+        if (Cat.health >= 0.9f)
+        {
+            healthBonus = 20f;
+        }
+        else if (Cat.health >= 0.5f)
+        {
+            healthBonus = 10f;
+        }
+        adoptionChance += healthBonus;
+        adoptionChance = Mathf.Min(adoptionChance, 100f);
+
         percentage.text = adoptionChance.ToString("F1") + "%";
     }
 

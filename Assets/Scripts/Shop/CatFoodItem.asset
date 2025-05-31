@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270c67f33d25f17449bfb85efccd3259, type: 3}
+  m_Name: CatFoodItem
+  m_EditorClassIdentifier: 
+  ItemName: Cat Food
+  ItemImage: {fileID: -1025339577680347254, guid: c1cee0ebb479655449520f8440635961, type: 3}
+  Quantity: 0
+  Price: 20

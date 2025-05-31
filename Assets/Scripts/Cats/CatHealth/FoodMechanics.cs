@@ -32,20 +32,28 @@ public class FoodMechanics : MonoBehaviour
     //Need to have a function to click on the cat food bag
     public void PickUpCatFood()
     {
-        //the bag needs to go upwards as if its tipping over
-        isBeingFed = true;
-        
-        ChangePosition(new Vector2(130, 161), new Vector3(0f, 0f, 45f));
-
-        //Change bag
-        if (foodBagZipped != null && foodBagZipped.GetComponent<Image>() != null)
+        if (PlayerController.Instance.CatFood > 0)
         {
-            foodBagZipped.GetComponent<Image>().sprite = foodBagUnzipped;
+            //the bag needs to go upwards as if its tipping over
+            isBeingFed = true;
+
+            ChangePosition(new Vector2(130, 161), new Vector3(0f, 0f, 45f));
+
+            //Change bag
+            if (foodBagZipped != null && foodBagZipped.GetComponent<Image>() != null)
+            {
+                foodBagZipped.GetComponent<Image>().sprite = foodBagUnzipped;
+            }
+            else
+            {
+                Debug.Log("Image component not found");
+            }
+            PlayerController.Instance.CatFood -= 1;
         } else
         {
-            Debug.Log("Image component not found");
-        }
-      
+            Debug.Log("No cat food");
+        
+    }
     }
 
     //changes position and rotation

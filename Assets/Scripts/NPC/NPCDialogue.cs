@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.U2D.Animation;
 
 [CreateAssetMenu(fileName = "NewNPCDialogue", menuName = "NPC Dialogue")]

@@ -15,7 +15,7 @@ MonoBehaviour:
   NPCName: Clara
   NPCImage: {fileID: 7138072439519253879, guid: 7d763bda15045f24a84b6578a82499e1, type: 3}
   NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
-  desiredTraits: 1300000012000000
+  desiredTraits: 0e00000002000000
   dialogueLines:
   - They are so cute! Are there any calm and laid back cats you recommend?
   - "Perfect! Lead the way, I\u2019m right behind you!"
