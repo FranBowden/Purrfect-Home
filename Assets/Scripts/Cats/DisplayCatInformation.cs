@@ -25,6 +25,9 @@ public class DisplayCatInformation : MonoBehaviour
         Image CatFoodCatImage = menu.GetComponentsInChildren<Image>(true)
         .FirstOrDefault(img => img.name == "CatImage" && img.transform.parent.name == "CatFood");
 
+        Image CatCleanCatImage = menu.GetComponentsInChildren<Image>(true)
+      .FirstOrDefault(img => img.name == "CatImage" && img.transform.parent.name == "CatClean");
+
         if (catName != null)
             catName.text = catData.catName;
 
@@ -34,8 +37,9 @@ public class DisplayCatInformation : MonoBehaviour
         if (CatInfoCatImage != null)
             CatInfoCatImage.sprite = catData.catSprite;
             CatFoodCatImage.sprite = catData.catSprite;
+            CatCleanCatImage.sprite = catData.catSprite;
 
-        
+
     }
 
 

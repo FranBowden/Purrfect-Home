@@ -23,8 +23,9 @@ MonoBehaviour:
   catListingDescription: Cleo is a dignified, affectionate older cat with early-stage
     kidney disease who thrives on quiet company, a special diet, and sunny spots.
   traits: 00000000120000000c0000000a000000
-  hunger: 1.0000001
-  health: 0.75000006
-  hygiene: 0.5
+  hunger: 0
+  health: 0
+  hygiene: 0
   value: 90
-  catPodAssigned: 0
+  catPodAssigned: 2
+  GenerateWaste: 0

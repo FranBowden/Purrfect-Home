@@ -22,4 +22,6 @@ public class CatData : ScriptableObject
     public int value;
 
     public int catPodAssigned;
+
+    public bool GenerateWaste;
 }

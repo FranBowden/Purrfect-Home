@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class FoodMechanics : MonoBehaviour
     [SerializeField] GameObject EmptyBowl;
     [SerializeField] GameObject foodBar;
     [SerializeField] GameObject CatFoodParent;
+    [Header("Stock")]
+    public TextMeshProUGUI FoodStock;
     [Header("Sprites")]
     [SerializeField] Sprite FilledBowl;
     [SerializeField] Sprite foodBagUnzipped;
@@ -23,8 +26,6 @@ public class FoodMechanics : MonoBehaviour
     public Vector2 biscuitPosition = new Vector2(-125f, 45f);
     public float jitterAmount = 7f;
     public int amountOfBiscuits = 5;
-    public float spawnInterval = 0.03f;
-    public int maxClicks = 20;
     private bool isBeingFed = false;
     private int clicks = 0;
 
@@ -120,12 +121,11 @@ public class FoodMechanics : MonoBehaviour
         //rewards
         AdoptionShelterReputation.Instance.SetCurrentPoints(30); //get 30 points!
 
-     
-
     }
     private void Update()
     {
-     
+        FoodStock.text = "Stock: " + PlayerController.Instance.CatFood.ToString();
+
 
         if (isBeingFed)
          {

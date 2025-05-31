@@ -17,16 +17,14 @@ public class CatOptionsMenuController : MonoBehaviour
     public GameObject[] food;
     public GameObject[] clean;
 
-    [Header("Stock")]
-    public TextMeshProUGUI FoodStock;
-    public TextMeshProUGUI CleanStock;
+  
 
     public bool hasDataTransferred = false;
 
     private GameObject[] menus;
     private HealthBarController HealthBarController;
 
-    public bool cleaningMenuShowing = false;
+ 
     void Start()
     {
         menus = new GameObject[] { infoMenu, foodMenu, cleanMenu };
@@ -53,7 +51,7 @@ public class CatOptionsMenuController : MonoBehaviour
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
                 HealthBarController.CalculateBar(catData.health, BarType.EnergyBar);
                 HealthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
-                cleaningMenuShowing = false;
+         
 
             }
             else if (menu == foodMenu)
@@ -61,17 +59,19 @@ public class CatOptionsMenuController : MonoBehaviour
             
                 HealthBarController.ReAssignBarMap(food);
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
-                cleaningMenuShowing = false;
-                FoodStock.text = "Stock: " + PlayerController.Instance.CatFood.ToString();
+         
+               // FoodStock.text = "Stock: " + PlayerController.Instance.CatFood.ToString();
 
 
             }
             else if (menu == cleanMenu)
             {
-                cleaningMenuShowing = true;
+         
                 HealthBarController.ReAssignBarMap(clean);
                 HealthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
-                CleanStock.text = "Stock: " +  PlayerController.Instance.CatLitter.ToString();
+                //     CleanStock.text = "Stock: " +  PlayerController.Instance.CatLitter.ToString();
+
+             
 
 
 
