@@ -8,12 +8,11 @@ public class DisplayCatInformation : MonoBehaviour
 {
     public CatData catData;
     private HealthBarController healthBarController;
-    private CatOptionsMenuController CatOptionsTabs;
+
 
     private void Start()
     {
         healthBarController = FindFirstObjectByType<HealthBarController>();
-        CatOptionsTabs = FindFirstObjectByType<CatOptionsMenuController>();
     }
 
     public void DisplayCatUI(GameObject menu)
@@ -36,19 +35,7 @@ public class DisplayCatInformation : MonoBehaviour
             CatInfoCatImage.sprite = catData.catSprite;
             CatFoodCatImage.sprite = catData.catSprite;
 
-        if (healthBarController != null)
-        {
-            if (healthBarController != null)
-            {
-              /*
-                healthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
-                healthBarController.CalculateBar(catData.health, BarType.EnergyBar);
-                healthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
-
-                FoodMechanics.GetCatData(catData); //passes the data to food mechanics*/
-
-            }
-        }
+        
     }
 
 

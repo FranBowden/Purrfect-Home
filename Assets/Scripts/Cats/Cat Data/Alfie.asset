@@ -22,7 +22,7 @@ MonoBehaviour:
     and watching the world go by from a window.
   traits: 120000000d0000000b000000
   hunger: 0.1
-  health: 1
-  hygiene: 1
+  health: 0.1
+  hygiene: 0.1
   value: 80
   catPodAssigned: 0

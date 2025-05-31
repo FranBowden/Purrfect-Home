@@ -44,20 +44,58 @@ public class HealthBarController : MonoBehaviour
 
     private void DeactivateAllBars(GameObject[] bars)
     {
+
+        if (bars == null)
+        {
+            return;
+        }
+
         foreach (GameObject bar in bars)
         {
-            bar.SetActive(false);
+            if (bar != null)
+                bar.SetActive(false);
         }
     }
 
     void BarData(int index, BarType type)
     {
-
-        DeactivateAllBars(barMap[type]);
-        if (index >= 0 && index <= 6) //check index is between 0 to 6
+        if (barMap == null || !barMap.ContainsKey(type))
         {
-            barMap[type][index].SetActive(true);
+            return;
         }
 
+
+        DeactivateAllBars(barMap[type]);
+
+
+        if (index >= 0 && index <= 6) //check index is between 0 to 6
+        {
+            //ERROR 
+            GameObject[] bars = barMap[type];
+
+            if (bars == null)
+            {
+                Debug.LogError($"barMap[{type}] array is null.");
+                return;
+            }
+            if (index >= 0 && index < bars.Length)
+            {
+                GameObject bar = bars[index];
+                if (bar != null)
+                {
+                    bar.SetActive(true);
+                }
+                else
+                {
+                    Debug.LogWarning($"barMap[{type}][{index}] is null.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Index {index} out of bounds for barMap[{type}] (Length = {bars.Length})");
+            }
+        }
     }
-}
+
+ }
+

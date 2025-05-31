@@ -1,5 +1,8 @@
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
+using static HealthBarController;
 
 
 public class FoodMechanics : MonoBehaviour
@@ -57,6 +60,9 @@ public class FoodMechanics : MonoBehaviour
     //food needs to fall out
     private void ShowBiscuits()
     {
+        CatOptionsMenuController catOptions = gameObject.GetComponent<CatOptionsMenuController>();
+        DisplayCatInformation cat = PlayerController.Instance.catViewing.GetComponent<DisplayCatInformation>();
+
         for (int i = 0; i < amountOfBiscuits; i++)
         {
             GameObject biscuit = Instantiate(food);
@@ -67,7 +73,16 @@ public class FoodMechanics : MonoBehaviour
            
         }
         clicks++;
-        if(clicks == maxClicks)
+        if (clicks % 3 == 0)
+        {
+            if (cat.catData.hunger < 1) //if less than 1 then update
+            {
+                cat.catData.hunger += 0.1f;
+                catOptions.ToggleMenu(catOptions.foodMenu);
+            }
+        }
+
+        if (Mathf.Approximately(cat.catData.hunger, 1f))
         {
             ShowFullBowl();
         }
@@ -89,6 +104,15 @@ public class FoodMechanics : MonoBehaviour
         foodBagZipped.GetComponent<Image>().sprite = foodBagzipped;
         ChangePosition(new Vector2(365, -204), new Vector3(0f, 0f, 0f));
         clicks = 0;
+
+        //change onclick again
+        foodBagZipped.GetComponent<Button>().onClick.RemoveAllListeners();
+        foodBagZipped.GetComponent<Button>().onClick.AddListener(PickUpCatFood);
+
+        //rewards
+        AdoptionShelterReputation.Instance.SetCurrentPoints(30); //get 30 points!
+
+     
 
     }
     private void Update()

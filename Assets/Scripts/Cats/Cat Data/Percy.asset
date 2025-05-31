@@ -21,7 +21,7 @@ MonoBehaviour:
     homes, warm naps, and shows affection on his own terms.
   traits: 0d0000000b0000000c000000
   hunger: 0.1
-  health: 1
-  hygiene: 1
+  health: 0.1
+  hygiene: 0.1
   value: 70
   catPodAssigned: 0

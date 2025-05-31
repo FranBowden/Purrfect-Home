@@ -22,7 +22,7 @@ MonoBehaviour:
     cozy naps on laundry piles, and enjoys the company of older kids and calm pets.
   traits: 130000000d000000120000000b000000
   hunger: 0.1
-  health: 1
-  hygiene: 1
+  health: 0.1
+  hygiene: 0.1
   value: 80
   catPodAssigned: 0

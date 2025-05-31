@@ -23,7 +23,7 @@ MonoBehaviour:
     weight, with mild dental issues, who enjoys slow, patient bonding.
   traits: 0a0000000000000012000000
   hunger: 0.1
-  health: 1
-  hygiene: 1
+  health: 0.1
+  hygiene: 0.1
   value: 80
   catPodAssigned: 0

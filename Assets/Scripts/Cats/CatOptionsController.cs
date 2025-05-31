@@ -17,9 +17,12 @@ public class CatOptionsMenuController : MonoBehaviour
     public GameObject[] clean;
 
 
+    public bool hasDataTransferred = false;
+
     private GameObject[] menus;
     private HealthBarController HealthBarController;
 
+    public bool cleaningMenuShowing = false;
     void Start()
     {
         menus = new GameObject[] { infoMenu, foodMenu, cleanMenu };
@@ -27,11 +30,11 @@ public class CatOptionsMenuController : MonoBehaviour
     }
   
 
-
     public void ToggleMenu(GameObject menuToToggle)
     {
         GameObject catViewing = PlayerController.Instance.catViewing;
         CatData catData = catViewing.GetComponent<DisplayCatInformation>().catData;
+
 
 
         foreach (GameObject menu in menus)
@@ -40,26 +43,31 @@ public class CatOptionsMenuController : MonoBehaviour
 
             if (menu == infoMenu)
             {
+                gameObject.GetComponent<CatEnergy>().CalculateEnergy();
+
                 HealthBarController.ReAssignBarMap(info);
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
                 HealthBarController.CalculateBar(catData.health, BarType.EnergyBar);
                 HealthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
+                cleaningMenuShowing = false;
+
             }
             else if (menu == foodMenu)
             {
+            
                 HealthBarController.ReAssignBarMap(food);
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
-
+                cleaningMenuShowing = false;
 
             }
             else if (menu == cleanMenu)
             {
+                cleaningMenuShowing = true;
                 HealthBarController.ReAssignBarMap(clean);
                 HealthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
 
 
             }
-
         }
     }
 

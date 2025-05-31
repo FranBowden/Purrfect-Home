@@ -10305,7 +10305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1134249941
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16456,6 +16456,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 228453371}
+  catFoodValue: 0
+  catHealthValue: 0
+  catHygieneValue: 0
+  hasDataTransferred: 0
 --- !u!114 &1766959953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16480,6 +16484,7 @@ MonoBehaviour:
   jitterAmount: 7
   amountOfBiscuits: 5
   spawnInterval: 0.03
+  maxClicks: 20
 --- !u!1 &1776517517
 GameObject:
   m_ObjectHideFlags: 0

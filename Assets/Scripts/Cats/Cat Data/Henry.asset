@@ -23,7 +23,7 @@ MonoBehaviour:
     curiosity, and playful antics who loves to be the center of attention.
   traits: 0b000000090000000d0000000e000000
   hunger: 0.1
-  health: 1
-  hygiene: 1
+  health: 0.1
+  hygiene: 0.1
   value: 150
-  catPodAssigned: 1
+  catPodAssigned: 0

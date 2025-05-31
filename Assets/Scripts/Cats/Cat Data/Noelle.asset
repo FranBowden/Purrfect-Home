@@ -24,7 +24,7 @@ MonoBehaviour:
     loves cuddles and stringy toys, and prefers dry food only.
   traits: 08000000090000000a000000
   hunger: 0.1
-  health: 1
-  hygiene: 1
+  health: 0.1
+  hygiene: 0.1
   value: 120
   catPodAssigned: 0
