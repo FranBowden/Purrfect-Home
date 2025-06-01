@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using static HealthBarController;
 
@@ -60,20 +57,18 @@ public class CatOptionsMenuController : MonoBehaviour
                 HealthBarController.ReAssignBarMap(food);
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
          
-               // FoodStock.text = "Stock: " + PlayerController.Instance.CatFood.ToString();
 
 
             }
             else if (menu == cleanMenu)
             {
-         
+                if (PlayerController.Instance.catViewing != null && !PlayerController.Instance.catViewing.GetComponent<DisplayCatInformation>().catData.GenerateWaste)
+                {
+                    PlayerController.Instance.catViewing.GetComponent<DisplayCatInformation>().catData.GenerateWaste = true;
+                    gameObject.GetComponent<CleaningMechanics>().GeneratePoop();
+                }
                 HealthBarController.ReAssignBarMap(clean);
                 HealthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
-                //     CleanStock.text = "Stock: " +  PlayerController.Instance.CatLitter.ToString();
-
-             
-
-
 
             }
         }

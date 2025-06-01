@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    [SerializeField] CatComputerData computerData;
     [SerializeField] GameObject ShopMenu;
     [SerializeField] GameObject Mailrescuecats;
     [SerializeField] GameObject ItemListPrefab;
@@ -103,6 +104,10 @@ public class Shop : MonoBehaviour
                 {
                     PlayerController.Instance.CatPod += quantity;
                     HistoryPodPurchases += quantity;
+                    computerData.numberOfPods += quantity;
+                    computerData.UpdatePodStatusArray(computerData.numberOfPods);
+                    computerData.spawnPositions = computerData.GetSpawnPoints(computerData.catPodsPositions, computerData.numberOfPods);
+
                 }
             }
             else if (item.ItemName == "Cat Litter")

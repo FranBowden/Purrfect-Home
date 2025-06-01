@@ -42,6 +42,7 @@ public class AdoptionShelterReputation : MonoBehaviour
     public void SetCurrentPoints(int newPoints)
     {
         currentPoints += newPoints;
+        PlayerController.Instance.Money = currentPoints;
         ShowPoints("+ " + newPoints, color2);
 
         RecalculateStars();
@@ -50,6 +51,8 @@ public class AdoptionShelterReputation : MonoBehaviour
     public void RemovePoints(int pointsRemoved)
     {
       currentPoints -= pointsRemoved;
+        PlayerController.Instance.Money = currentPoints;
+
         ShowPoints("- " + pointsRemoved, color1);
         RecalculateStars();
     }

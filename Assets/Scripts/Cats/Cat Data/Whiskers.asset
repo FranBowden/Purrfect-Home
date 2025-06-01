@@ -24,8 +24,8 @@ MonoBehaviour:
     issues.
   traits: 010000000b0000000e000000
   hunger: 0
-  health: 0
-  hygiene: 0
+  health: 0.15
+  hygiene: 0.3
   value: 100
-  catPodAssigned: 2
-  GenerateWaste: 0
+  catPodAssigned: 0
+  GenerateWaste: 1

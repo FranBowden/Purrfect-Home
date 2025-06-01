@@ -15,6 +15,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private NPCGenerator NPCGenerator;
     [SerializeField] private GameObject NPCParent;
     [SerializeField] private GameObject GameOverMenu;
+    [SerializeField] private TextMeshProUGUI Task;
 
     private bool hasStartedMusic = false;
     public bool isDayOver = false;
@@ -94,7 +95,8 @@ public class TimeManager : MonoBehaviour
 
     private void StartNewDay()
     {
-        
+        Task.text = "Task: Accept a cat from the computer";
+
         //Debug.Log("Game day has ended!");
         day++;
 

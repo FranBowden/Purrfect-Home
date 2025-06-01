@@ -24,8 +24,8 @@ MonoBehaviour:
     healthy but a bit underweight, and ready for a loving second chance.
   traits: 010000000b00000008000000
   hunger: 0
-  health: 0
-  hygiene: 0
+  health: 0.15
+  hygiene: 0.3
   value: 140
-  catPodAssigned: 1
-  GenerateWaste: 0
+  catPodAssigned: 2
+  GenerateWaste: 1

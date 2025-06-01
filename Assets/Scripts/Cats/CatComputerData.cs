@@ -6,27 +6,27 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CatComputerData : MonoBehaviour
-{ 
-    public CatData[] catData;
-
+{
+    //
+    [SerializeField] private CatList catlist;
     [SerializeField] GameObject CatPrefab;
 
     [SerializeField] GameObject prefabCatListingItem;
     [SerializeField] Transform prefabCatListing;
     [SerializeField] GameObject prefabCatParent;
-    [SerializeField] Transform catPodsPositions;
+    public  Transform catPodsPositions;
   
     private GameObject[] CatListing; //stores the cats listed on computer for that day
     private bool[] podStatus;
     private bool[] listingCatStatus;
-    private Transform[] spawnPositions;
+    public Transform[] spawnPositions;
 
     private readonly int numberOfListings = 3;
-    private readonly int numberOfPods = 3;
-    
+    public int numberOfPods = 3;
     private List<int> chosenCatIndices;
     private List<int> previousCats = new List<int>();
 
+    
 
     public static CatComputerData Instance { get; private set; }
     private void Awake()
@@ -42,32 +42,39 @@ public class CatComputerData : MonoBehaviour
         listingCatStatus = new bool[numberOfListings];
         CatListing = new GameObject[numberOfListings];
         chosenCatIndices = new List<int>();
-        podStatus = new bool[numberOfPods];
-        spawnPositions = GetSpawnPoints(catPodsPositions);
-  
+       
+ 
 
-        for (int i = 0; i < podStatus.Length; i++)
+    }
+    private void Start()
+    {
+        numberOfPods = Mathf.Clamp(PlayerController.Instance.CatPod, 3, 6);
+        spawnPositions = GetSpawnPoints(catPodsPositions, numberOfPods);
+
+        podStatus = new bool[numberOfPods];
+
+
+        for (int i = 0; i < numberOfPods; i++)
         {
             podStatus[i] = false; //false means the pod is free
         }
+
 
         for (int i = 0; i < listingCatStatus.Length; i++)
         {
             listingCatStatus[i] = false; //false means the list is free
         }
-    }
-    private void Start()
-    {
-        
 
         RefillCatSuggestions();
     }
 
-    private Transform[] GetSpawnPoints(Transform parent)
+    public Transform[] GetSpawnPoints(Transform parent, int maxPods)
     {
-        Transform[] children = new Transform[parent.childCount];
+        int total = Mathf.Max(3, maxPods); 
+        Debug.Log("Total pods:" + total);
+        Transform[] children = new Transform[total];
 
-        for (int i = 0; i < parent.childCount; i++)
+        for (int i = 0; i < total; i++)
         {
             children[i] = parent.GetChild(i);
         }
@@ -77,7 +84,7 @@ public class CatComputerData : MonoBehaviour
 
     private int GetUniqueCatIndex()
     {
-        if (previousCats.Count >= catData.Length)
+        if (previousCats.Count >= catlist.catData.Length)
         {
             Debug.LogWarning("All unique cats have been used. Consider resetting previousCats.");
             previousCats.Clear(); // or handle this however your game logic requires
@@ -88,7 +95,7 @@ public class CatComputerData : MonoBehaviour
 
         do
         {
-            index = UnityEngine.Random.Range(0, catData.Length);
+            index = UnityEngine.Random.Range(0, catlist.catData.Length);
             isDuplicate = previousCats.Contains(index); 
         } while (isDuplicate);
 
@@ -96,18 +103,6 @@ public class CatComputerData : MonoBehaviour
     }
     public void RefillCatSuggestions()
     {
-
-/*
-        try
-        {
-            ClearCatListings(); //clear previous listings
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Exception in ClearCatListings: " + e);
-            return; //stop early if this errors
-        }
-*/
 
 
         for (int i = 0; i < listingCatStatus.Length; i++)
@@ -199,11 +194,11 @@ public class CatComputerData : MonoBehaviour
         TextMeshProUGUI catAge = CatListing[index].transform.Find("Cat Information/Cat Age").GetComponent<TextMeshProUGUI>();
 
 
-        catImage.sprite = catData[chosenCatIndices[index]].catSprite;
+        catImage.sprite = catlist.catData[chosenCatIndices[index]].catSprite;
 
-        catName.text = catData[chosenCatIndices[index]].catName.ToString();
-        catDescription.text = catData[chosenCatIndices[index]].catListingDescription.ToString();
-        catAge.text = "Age: " + catData[chosenCatIndices[index]].catAge.ToString();
+        catName.text = catlist.catData[chosenCatIndices[index]].catName.ToString();
+        catDescription.text = catlist.catData[chosenCatIndices[index]].catListingDescription.ToString();
+        catAge.text = "Age: " + catlist.catData[chosenCatIndices[index]].catAge.ToString();
     }
 
 
@@ -259,8 +254,9 @@ public class CatComputerData : MonoBehaviour
                     }
 
                 }
+                Debug.Log("Number of pods:" + numberOfPods);
 
-                for (int i = 0; i < podStatus.Length; i++)
+                for (int i = 0; i < numberOfPods; i++)
                 {
                     Debug.Log("Pod Status: " + i + " = " + podStatus[i]);
                 }
@@ -275,17 +271,31 @@ public class CatComputerData : MonoBehaviour
         GameObject newCat = Instantiate(CatPrefab, spawnPositions[podIndex].position, Quaternion.identity);
         newCat.transform.SetParent(prefabCatParent.transform);
 
-        newCat.GetComponent<SpriteRenderer>().sprite = catData[index].catSprite;
+        newCat.GetComponent<SpriteRenderer>().sprite = catlist.catData[index].catSprite;
 
         if (newCat.TryGetComponent<DisplayCatInformation>(out var catInfo))
         {
-            catInfo.catData = catData[index];
+            catInfo.catData = catlist.catData[index];
 
             catInfo.catData.catPodAssigned = podIndex; //assign the cat a pod
 
         }
 
 
+    }
+    public void UpdatePodStatusArray(int newPodCount)
+    {
+        bool[] newStatus = new bool[newPodCount];
+
+        for (int i = 0; i < newStatus.Length; i++)
+        {
+            if (i < podStatus.Length)
+                newStatus[i] = podStatus[i]; // keep existing values
+            else
+                newStatus[i] = false; // new pods start as free
+        }
+
+        podStatus = newStatus;
     }
 
     public int GetFreePodIndex()

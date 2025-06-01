@@ -91,7 +91,7 @@ public class FoodMechanics : MonoBehaviour
             }
         }
 
-        if (Mathf.Approximately(cat.catData.hunger, 1f))
+        if (Mathf.Approximately(cat.catData.hunger, 1f) || cat.catData.hunger >= 1)
         {
             ShowFullBowl();
         }

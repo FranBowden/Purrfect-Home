@@ -19,7 +19,8 @@ public class CleaningMechanics : MonoBehaviour
     [SerializeField] Sprite EmptylitterTray;
     [SerializeField] Sprite ZippedBag;
     [SerializeField] Sprite UnZippedBag;
-
+    [Header("Audio")]
+    [SerializeField] private AudioSource Pop;
     public Vector2 poopPosition = new Vector2(-0, -9);
     public Vector2 litterPosition = new Vector2(-125f, 45f);
     public float jitterAmountT = 35f;
@@ -27,7 +28,8 @@ public class CleaningMechanics : MonoBehaviour
     public int clicks = 0;
     public int amountOfLitter = 5;
     List<GameObject> wasteAmount = new List<GameObject>();
-    
+    public int numWaste = 3;
+
     private CatOptionsMenuController catOptions;
 
 
@@ -45,13 +47,6 @@ public class CleaningMechanics : MonoBehaviour
 
         CleanStock.text = "Stock: " + PlayerController.Instance.CatLitter.ToString();
 
-        if (PlayerController.Instance.catViewing != null &&
-       !PlayerController.Instance.catViewing.GetComponent<DisplayCatInformation>().catData.GenerateWaste)
-        {
-            GeneratePoop();
-            PlayerController.Instance.catViewing.GetComponent<DisplayCatInformation>().catData.GenerateWaste = true;
-        }
-
         if (GettingNewLitter)
         {
 
@@ -63,7 +58,6 @@ public class CleaningMechanics : MonoBehaviour
         }
 
     }
-
 
     public void PickUpLitterBag()
     {
@@ -117,7 +111,7 @@ public class CleaningMechanics : MonoBehaviour
             Reward(0);
         }
 
-        if (Mathf.Approximately(cat.catData.hygiene, 1f))
+        if (Mathf.Approximately(cat.catData.hygiene, 1f) || cat.catData.hygiene >= 1)
         {
           ShowFullLitterTray();
         }
@@ -158,6 +152,16 @@ public class CleaningMechanics : MonoBehaviour
 
     public void GeneratePoop()
     {
+        //resetting 
+        foreach (GameObject poop in wasteAmount)
+        {
+            Destroy(poop);
+        }
+        wasteAmount.Clear();
+
+        tray.GetComponent<Image>().sprite = litterTray;
+
+
         for (int i = 0; i < 3; i++)
         {
 
@@ -180,6 +184,7 @@ public class CleaningMechanics : MonoBehaviour
     {
         Destroy(poop);
         wasteAmount.Remove(poop);
+        Pop.Play();
 
         Reward(5);
 

@@ -12,6 +12,7 @@ public class NPCGenerator : MonoBehaviour
     [SerializeField] private GameObject OpenShelterBtnText;
     [SerializeField] private GameObject TimeOfDayUI;
     [SerializeField] private GameObject WarningMessage;
+    [SerializeField] private TextMeshProUGUI infoTask;
 
     [SerializeField] private TimeManager TimeManager;
     public NpcsDialogues[] NPCData;
@@ -65,6 +66,7 @@ public class NPCGenerator : MonoBehaviour
         return index;
     }
 
+    /*
     private void Update() //test purposes
     {
      
@@ -74,7 +76,7 @@ public class NPCGenerator : MonoBehaviour
         }
     }
 
-
+    */
     
 
     [System.Serializable]
@@ -90,7 +92,9 @@ public class NPCGenerator : MonoBehaviour
             TimeOfDayUI.GetComponent<TextMeshProUGUI>().text = "Afternoon";
             letVisitorsInside = true;
             CreateNPC();
-            OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "End Day"; 
+            OpenShelterBtnText.GetComponent<TextMeshProUGUI>().text = "End Day";
+            infoTask.text = "Task: Talk to visitors and try to adopt a cat!";
+
         } else 
         {
             if(AdoptionStats.Instance.CatsShelteredToday == 0)

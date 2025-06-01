@@ -26,5 +26,5 @@ MonoBehaviour:
   health: 0
   hygiene: 0
   value: 150
-  catPodAssigned: 0
+  catPodAssigned: 1
   GenerateWaste: 0

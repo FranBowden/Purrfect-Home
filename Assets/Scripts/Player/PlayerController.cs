@@ -1,8 +1,11 @@
 using System.Xml.Linq;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] private TextMeshProUGUI infoDayMoney; 
     public static PlayerController Instance { get; private set; }
 
     public bool hasCompanionNPC;
@@ -17,6 +20,10 @@ public class PlayerController : MonoBehaviour
     [Header("Currency: ")]
     public float Money = 1000;
 
+    private void Update()
+    {
+        infoDayMoney.text = "$" + Money;
+    }
 
     private void Awake()
     {
