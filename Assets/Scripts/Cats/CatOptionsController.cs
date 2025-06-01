@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using static HealthBarController;
 
@@ -14,7 +15,7 @@ public class CatOptionsMenuController : MonoBehaviour
     public GameObject[] food;
     public GameObject[] clean;
 
-  
+    public GameObject WARNINGUI;
 
     public bool hasDataTransferred = false;
 
@@ -34,6 +35,7 @@ public class CatOptionsMenuController : MonoBehaviour
         GameObject catViewing = PlayerController.Instance.catViewing;
         CatData catData = catViewing.GetComponent<DisplayCatInformation>().catData;
 
+        WARNINGUI.SetActive(false);
 
 
         foreach (GameObject menu in menus)

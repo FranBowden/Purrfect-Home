@@ -9,7 +9,8 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
     public bool isMenuOpened { get; private set; } = false;
     private GameObject CatOptionsMenu;
     private Button exitButton;
- 
+    private AudioSource meow;
+
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         adoptManager = GetComponent<AdoptManager>();
-
+        meow = GetComponent<AudioSource>();
     }
     public bool CanInteract()
     {
@@ -44,6 +45,7 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
         {
             adoptManager.OpenAdoptionMenu();
         }
+      meow.Play();
     }
 
     void OpenMenu()
@@ -64,6 +66,7 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
 
         catInfo.DisplayCatUI(CatOptionsMenu); //call the display function
 
+  
 
     }
     public void CloseMenu()
@@ -73,7 +76,7 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
         isMenuOpened = false;
         PlayerController.Instance.catViewing = null;
 
-    
+        
 
     }
 

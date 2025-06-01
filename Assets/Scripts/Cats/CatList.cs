@@ -9,15 +9,20 @@ public class CatList : MonoBehaviour
     {
         for (int i = 0; i < catData.Length; i++)
         {
-            catData[i].hunger = GenerateRandomNumber();
+            catData[i].hunger = GenerateRandomNumber(0, 0.8f);
+            catData[i].hygiene = GenerateRandomNumber(0, 0.8f);
+            float randomValue = GenerateRandomNumber(70f, 150f);
+            catData[i].value = Mathf.RoundToInt(randomValue / 10f) * 10; //round to the nearest 10
 
-            catData[i].hygiene = GenerateRandomNumber();
             catData[i].GenerateWaste = false;
+            
         }
     }
 
-    private float GenerateRandomNumber()
+    private float GenerateRandomNumber(float min, float max)
     {
-        return Random.Range(0f, 0.8f);
+        return Random.Range(min, max);
     }
+
+
 }

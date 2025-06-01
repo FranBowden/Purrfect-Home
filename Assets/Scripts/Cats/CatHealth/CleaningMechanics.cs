@@ -13,6 +13,7 @@ public class CleaningMechanics : MonoBehaviour
     [SerializeField] GameObject cleaningBar;
     [SerializeField] GameObject cleaningParentMenu;
     public TextMeshProUGUI CleanStock;
+    [SerializeField] GameObject WARNINGUI;
     [Header("Sprites")]
 
     [SerializeField] Sprite litterTray;
@@ -35,7 +36,7 @@ public class CleaningMechanics : MonoBehaviour
 
     private bool isLitterEmpty = false;
     private bool GettingNewLitter = false;
-
+    
     
 
     private void Start()
@@ -83,6 +84,10 @@ public class CleaningMechanics : MonoBehaviour
         {
             Debug.Log("No cat litter");
 
+            //log warning
+            if (!GettingNewLitter) { 
+            WARNINGUI.SetActive(true);
+        }
         }
     }
 
@@ -97,6 +102,7 @@ public class CleaningMechanics : MonoBehaviour
         CatOptionsMenuController catOptions = gameObject.GetComponent<CatOptionsMenuController>();
         DisplayCatInformation cat = PlayerController.Instance.catViewing.GetComponent<DisplayCatInformation>();
 
+        Bag.GetComponent<AudioSource>().Play();
         for (int i = 0; i < amountOfLitter; i++)
         {
             GameObject Litter = Instantiate(litter);

@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class FoodMechanics : MonoBehaviour
     [SerializeField] GameObject EmptyBowl;
     [SerializeField] GameObject foodBar;
     [SerializeField] GameObject CatFoodParent;
+    [SerializeField] GameObject WARNINGUI;
     [Header("Stock")]
     public TextMeshProUGUI FoodStock;
     [Header("Sprites")]
@@ -53,8 +55,14 @@ public class FoodMechanics : MonoBehaviour
         } else
         {
             Debug.Log("No cat food");
-        
-    }
+            if(!isBeingFed)
+            {
+                WARNINGUI.SetActive(true);
+
+            }
+
+
+        }
     }
 
     //changes position and rotation
@@ -71,7 +79,7 @@ public class FoodMechanics : MonoBehaviour
     {
         CatOptionsMenuController catOptions = gameObject.GetComponent<CatOptionsMenuController>();
         DisplayCatInformation cat = PlayerController.Instance.catViewing.GetComponent<DisplayCatInformation>();
-
+        foodBagZipped.GetComponent<AudioSource>().Play();
         for (int i = 0; i < amountOfBiscuits; i++)
         {
             GameObject biscuit = Instantiate(food);

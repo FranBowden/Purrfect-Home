@@ -42,7 +42,7 @@ public class AdoptionShelterReputation : MonoBehaviour
     public void SetCurrentPoints(int newPoints)
     {
         currentPoints += newPoints;
-        PlayerController.Instance.Money = currentPoints;
+        PlayerController.Instance.Money += newPoints;
         ShowPoints("+ " + newPoints, color2);
 
         RecalculateStars();
