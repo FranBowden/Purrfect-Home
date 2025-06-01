@@ -20,11 +20,24 @@ public class TimeManager : MonoBehaviour
     private bool hasStartedMusic = false;
     public bool isDayOver = false;
     public int day = 1;
+
+
+    private string[] funFacts = new string[]
+{
+    "In 2024, 25% of households in the UK have at least one cat",
+    "Approximately 150,000 cats enter UK shelters every year",
+    "24% of cats were adopted from a UK rehoming charity",
+    "Cats Protection rehomes over 30,000 cats annually",
+     "Younger people age 18 - 34 are more likely to buy a cat than adopt",
+};
     private void Start()
     {
         GameObject newDay = Instantiate(newDayPrefab); //this will display day 1
         newDay.transform.SetParent(canvas.transform, false); //gets assigned to child of canvas so it shows up
         TimeOfDayUI.GetComponent<TextMeshProUGUI>().text = "Morning";
+
+        newDay.transform.Find("FunFact").GetComponent<TextMeshProUGUI>().text = funFacts[day - 1];
+
     }
 
     public void EndDay()
@@ -119,6 +132,7 @@ public class TimeManager : MonoBehaviour
 
         GameObject newDay = Instantiate(newDayPrefab);
         newDay.transform.SetParent(canvas.transform, false);
+        newDay.transform.Find("FunFact").GetComponent<TextMeshProUGUI>().text = funFacts[day - 1];
 
         var dayTextTransform = newDay.transform.Find("Day");
         if (dayTextTransform == null)
