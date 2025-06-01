@@ -1,10 +1,7 @@
+using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
-using static HealthBarController;
 
 
 public class FoodMechanics : MonoBehaviour
@@ -31,15 +28,18 @@ public class FoodMechanics : MonoBehaviour
     private bool isBeingFed = false;
     private int clicks = 0;
 
+    private enum FoodBagState { Idle, Dispensing }
+    private FoodBagState currentState = FoodBagState.Idle;
 
     //Need to have a function to click on the cat food bag
     public void PickUpCatFood()
     {
-        if (PlayerController.Instance.CatFood > 0)
+
+        if (PlayerController.Instance.CatFood > 0 && currentState == FoodBagState.Idle)
         {
             //the bag needs to go upwards as if its tipping over
             isBeingFed = true;
-
+            currentState = FoodBagState.Dispensing;
             ChangePosition(new Vector2(130, 161), new Vector3(0f, 0f, 45f));
 
             //Change bag
@@ -52,7 +52,12 @@ public class FoodMechanics : MonoBehaviour
                 Debug.Log("Image component not found");
             }
             PlayerController.Instance.CatFood -= 1;
-        } else
+            //   foodBagZipped.GetComponent<Button>().onClick.RemoveAllListeners();
+            // foodBagZipped.GetComponent<Button>().onClick.AddListener(ShowBiscuits);
+
+            StartCoroutine(SwitchToShowBiscuits()); //this stops error from deleting stock
+        }
+        else
         {
             Debug.Log("No cat food");
             if(!isBeingFed)
@@ -63,6 +68,13 @@ public class FoodMechanics : MonoBehaviour
 
 
         }
+    }
+
+    private IEnumerator SwitchToShowBiscuits()
+    {
+        yield return null;
+        foodBagZipped.GetComponent<Button>().onClick.RemoveAllListeners();
+        foodBagZipped.GetComponent<Button>().onClick.AddListener(ShowBiscuits);
     }
 
     //changes position and rotation
@@ -99,7 +111,7 @@ public class FoodMechanics : MonoBehaviour
             }
         }
 
-        if (Mathf.Approximately(cat.catData.hunger, 1f) || cat.catData.hunger >= 1)
+        if (cat.catData.hunger >= 1)
         {
             ShowFullBowl();
         }
@@ -121,7 +133,7 @@ public class FoodMechanics : MonoBehaviour
         foodBagZipped.GetComponent<Image>().sprite = foodBagzipped;
         ChangePosition(new Vector2(365, -204), new Vector3(0f, 0f, 0f));
         clicks = 0;
-
+        currentState = FoodBagState.Idle;
         //change onclick again
         foodBagZipped.GetComponent<Button>().onClick.RemoveAllListeners();
         foodBagZipped.GetComponent<Button>().onClick.AddListener(PickUpCatFood);
@@ -138,8 +150,7 @@ public class FoodMechanics : MonoBehaviour
         if (isBeingFed)
          {
    
-            foodBagZipped.GetComponent<Button>().onClick.RemoveAllListeners();
-            foodBagZipped.GetComponent<Button>().onClick.AddListener(ShowBiscuits);
+          
             Cursor.visible = false;
           
             foodBagZipped.transform.position = Input.mousePosition;

@@ -175,7 +175,8 @@ public class NPC : MonoBehaviour, IInteractable
                if(dialogueDataIndex == 0)
                 {
                     vistorBehaviour.EnterCattery(); //enter cattery
-               
+                    gameObject.GetComponent<Collider2D>().enabled = false;
+
                     wayPointMovement.waitTime = 0f;
                 } else if (dialogueDataIndex == 1) {
                     vistorBehaviour.FollowPlayer();

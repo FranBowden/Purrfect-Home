@@ -37,6 +37,11 @@ public class HealthBarController : MonoBehaviour
     public void CalculateBar(float data, BarType type)
     {
         int totalBars = 6;
+
+        if (data >= 1) //any problems of it going more than 1 will just be solved:
+        {
+            data = 1;
+        }
         barsToShow = Mathf.RoundToInt(data * totalBars);
 
         BarData(barsToShow, type);

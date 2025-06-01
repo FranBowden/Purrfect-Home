@@ -32,6 +32,8 @@ public class NPCBehaviour : MonoBehaviour
     }
     public void EnterCattery()
     {
+        //toggle collider
+
         leaveCattery = false;
 
         enterCattery = true;

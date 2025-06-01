@@ -57,7 +57,7 @@ public class AdoptionDecision : MonoBehaviour
 
             CatComputerData.Instance.MarkPodAsFree(catData.catPodAssigned);
 
-            npc.GetComponent<NPCBehaviour>().LeaveShelter();
+            npc.GetComponent<NPCBehaviour>().LeaveCattery();
 
             string catName = catData.catName;
             string npcName = npc.GetComponent<NPC>().dialogueData[0].NPCName;
@@ -75,7 +75,7 @@ public class AdoptionDecision : MonoBehaviour
             Debug.Log("Adoption was unsucessful....");
             FailedAdoptionMessage();
             gameObject.SetActive(false);
-            npc.GetComponent<NPCBehaviour>().LeaveShelter();
+            npc.GetComponent<NPCBehaviour>().LeaveCattery();
 
             //another NPC should spawn
 

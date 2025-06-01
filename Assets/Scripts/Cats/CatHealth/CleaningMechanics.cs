@@ -48,11 +48,10 @@ public class CleaningMechanics : MonoBehaviour
 
         CleanStock.text = "Stock: " + PlayerController.Instance.CatLitter.ToString();
 
+
         if (GettingNewLitter)
         {
 
-            Bag.GetComponent<Button>().onClick.RemoveAllListeners();
-            Bag.GetComponent<Button>().onClick.AddListener(ShowLitter);
             Cursor.visible = false;
 
             Bag.transform.position = Input.mousePosition;
@@ -79,15 +78,20 @@ public class CleaningMechanics : MonoBehaviour
                 Debug.Log("Image component not found");
             }
             PlayerController.Instance.CatLitter -= 1;
+
+
+            Bag.GetComponent<Button>().onClick.RemoveAllListeners();
+            Bag.GetComponent<Button>().onClick.AddListener(ShowLitter);
         }
         else
         {
             Debug.Log("No cat litter");
 
             //log warning
-            if (!GettingNewLitter) { 
-            WARNINGUI.SetActive(true);
-        }
+            if (isLitterEmpty && PlayerController.Instance.CatLitter == 0 && !GettingNewLitter)
+            {
+                WARNINGUI.SetActive(true);
+            }
         }
     }
 

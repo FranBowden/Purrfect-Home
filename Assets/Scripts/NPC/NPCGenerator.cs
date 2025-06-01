@@ -12,6 +12,8 @@ public class NPCGenerator : MonoBehaviour
     [SerializeField] private GameObject OpenShelterBtnText;
     [SerializeField] private GameObject TimeOfDayUI;
     [SerializeField] private GameObject WarningMessage;
+    [SerializeField] private GameObject NewVisitorArrivedUI;
+
     [SerializeField] private TextMeshProUGUI infoTask;
 
     [SerializeField] private TimeManager TimeManager;
@@ -34,6 +36,7 @@ public class NPCGenerator : MonoBehaviour
 
         spriteLibrary = newNPC.GetComponent<SpriteLibrary>();
         npc = newNPC.GetComponent<NPC>();
+        NewVisitorArrivedUI.SetActive(true);
 
 
         for (int i = 0; i < NPCData[index].dialogues.Length; i++)

@@ -61,8 +61,6 @@ public class TimeManager : MonoBehaviour
     private void HandleDayEndState()
     {
 
-
-
         if(AdoptionStats.Instance.CatsAdoptedToday == 0)
         {
             AdoptionShelterReputation.Instance.RemovePoints(100); //100 points get removed for not adopting any cats...

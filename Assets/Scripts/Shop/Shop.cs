@@ -9,21 +9,27 @@ public class Shop : MonoBehaviour
     [SerializeField] CatComputerData computerData;
     [SerializeField] GameObject ShopMenu;
     [SerializeField] GameObject Mailrescuecats;
+    [SerializeField] GameObject EntireComputerUI;
     [SerializeField] GameObject ItemListPrefab;
     [SerializeField] GameObject ItemCheckoutParent;
     [SerializeField] TextMeshProUGUI PlayerMoneyUI;
     [SerializeField] TextMeshProUGUI CheckoutCostsUI;
+    [SerializeField] AudioSource purchase;
+    [SerializeField] AudioSource click;
+
     private Dictionary<Item, GameObject> checkoutItems = new Dictionary<Item, GameObject>(); //check out
+
 
     private int HistoryFoodPurchases = 0;
     private int HistoryLitterPurchases = 0;
     private int HistoryPodPurchases = 0;
 
-    private float OverallCost = 0;
-
+    public float OverallCost = 0;
+  
     //Add button to display shop
     public void ShowShop()
     {
+        click.Play();
         ShopMenu.SetActive(true);
         Mailrescuecats.SetActive(false);
         PlayerMoneyUI.text = "$" + PlayerController.Instance.Money.ToString();
@@ -35,7 +41,26 @@ public class Shop : MonoBehaviour
     {
         Mailrescuecats.SetActive(true);
         ShopMenu.SetActive(false);
+        click.Play();
     }
+
+    public void ExitComputer()
+    {
+        click.Play();
+        Mailrescuecats.SetActive(true);
+        ShopMenu.SetActive(false);
+        EntireComputerUI.SetActive(false);
+
+        OverallCost = 0;
+
+        foreach (var pair in checkoutItems)
+        {
+            Destroy(pair.Value);
+        }
+
+        checkoutItems.Clear();
+    }
+
     //Create a function for "ADD" that will then add a prefab to itemsCheckout
     public void AddItem(GameObject button)
     {
@@ -71,10 +96,12 @@ public class Shop : MonoBehaviour
             checkoutItems.Add(itemData, item);
         }
         CheckoutCostsUI.text = "$" + OverallCost;
+        click.Play();
     }
 
     private void BuyItems()
     {
+
         foreach (var i in checkoutItems)
         {
             Item item = i.Key;//data
@@ -91,46 +118,55 @@ public class Shop : MonoBehaviour
                 PlayerController.Instance.CatFood += quantity;
                 HistoryFoodPurchases += quantity;
             }
+            else if (item.ItemName == "Cat Litter")
+            {
+                PlayerController.Instance.CatLitter += quantity;
+                HistoryLitterPurchases += quantity;
+            }
             else if (item.ItemName == "Cat Pod")
             {
                 int potentialTotal = HistoryPodPurchases + quantity;
 
                 if (HistoryPodPurchases >= 3 || potentialTotal > 3)
                 {
-                    Debug.Log("Cannot buy more than 3 Cat Pods.");
-                    return;
+                    Debug.Log("Cannot buy more than 3 Cat Pods");
+                  //  continue;
                 }
-                else
+                Debug.Log("OverallCost: " + OverallCost);
+
+                if (OverallCost <= PlayerController.Instance.Money) //if player does have enough money then create a new pod and that
                 {
                     PlayerController.Instance.CatPod += quantity;
                     HistoryPodPurchases += quantity;
                     computerData.numberOfPods += quantity;
                     computerData.UpdatePodStatusArray(computerData.numberOfPods);
                     computerData.spawnPositions = computerData.GetSpawnPoints(computerData.catPodsPositions, computerData.numberOfPods);
-
+                }
+                else
+                {
+                    Debug.Log("Not enough money for Cat Pods");
+                 //   continue;
                 }
             }
-            else if (item.ItemName == "Cat Litter")
-            {
-                PlayerController.Instance.CatLitter += quantity;
-                HistoryLitterPurchases += quantity;
-            }
+
+          
             //bug errors with buying over 3 pods.....
             if (OverallCost <= PlayerController.Instance.Money)
             {
                 PlayerController.Instance.Money -= OverallCost;
-                OverallCost = 0;
+                Debug.Log("OverallCost: " + OverallCost);
                 PlayerMoneyUI.text = "$" + PlayerController.Instance.Money.ToString();
          
-                CheckoutCostsUI.text = "$" + OverallCost;
-               
-
+                purchase.Play();
 
             }
             else
             {
                 Debug.Log("Dont have enough money!");
+ 
             }
+            OverallCost = 0;
+            CheckoutCostsUI.text = "$" + OverallCost;
         }
 
         foreach (var i in checkoutItems)
@@ -142,6 +178,7 @@ public class Shop : MonoBehaviour
 
     public void DeleteItem(Item itemData)
     {
+        click.Play();
         if (checkoutItems.TryGetValue(itemData, out GameObject itemGO))
         {
             itemData.Quantity -= 1;
@@ -157,6 +194,8 @@ public class Shop : MonoBehaviour
             {
                 checkoutItems.Remove(itemData);
                 Destroy(itemGO);
+
+
             }
         }
     }

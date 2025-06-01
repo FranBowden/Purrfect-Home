@@ -10,10 +10,12 @@ public class CatComputerData : MonoBehaviour
     //
     [SerializeField] private CatList catlist;
     [SerializeField] GameObject CatPrefab;
-
+    [SerializeField] AudioSource click;
     [SerializeField] GameObject prefabCatListingItem;
     [SerializeField] Transform prefabCatListing;
     [SerializeField] GameObject prefabCatParent;
+    [SerializeField] GameObject WarningMessage;
+
     public  Transform catPodsPositions;
   
     private GameObject[] CatListing; //stores the cats listed on computer for that day
@@ -68,6 +70,18 @@ public class CatComputerData : MonoBehaviour
         RefillCatSuggestions();
     }
 
+    private void Update()
+    {
+        if(AdoptionStats.Instance.CatsShelteredToday == 3)
+        {
+            WarningMessage.SetActive(true);
+        } else
+        {
+            WarningMessage.SetActive(false);
+
+        }
+    }
+
     public Transform[] GetSpawnPoints(Transform parent, int maxPods)
     {
         int total = Mathf.Max(3, maxPods); 
@@ -98,7 +112,7 @@ public class CatComputerData : MonoBehaviour
             index = UnityEngine.Random.Range(0, catlist.catData.Length);
             isDuplicate = previousCats.Contains(index); 
         } while (isDuplicate);
-
+        previousCats.Add(index);
         return index;
     }
     public void RefillCatSuggestions()
@@ -123,7 +137,7 @@ public class CatComputerData : MonoBehaviour
 
 
                     chosenCatIndices.Add(catIndex);
-                    previousCats.Add(catIndex);
+                  
 
 
                     listingCatStatus[i] = true;
@@ -206,8 +220,8 @@ public class CatComputerData : MonoBehaviour
 
     private void CatAccepted(int listingIndex)
     {
- 
-        
+
+        click.Play();
         if (CatListing[listingIndex] != null)
         {
             Transform nameTransform = CatListing[listingIndex].transform.Find("Cat Information/CatName");

@@ -56,5 +56,12 @@ public class InteractionDetection : MonoBehaviour
                 interactionIcon.SetActive(false);
             }
         }
+
+        if (collision.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
+        {
+            interactableInRange = null;
+        }
     }
+
+
 }

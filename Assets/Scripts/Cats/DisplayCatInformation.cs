@@ -40,7 +40,7 @@ public class DisplayCatInformation : MonoBehaviour
             catDesc.text = catData.catDescription;
         
         if (catValue != null)
-            catValue.text = "Value: " + catData.value.ToString();
+            catValue.text = "Value: $" + catData.value.ToString();
 
         if (CatInfoCatImage != null)
             CatInfoCatImage.sprite = catData.catSprite;

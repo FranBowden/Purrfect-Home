@@ -49,7 +49,7 @@ public class WayPointMovement : MonoBehaviour
             if (NPCbehaviour.enterCattery)
             {
                 animator.SetFloat("LastInputX", 0f);
-                animator.SetFloat("LastInputY", -1f);
+                animator.SetFloat("LastInputY", 1f);
             }
             else
             {
@@ -175,7 +175,7 @@ public class WayPointMovement : MonoBehaviour
         if (NPCbehaviour.enterCattery)
         {
             animator.SetFloat("LastInputX", 0f);
-            animator.SetFloat("LastInputY", -1f);
+            animator.SetFloat("LastInputY", 1f);
         } else
         {
              animator.SetFloat("LastInputX", lastInputX);
@@ -262,6 +262,7 @@ public class WayPointMovement : MonoBehaviour
             {
                 waitTime = 5f; //have a longer wait time
 
+                gameObject.GetComponent<Collider2D>().enabled = true;
 
                 NPC vistor = GetComponent<NPC>();
                 if (vistor.dialogueData.Length > vistor.dialogueDataIndex++)
