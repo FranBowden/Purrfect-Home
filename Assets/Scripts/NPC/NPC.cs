@@ -17,13 +17,14 @@ public class NPC : MonoBehaviour, IInteractable
     private NPCBehaviour vistorBehaviour;
     private AudioSource textAudio;
     private WayPointMovement wayPointMovement;
-
+    private NPCGenerator npcGen;
     private void Start()
     {
         dialogueControls = DialogueController.Instance;
         vistorBehaviour = GetComponent<NPCBehaviour>();
         textAudio = GameObject.Find("AudioController").transform.Find("Text Audio").GetComponent<AudioSource>();
         wayPointMovement = GetComponent<WayPointMovement>();
+        npcGen = FindAnyObjectByType<NPCGenerator>();
     }
     public bool CanInteract()
     {
@@ -170,10 +171,10 @@ public class NPC : MonoBehaviour, IInteractable
         Debug.Log("choice =" + choice);
         switch (choice)
         {
-            case 0:
+            case 0: //The first choice if yes
                if(dialogueDataIndex == 0)
                 {
-                    vistorBehaviour.EnterCattery();
+                    vistorBehaviour.EnterCattery(); //enter cattery
                
                     wayPointMovement.waitTime = 0f;
                 } else if (dialogueDataIndex == 1) {
@@ -181,8 +182,21 @@ public class NPC : MonoBehaviour, IInteractable
                     wayPointMovement.waitTime = 0f;
                 }
                 break;
-            case 1:
-                vistorBehaviour.LeaveShelter();
+            case 1: //Leaves straight away on first choice
+
+
+                if(vistorBehaviour.enterCattery || vistorBehaviour.followPlayer)
+                {
+                    vistorBehaviour.LeaveCattery();
+                } else
+                {
+                    vistorBehaviour.LeaveShelter();
+                   
+
+                }
+                //Create a new npc
+                npcGen.CreateNPC(); 
+
                 break;
         }
         wayPointMovement.currentWaypointIndex = 0;

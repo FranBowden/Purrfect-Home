@@ -192,6 +192,7 @@ public class CatComputerData : MonoBehaviour
         TextMeshProUGUI catName = CatListing[index].transform.Find("Cat Information/CatName").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI catDescription = CatListing[index].transform.Find("Cat Information/CatDescription").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI catAge = CatListing[index].transform.Find("Cat Information/Cat Age").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI catValue = CatListing[index].transform.Find("Cat Information/Cat Value").GetComponent<TextMeshProUGUI>();
 
 
         catImage.sprite = catlist.catData[chosenCatIndices[index]].catSprite;
@@ -199,6 +200,7 @@ public class CatComputerData : MonoBehaviour
         catName.text = catlist.catData[chosenCatIndices[index]].catName.ToString();
         catDescription.text = catlist.catData[chosenCatIndices[index]].catListingDescription.ToString();
         catAge.text = "Age: " + catlist.catData[chosenCatIndices[index]].catAge.ToString();
+        catValue.text = "Value: " + catlist.catData[chosenCatIndices[index]].value.ToString();
     }
 
 

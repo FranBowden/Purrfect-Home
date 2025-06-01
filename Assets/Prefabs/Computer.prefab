@@ -852,23 +852,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5d71d92dae34b4bbe71091b02d85ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catData:
-  - {fileID: 11400000, guid: f4ad7b29803c6a64cb530232c4fb1a44, type: 2}
-  - {fileID: 11400000, guid: 956247406d5f2bd42b4bca506cf5985e, type: 2}
-  - {fileID: 11400000, guid: 3e41252dfcb382f4ebac188910b1c2b4, type: 2}
-  - {fileID: 11400000, guid: c369f41ba00289542a826958ded3c041, type: 2}
-  - {fileID: 11400000, guid: 65bec5cb8fed1684dbc3f76458131e25, type: 2}
-  - {fileID: 11400000, guid: 9237d256721ec8b4fb662679e2486e15, type: 2}
-  - {fileID: 11400000, guid: a4b91b3e21f422a4ca0140376b7ad0f1, type: 2}
-  - {fileID: 11400000, guid: 1f96c6a9d58bdf949aa354abee7e55c9, type: 2}
-  - {fileID: 11400000, guid: 22ee2318579cb4d4baf00f73e9cb6f05, type: 2}
-  - {fileID: 11400000, guid: 5735da2846b3b0d4dafed6ebd8a4bbb4, type: 2}
-  - {fileID: 11400000, guid: ddff4ee14f477e04296d11668c2417c8, type: 2}
+  catlist: {fileID: 0}
   CatPrefab: {fileID: 5165667840722573501, guid: 8a3c090fe820fb74ea476e95287f7329, type: 3}
   prefabCatListingItem: {fileID: 7704998047888972868, guid: 031a164b4db36a94f8d4b99fe5fc6a61, type: 3}
   prefabCatListing: {fileID: 254385837980592713}
   prefabCatParent: {fileID: 0}
   catPodsPositions: {fileID: 0}
+  spawnPositions: []
+  numberOfPods: 0
 --- !u!1 &2107130170838343606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -152.32495, y: -228.9}
+  m_AnchoredPosition: {x: -207, y: -228.9}
   m_SizeDelta: {x: 236.31007, y: 553.19995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5052977402292395469

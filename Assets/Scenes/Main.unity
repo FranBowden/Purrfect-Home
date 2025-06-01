@@ -6319,6 +6319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a3cca6c5ab3364cac44753b9656872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computerData: {fileID: 0}
   ShopMenu: {fileID: 668435163}
   Mailrescuecats: {fileID: 1037930233}
   ItemListPrefab: {fileID: 2015174739908428267, guid: a2785d91509a20a44a55afb9e121e65e, type: 3}
@@ -7961,6 +7962,12 @@ MonoBehaviour:
   - dialogues:
     - {fileID: 11400000, guid: 461dce86fa29fec43b20006dadaaf95c, type: 2}
     - {fileID: 11400000, guid: 630e0941a89ea1842a76dac107ae94d3, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: adf4cb680b9705049b20ac0bd8c99faf, type: 2}
+    - {fileID: 11400000, guid: d772f836687edcb4ab12fba7fef26e07, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: 9718ca6121d72484583ff96c71f03a9c, type: 2}
+    - {fileID: 11400000, guid: 7118e1a485f245041b121ae401f15236, type: 2}
   letVisitorsInside: 0
 --- !u!1 &743864235
 GameObject:
@@ -9547,6 +9554,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 1025236491}
   backgroundMusic: {fileID: 1832506996}
+--- !u!1001 &895027272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.3418255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.034191
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.022786729
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736163660872505023, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921455369256765029, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
+      propertyPath: m_Name
+      value: NPC ExitFromCattery Waypoint
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15a67fd3095565243b1caedae80862ca, type: 3}
 --- !u!1 &897595055
 GameObject:
   m_ObjectHideFlags: 0
@@ -16524,7 +16588,7 @@ Camera:
   far clip plane: 5000
   field of view: 21.4
   orthographic: 0
-  orthographic size: 10
+  orthographic size: 0.9
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -20425,10 +20489,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -343.3
       objectReference: {fileID: 0}
-    - target: {fileID: 8812945270877197958, guid: b7d43fdbbbf2dfe40a9ded047769e8db, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20611,4 +20671,5 @@ SceneRoots:
   - {fileID: 3378956866003767537}
   - {fileID: 7449609887408011774}
   - {fileID: 140715161}
+  - {fileID: 895027272}
   - {fileID: 2094832910}

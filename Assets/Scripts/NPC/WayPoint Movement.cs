@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WayPointMovement : MonoBehaviour
 {
-    public enum WaypointType { Cattery, Exit, Player, Waiting }
+    public enum WaypointType { Cattery, Exit, Player, Waiting, ExitFromCattery }
 
     public Transform[] waypointParents;
     private Transform Player;
@@ -35,7 +35,8 @@ public class WayPointMovement : MonoBehaviour
         {
             { WaypointType.Cattery, GetChildWaypoints(waypointParents[0]) },
             { WaypointType.Exit,      GetChildWaypoints(waypointParents[1]) },
-            { WaypointType.Waiting,    GetChildWaypoints(waypointParents[2]) }
+            { WaypointType.Waiting,    GetChildWaypoints(waypointParents[2]) },
+            { WaypointType.ExitFromCattery, GetChildWaypoints(waypointParents[3]) }
         };
     }
 
@@ -95,18 +96,20 @@ public class WayPointMovement : MonoBehaviour
         {
             currentWaypointIndex = 1;
             target = waypointMap[WaypointType.Exit][currentWaypointIndex];
-          
+
 
         }
         else if (NPCbehaviour.waitingRoom)
         {
             target = waypointMap[WaypointType.Waiting][currentWaypointIndex];
         }
-
+        else if (NPCbehaviour.leaveCattery)
+        {
+            target = waypointMap[WaypointType.ExitFromCattery][currentWaypointIndex];
+        }
 
         if (target == null)
         {
-            //Debug.LogWarning($"{gameObject.name} has no valid target set - check waypoints");
             return;
         }
 
@@ -125,7 +128,6 @@ public class WayPointMovement : MonoBehaviour
 
         if (NPCbehaviour.followPlayer)
         {
-        //    Debug.Log($"Following player. Distance: {distanceToTarget}");
 
             if (distanceToTarget > followDistance) //move towards the player
             {
@@ -133,7 +135,6 @@ public class WayPointMovement : MonoBehaviour
             }
             else //within follow distance and wait
             {
-              //  Debug.Log("Within follow distance, waiting");
                 StartCoroutine(WaitAtWaypoint());
             }
         }
@@ -181,7 +182,7 @@ public class WayPointMovement : MonoBehaviour
             animator.SetFloat("LastInputY", lastInputY);
         }
 
-        if(NPCbehaviour.followPlayer)
+        if(NPCbehaviour.followPlayer || NPCbehaviour.leaveCattery)
         {
             waitTime = 0f;
         }
@@ -205,6 +206,11 @@ public class WayPointMovement : MonoBehaviour
         {
             currentWaypointIndex = GetNextWaypointIndex(WaypointType.Waiting, currentWaypointIndex, loop);
         }
+        else if (NPCbehaviour.leaveCattery)
+        {
+            currentWaypointIndex = GetNextWaypointIndex(WaypointType.ExitFromCattery, currentWaypointIndex, loop);
+
+        }
 
 
         isWaiting = false;
@@ -219,6 +225,32 @@ public class WayPointMovement : MonoBehaviour
             return 0;
 
         int length = waypointMap[type].Length;
+
+        if (type == WaypointType.ExitFromCattery)
+        {
+            if(currentIndex == length - 1)
+            {
+                Destroy(gameObject);
+            }
+
+        }
+
+        if (type == WaypointType.Waiting)
+        {
+            // If we're at index 0, go to 1
+            if (currentIndex == 0) //at at index 0 - move to 1
+            {
+                return 1;
+            }
+
+            if (currentIndex == length - 1) //at the very end of the loop, go back to 1
+            {
+                return 1;
+            }
+
+            return currentIndex + 1;
+        }
+
 
         if (type == WaypointType.Cattery) //if the waypoint is cattery
         {
