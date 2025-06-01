@@ -19537,6 +19537,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 349738316}
+    - target: {fileID: 6059929820215014489, guid: 89e43cf1caa12a341ba4fa970bf0b681, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059929820215014489, guid: 89e43cf1caa12a341ba4fa970bf0b681, type: 3}
+      propertyPath: SettingsMenu
+      value: 
+      objectReference: {fileID: 919164109}
     - target: {fileID: 7826504477490373630, guid: 89e43cf1caa12a341ba4fa970bf0b681, type: 3}
       propertyPath: m_fontColor.b
       value: 0.3254902

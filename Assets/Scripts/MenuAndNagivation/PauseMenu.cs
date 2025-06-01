@@ -3,6 +3,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu Instance;
+    [SerializeField] private GameObject SettingsMenu;
 
     private void Awake()
     {
@@ -21,10 +22,12 @@ public class PauseMenu : MonoBehaviour
         {
             gameObject.SetActive(false);
             PauseController.SetPause(false);
+            SettingsMenu.SetActive(false);
         }
         else
         {
             gameObject.SetActive(true);
+            SettingsMenu.SetActive(false);
             PauseController.SetPause(true);
         }
     }
