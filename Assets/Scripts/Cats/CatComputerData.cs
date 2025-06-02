@@ -16,7 +16,7 @@ public class CatComputerData : MonoBehaviour
     [SerializeField] GameObject prefabCatParent;
     [SerializeField] GameObject WarningMessage;
 
-    public  Transform catPodsPositions;
+    public Transform catPodsPositions;
   
     private GameObject[] CatListing; //stores the cats listed on computer for that day
     private bool[] podStatus;

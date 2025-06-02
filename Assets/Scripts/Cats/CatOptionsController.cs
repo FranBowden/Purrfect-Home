@@ -16,6 +16,7 @@ public class CatOptionsMenuController : MonoBehaviour
     public GameObject[] clean;
 
     public GameObject WARNINGUI;
+    public GameObject tutorialUI;
 
     public bool hasDataTransferred = false;
 
@@ -37,7 +38,6 @@ public class CatOptionsMenuController : MonoBehaviour
 
         WARNINGUI.SetActive(false);
 
-
         foreach (GameObject menu in menus)
         {
             menu.SetActive(menu == menuToToggle);
@@ -58,8 +58,8 @@ public class CatOptionsMenuController : MonoBehaviour
             
                 HealthBarController.ReAssignBarMap(food);
                 HealthBarController.CalculateBar(catData.hunger, BarType.HungerBar);
-         
 
+               
 
             }
             else if (menu == cleanMenu)
@@ -72,6 +72,7 @@ public class CatOptionsMenuController : MonoBehaviour
                 HealthBarController.ReAssignBarMap(clean);
                 HealthBarController.CalculateBar(catData.hygiene, BarType.HygieneBar);
 
+                
             }
         }
     }

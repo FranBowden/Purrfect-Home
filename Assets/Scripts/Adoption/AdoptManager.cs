@@ -42,6 +42,14 @@ public class AdoptManager : MonoBehaviour
         Image npcImage = menu.transform.Find("FrameVisitor/NPCImage").GetComponent<Image>();
         TextMeshProUGUI npcName = menu.transform.Find("FrameVisitor/VistorName").GetComponent<TextMeshProUGUI>();
 
+        TextMeshProUGUI npcWants = menu.transform.Find("Wants").GetComponent<TextMeshProUGUI>();
+
+        string desiredTraits = "Wants:\n";
+        foreach (KeywordType trait in NPC.GetComponent<NPC>().dialogueData[1].desiredTraits)
+        {
+            desiredTraits += "- " + FormatTraitName(trait.ToString()) + "\n";
+        }
+        npcWants.text = desiredTraits;
         npcImage.sprite = image;
         npcName.text = name;
     }
@@ -57,10 +65,22 @@ public class AdoptManager : MonoBehaviour
         Image catImage = menu.transform.Find("FrameCat/CatImage").GetComponent<Image>();
         TextMeshProUGUI catName = menu.transform.Find("FrameCat/CatName").GetComponent<TextMeshProUGUI>();
 
+        TextMeshProUGUI catTraits = menu.transform.Find("Traits").GetComponent<TextMeshProUGUI>();
+
+        string traitsText = "Traits:\n";
+        foreach (KeywordType trait in Cat.traits)
+        {
+            traitsText += "- " + FormatTraitName(trait.ToString()) + "\n";
+        }
+        catTraits.text = traitsText;
+
         catImage.sprite = image;
         catName.text = name;
     }
-
+    string FormatTraitName(string traitName)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(traitName, "(\\B[A-Z])", " $1");
+    }
     private void CatAdoptionPrediction(GameObject menu)
     {
         CatData Cat = gameObject.GetComponent<DisplayCatInformation>().catData;

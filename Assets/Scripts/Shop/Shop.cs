@@ -16,6 +16,7 @@ public class Shop : MonoBehaviour
     [SerializeField] TextMeshProUGUI CheckoutCostsUI;
     [SerializeField] AudioSource purchase;
     [SerializeField] AudioSource click;
+    [SerializeField] GameObject tutorialMessage;
 
     private Dictionary<Item, GameObject> checkoutItems = new Dictionary<Item, GameObject>(); //check out
 
@@ -34,6 +35,11 @@ public class Shop : MonoBehaviour
         Mailrescuecats.SetActive(false);
         PlayerMoneyUI.text = "$" + PlayerController.Instance.Money.ToString();
         CheckoutCostsUI.text = "$" + OverallCost;
+
+        if(tutorialMessage != null)
+        {
+            Destroy(tutorialMessage);
+        }
 
     }
 
@@ -59,6 +65,11 @@ public class Shop : MonoBehaviour
         }
 
         checkoutItems.Clear();
+
+        if (tutorialMessage != null)
+        {
+            Destroy(tutorialMessage);
+        }
     }
 
     //Create a function for "ADD" that will then add a prefab to itemsCheckout

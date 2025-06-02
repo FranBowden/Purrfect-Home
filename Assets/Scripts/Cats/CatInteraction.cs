@@ -75,8 +75,13 @@ public class CatPodInteraction : MonoBehaviour, IInteractable
         CatOptionsMenu.SetActive(false);
         isMenuOpened = false;
         PlayerController.Instance.catViewing = null;
-
         
+        if(catOptionsMenuController.tutorialUI != null)
+        {
+            Destroy(catOptionsMenuController.tutorialUI);
+        }
+
+
 
     }
 
