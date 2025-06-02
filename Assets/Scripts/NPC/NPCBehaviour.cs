@@ -10,6 +10,7 @@ public class NPCBehaviour : MonoBehaviour
 
     public void FollowPlayer()
     {
+        gameObject.GetComponent<Collider2D>().enabled = false;
         PlayerController.Instance.hasCompanionNPC = true;
         PlayerController.Instance.companionNPC = gameObject;
         followPlayer = true;

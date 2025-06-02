@@ -112,7 +112,7 @@ public class TimeManager : MonoBehaviour
         //Debug.Log("Game day has ended!");
         day++;
 
-        
+        catComputerData.ClearCatListings();
         catComputerData.RefillCatSuggestions();
      
         

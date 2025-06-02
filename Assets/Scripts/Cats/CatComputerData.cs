@@ -98,10 +98,11 @@ public class CatComputerData : MonoBehaviour
 
     private int GetUniqueCatIndex()
     {
+        
         if (previousCats.Count >= catlist.catData.Length)
         {
-            Debug.LogWarning("All unique cats have been used. Consider resetting previousCats.");
-            previousCats.Clear(); // or handle this however your game logic requires
+            Debug.LogWarning("All unique cats have been used");
+            previousCats.Clear();
         }
 
         int index;
@@ -115,31 +116,27 @@ public class CatComputerData : MonoBehaviour
         previousCats.Add(index);
         return index;
     }
+
     public void RefillCatSuggestions()
     {
-
-
         for (int i = 0; i < listingCatStatus.Length; i++)
         {
             try
             {
 
-                if (!listingCatStatus[i])
+                if (!listingCatStatus[i]) //if there is a space free
                 {
                  
+                    //create a new listing
                     GameObject newCatListing = Instantiate(prefabCatListingItem);
                     newCatListing.transform.SetParent(prefabCatListing.transform, false);
 
                     CatListing[i] = newCatListing;
 
-                    int catIndex = GetUniqueCatIndex();
-                //int catIndex = UnityEngine.Random.Range(0, catData.Length);
+                    int catIndex = GetUniqueCatIndex(); //gets unique cat in the list
 
-
-                    chosenCatIndices.Add(catIndex);
+                    chosenCatIndices.Add(catIndex); //an array for the chosen cats
                   
-
-
                     listingCatStatus[i] = true;
 
                     SetCatDataToList(i);
@@ -167,12 +164,11 @@ public class CatComputerData : MonoBehaviour
         }
     }
 
-    private void ClearCatListings()
+    public void ClearCatListings()
     {
       
         if (chosenCatIndices == null)
         {
-         //   Debug.LogWarning("chosenCatIndices was null");
             chosenCatIndices = new List<int>();
         }
         else
@@ -306,9 +302,9 @@ public class CatComputerData : MonoBehaviour
         for (int i = 0; i < newStatus.Length; i++)
         {
             if (i < podStatus.Length)
-                newStatus[i] = podStatus[i]; // keep existing values
+                newStatus[i] = podStatus[i];
             else
-                newStatus[i] = false; // new pods start as free
+                newStatus[i] = false; 
         }
 
         podStatus = newStatus;
