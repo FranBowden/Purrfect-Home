@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
+  m_Name: Milo
+  m_EditorClassIdentifier: 
+  catName: Milo
+  catSprite: {fileID: -7604626195403540549, guid: 936bab93bd5c5c049aaf477509899b7d, type: 3}
+  catAge: 6
+  catDescription: "Milo is a calm and affectionate cat who thrives in quiet, loving
+    environments. He\u2019s a little shy at first but warms up quickly to gentle
+    hands and soft voices. Milo is hoping to find a peaceful home where he can relax
+    and share his sweet, loving nature."
+  catListingDescription: Milo is an energetic and curious cat who loves to explore
+    but also enjoys curling up for quiet moments.
+  traits: 0e000000110000000900000007000000
+  hunger: 0.10316735
+  health: 0
+  hygiene: 0.6962864
+  value: 130
+  catPodAssigned: 1
+  GenerateWaste: 0

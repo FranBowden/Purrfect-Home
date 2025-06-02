@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
+  m_Name: Molly
+  m_EditorClassIdentifier: 
+  catName: Molly
+  catSprite: {fileID: 5705233417441561639, guid: b6be68d964609ca49b230a8f7989a1ad, type: 3}
+  catAge: 12
+  catDescription: "After many happy years with her family, Molly\u2019s owners had
+    to move to a place that couldn\u2019t keep pets. Though it was a tough decision,
+    they wanted to make sure Molly found a loving home where she could be comfortable
+    and cared for. Now, Molly is hoping for a kind new family to give her all the
+    love she deserves."
+  catListingDescription: "After many happy years, Molly\u2019s owners had to move
+    to a pet-free home, so she\u2019s now looking for a loving new family to care
+    for her."
+  traits: 000000000f0000000a00000007000000
+  hunger: 0
+  health: 0
+  hygiene: 0
+  value: 100
+  catPodAssigned: 0
+  GenerateWaste: 0

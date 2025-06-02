@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
-  m_Name: Clara 1
+  m_Name: Sam 1
   m_EditorClassIdentifier: 
-  NPCName: Clara
-  NPCImage: {fileID: 7138072439519253879, guid: 7d763bda15045f24a84b6578a82499e1, type: 3}
-  NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 57f3a58ad79176f4a9b99ea999141cb2, type: 3}
-  desiredTraits: 1300000012000000
+  NPCName: Sam
+  NPCImage: {fileID: -4841096556459169513, guid: 738d1478777bfc64d9ff0bb0d171c65c, type: 3}
+  NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 73d53c953d652f340b522bb8e68cacf8, type: 3}
+  desiredTraits: 0500000004000000
   dialogueLines:
-  - They are so cute! Are there any calm and laid back cats you recommend?
-  - "Perfect! Lead the way, I\u2019m right behind you!"
-  - Oh okay, I'll come back later
+  - Hello! Do you have any sleepy cats? I absolutely love how cuddly they are!
+  - Yay! I will take a look
+  - Oh... Okay I guess I will leave it for now
   choices:
   - dialogueIndex: 0
     choices:
-    - Yes! Follow me!
-    - Not sure
+    - Yes
+    - No
     nextDialogueIndex: 0100000002000000
   endDialogueLines: 000101
-  autoProgressLines: 010101
+  autoProgressLines: 000101
   autoProgressDelay: 1.5
   typingSpeed: 0.05

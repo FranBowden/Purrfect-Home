@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c4512c68a3cb745ab66ddedb9f141e, type: 3}
+  m_Name: Leo
+  m_EditorClassIdentifier: 
+  catName: Leo
+  catSprite: {fileID: 1412338688431055056, guid: a02b9452e1ba7b9409f98ee68ccb7e7d, type: 3}
+  catAge: 1
+  catDescription: Leo is a playful young cat full of energy and curiosity. He loves
+    exploring new places and chasing toys but also enjoys curling up for a nap after
+    a busy day. Leo is looking for a home that can keep up with his adventurous spirit
+    and give him plenty of love and playtime.
+  catListingDescription: Leo is a playful and curious young cat who loves exploring
+    and chasing toys but also enjoys cozy naps.
+  traits: 010000000b000000090000000e000000
+  hunger: 0.08078756
+  health: 0
+  hygiene: 0.45095763
+  value: 90
+  catPodAssigned: 0
+  GenerateWaste: 0

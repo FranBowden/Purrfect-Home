@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3db9ef7acf263d4d996de18cfa8b013, type: 3}
+  m_Name: Tom
+  m_EditorClassIdentifier: 
+  NPCName: Tom
+  NPCImage: {fileID: -8204542001718285067, guid: eac6c7191563d714aacc7bf98846ab29, type: 3}
+  NPCSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 5d21cfd42bbd1de4e80a51642eb91d4b, type: 3}
+  desiredTraits: 070000000600000009000000
+  dialogueLines:
+  - Hey!! I am looking for a super fun cat to play with
+  - Do you have any you recommend?
+  - Awesome!
+  - Aw man! I better go
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Yes!
+    - No
+    nextDialogueIndex: 0200000003000000
+  endDialogueLines: 00000101
+  autoProgressLines: 01010101
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05

@@ -8235,6 +8235,15 @@ MonoBehaviour:
   - dialogues:
     - {fileID: 11400000, guid: 9718ca6121d72484583ff96c71f03a9c, type: 2}
     - {fileID: 11400000, guid: 7118e1a485f245041b121ae401f15236, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: aff2111e96b652146b6fb638fe931452, type: 2}
+    - {fileID: 11400000, guid: ac93a513efd2dc1469f66e068e793442, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: ebd6477b38025d34f8a07a7bd29ac708, type: 2}
+    - {fileID: 11400000, guid: c1c932242dc1a7449a1d3ae1337d5745, type: 2}
+  - dialogues:
+    - {fileID: 11400000, guid: e87218edc16e914448cebbbd330f6639, type: 2}
+    - {fileID: 11400000, guid: 48efccb32de82cf4b9db86fbbc385fbf, type: 2}
   letVisitorsInside: 0
 --- !u!1 &743864235
 GameObject:
@@ -18312,6 +18321,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22ee2318579cb4d4baf00f73e9cb6f05, type: 2}
   - {fileID: 11400000, guid: 5735da2846b3b0d4dafed6ebd8a4bbb4, type: 2}
   - {fileID: 11400000, guid: ddff4ee14f477e04296d11668c2417c8, type: 2}
+  - {fileID: 11400000, guid: b6977cd74f8055549a24a73885eef3b0, type: 2}
+  - {fileID: 11400000, guid: 7018abdd2057a9d42a0bf37057ad3b6f, type: 2}
+  - {fileID: 11400000, guid: dc81cc91b6e092a4cb2d3dc90cc05c6d, type: 2}
 --- !u!1 &1776517517
 GameObject:
   m_ObjectHideFlags: 0
@@ -20900,10 +20912,6 @@ PrefabInstance:
     - target: {fileID: 659539282397454086, guid: 326a918bd6428254d9d76182200f3d2f, type: 3}
       propertyPath: m_Name
       value: GameOverMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 659539282397454086, guid: 326a918bd6428254d9d76182200f3d2f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7061386342615441773, guid: 326a918bd6428254d9d76182200f3d2f, type: 3}
       propertyPath: m_Pivot.x
