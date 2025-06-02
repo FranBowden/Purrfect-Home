@@ -16,6 +16,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject NPCParent;
     [SerializeField] private GameObject GameOverMenu;
     [SerializeField] private TextMeshProUGUI Task;
+    [SerializeField] private GameObject newvisitorpopup;
 
     private bool hasStartedMusic = false;
     public bool isDayOver = false;
@@ -65,7 +66,7 @@ public class TimeManager : MonoBehaviour
         {
             AdoptionShelterReputation.Instance.RemovePoints(100); //100 points get removed for not adopting any cats...
         }
-
+        newvisitorpopup.SetActive(false);
         isDayOver = true;
         NPCGenerator.ResetShelter();
         AdoptionStats.Instance.CatsShelteredToday = 0;

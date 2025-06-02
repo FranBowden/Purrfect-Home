@@ -23,7 +23,7 @@ MonoBehaviour:
   - "Yay, thank you! I can\u2019t wait to meet them!"
   - Aww, bummer. Well, maybe next time!
   choices:
-  - dialogueIndex: 0
+  - dialogueIndex: 1
     choices:
     - Yeah!
     - No, sorry

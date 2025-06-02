@@ -25,7 +25,7 @@ MonoBehaviour:
     choices:
     - Yeah!
     - No, sorry
-    nextDialogueIndex: 0200000003000000
+    nextDialogueIndex: 0100000002000000
   endDialogueLines: 000101
   autoProgressLines: 010101
   autoProgressDelay: 1.5
