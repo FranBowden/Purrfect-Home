@@ -334,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 208292112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4800005, y: -3.3713188, z: 6.24}
+  m_LocalPosition: {x: -1.7099485, y: 1.9686232, z: 6.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3991,7 +3991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -709, y: 456}
+  m_AnchoredPosition: {x: -709, y: 430}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709996946
@@ -4014,9 +4014,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello\nThank you so much for coming on such short notice! \nYou are in
-    charge for the next 5 days! Please look after the cat shelter until I get back\n\nThanks
-    so much!\n- Jess"
+  m_text: "Hello!\n\r\nThank you so much for coming on such short notice.\r\nYou\u2019ll
+    be looking after the cat shelter for the next 5 days while the regular staff
+    is away. Please make sure the cats are well cared for.\nWe\u2019re counting on
+    you!\r\n\r\n\u2014 The Shelter Team"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a41e1b39d22886d4e859e40ac0c75a7f, type: 2}
   m_sharedMaterial: {fileID: -7985694764098994321, guid: a41e1b39d22886d4e859e40ac0c75a7f, type: 2}
@@ -4038,13 +4039,13 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 93368250
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47
-  m_fontSizeBase: 47
+  m_fontSize: 39.8
+  m_fontSizeBase: 39.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4081,7 +4082,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 467.48553, y: 97.02539, z: -1016.3784, w: -787.1525}
+  m_margin: {x: 480.46405, y: 71.06836, z: -990.4215, w: -787.1525}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7632,7 +7633,7 @@ Camera:
   far clip plane: 5000
   field of view: 17.8
   orthographic: 0
-  orthographic size: 10
+  orthographic size: 0.9
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -7657,7 +7658,7 @@ Transform:
   m_GameObject: {fileID: 1674375965}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4799919, y: 0.27131176, z: 6.24}
+  m_LocalPosition: {x: -1.7099485, y: 1.9686232, z: 6.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
